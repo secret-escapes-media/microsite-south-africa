@@ -1,0 +1,27 @@
+# Site settings
+title: se-microsite-template
+description: >
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi veniam voluptatibus totam accusantium laborum quo dolore.
+baseurl: "/se-microsite-template" # the subpath of your site, e.g. /blog/
+url: "https://www.secretescapes.com" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+exclude: [node_modules, gulpfile.js, package.json, bower_components, bower.json, README.md]
+
+
+####################   offers   ####################
+
+# create custom collection
+collections:
+  offers:
+    output: true
+    permalink: /offers/:path/
+# set default layout for collection
+defaults:
+  -
+    scope:
+      path: ""
+      type: "offers"
+    values:
+      layout: "offer"
