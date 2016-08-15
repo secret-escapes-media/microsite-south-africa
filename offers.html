@@ -14,10 +14,9 @@ nav-order: 3
 
 <section class="offers">
   <div class="row row--padding">
-    {% assign offers = site.offers %}
+    {% assign offers = site.data.offers %}
     {% for offer in offers %}
         {% include offer-block.html %}
     {% endfor %}
   </div>
 </section>
-
