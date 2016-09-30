@@ -3,7 +3,7 @@ title: se-microsite-template
 description: >
   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi veniam voluptatibus totam accusantium laborum quo dolore.
 baseurl: "/se-microsite-template" # the subpath of your site, e.g. /blog/
-url: "https://www.secretescapes.com" # the base hostname & protocol for your site
+url: "http://mp.secretescapes.com" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown

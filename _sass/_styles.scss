@@ -20,6 +20,7 @@
   color: $white;
   background-color: $se-light-grey;
   background: $se-light-grey center no-repeat;
+  background-image: url('../img/bg/bg.jpg');
   background-size: cover;
   background-attachment: fixed;
   p { font-weight: 400; }
@@ -29,13 +30,6 @@
     height: 3.375em;
   }
 }
-
-.overview .intro        { background-image: url('../img/bg/bg-01.jpg'); }
-.overview .another      { background-image: url('../img/bg/bg-02.jpg'); }
-.example-page .intro    { background-image: url('../img/bg/bg-04.jpg'); }
-.example-page .another  { background-image: url('../img/bg/bg-03.jpg'); }
-.offers .intro          { background-image: url('../img/bg/bg-05.jpg'); }
-
 
 // ---------- button ----------
 
