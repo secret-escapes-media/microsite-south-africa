@@ -75,5 +75,61 @@
   });
 
 
+///////////////////////////////////////
+//    Generic modal
+///////////////////////////////////////
+
+  var modal          = $('.js-modal'),
+      modalLaunchBtn = $('.js-open-modal'),
+      modalCloseBtn  = $('.js-close-modal');
+
+    // opens modal
+    function modalOpen(event){
+      event.preventDefault();
+      // disable scrolling on background content (doesn't work iOS)
+      $('body').addClass('disable-scroll');
+      // // open modal
+      modal.fadeIn('250', function(){
+        $(this).removeClass('is-closed').addClass('is-open');
+      });
+    }
+
+    // closes modal
+    function modalClose(event){
+      event.preventDefault();
+      // enable scrolling
+      $('body').removeClass('disable-scroll');
+      // close modal with fade
+      modal.fadeOut('250', function(){
+        $(this).removeClass('is-open').addClass('is-closed');
+      });
+    }
+
+    // launches modal when offer is clicked
+    modalLaunchBtn.on('click', function(event) {
+      modalOpen(event);
+    });
+
+    // closes modal on close icon click
+    modalCloseBtn.on('click', function(event) {
+      modalClose(event);
+    });
+
+    // closes modal on background click
+    modal.on('click', function(event) {
+      if (event.target !== this){
+        return;
+      }
+      modalClose(event);
+    });
+
+    // closes modal on escape key press
+    $(document).keyup(function(event) {
+       if (event.keyCode == 27) {
+         modalClose(event);
+        }
+    });
+
+
 ///////////////////////////////////////////////////////////////////////////////
 });})(jQuery, this); // on ready end
