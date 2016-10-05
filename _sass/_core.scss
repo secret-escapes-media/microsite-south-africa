@@ -7,6 +7,7 @@ $white:       #fff;
 $black:       #000;
 $light-grey:  #f2f2f2;
 
+$white-15:    rgba(255,255,255,.15);
 $white-25:    rgba(255,255,255,.25);
 $white-33:    rgba(255,255,255,.33);
 $white-5:     rgba(255,255,255,.5);
@@ -29,6 +30,7 @@ $se-light-grey:   #dadada;
 $se-dark-grey:    #292728;
 $se-dark-grey-33: rgba(41,39,40,.33);
 $se-dark-grey-5:  rgba(41,39,40,.5);
+$se-dark-grey-66: rgba(41,39,40,.66);
 $se-dark-grey-85: rgba(41,39,40,.85);
 
 
@@ -142,8 +144,10 @@ $transition-time: .25s;
 
 // -------- z-index values --------
 
-$z-overlay-upper:   20;
-$z-overlay:         10;
+$z-overlay-upper:   25;
+$z-overlay:         20;
+$z-nav-upper:       15;
+$z-nav:             10;
 $z-content-upper:   5;
 $z-content:         0;
 $z-background:      -1;
