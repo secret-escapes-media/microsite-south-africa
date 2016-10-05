@@ -15,7 +15,7 @@
   background-position: center;
   background-size: 100%;
   background-size: cover;
-  @include bp( large ) {
+  @include bp(large) {
     position: absolute;
     top: 0;
     right: 0;
