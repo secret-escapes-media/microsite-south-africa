@@ -1,8 +1,8 @@
 # Site settings
-title: se-microsite-template
+title: South Africa
 description: >
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi veniam voluptatibus totam accusantium laborum quo dolore.
-baseurl: "/se-microsite-template" # the subpath of your site, e.g. /blog/
+  Secret Escapes brings you a range of must-do activities – for all the essential attractions, and something new suggestions for a South African adventure.
+baseurl: "/southafrica" # the subpath of your site, e.g. /blog/
 url: "http://mp.secretescapes.com" # the base hostname & protocol for your site
 
 # Build settings

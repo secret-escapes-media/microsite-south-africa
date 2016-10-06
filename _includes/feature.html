@@ -1,0 +1,25 @@
+{% assign page-features = page.features %}
+{% for feature in page-features %}
+
+  <div class="row__column">
+    <div class="row">
+      <a href="{{feature.link}}"><img src="{{site.baseurl}}/img/content/{{page.class}}/{{feaure}}" alt="{{feature.title}}"></a>
+    </div>
+    <div class="row">
+      <h2>{{feature.title}}</h2>
+        <p>
+          {% if feature.location %}
+            {{ feature.location }}
+          {% else %}
+            Various
+          {% endif %}
+        </p>
+        <p>{{feature.description}}</p>
+        <div>
+          <a href="{{feature.link}}">Find Out More</a>
+        </div>
+    </div>
+  </div>
+
+{% endfor %}
+

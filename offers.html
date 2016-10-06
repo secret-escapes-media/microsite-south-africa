@@ -1,22 +1,21 @@
 ---
 layout: default
-title: Offers
-class: offers
-nav-order: 3
+title: Travel Offers
+class: travel-offers
+nav-order: 7
+intro: >
+  South Africa is often described as an entire world in one country, and with so many incredible experiences to be had this year, now is the time to visit. Browse our offers on regional tours and sumptuous stays at top-end hotels.
 ---
 
-<section class="section--fixed-bg intro site-header__offset">
-  <div class="row row--padding">
-    <h1>{{ page.title }}</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis dolorum ad quasi itaque assumenda cum eos voluptatibus quidem labore hic, quisquam aliquam architecto explicabo tenetur officiis, laborum quas laudantium aspernatur!</p>
-  </div>
-</section>
+<div class="site-header__offset"></div>
 
-<section class="offers">
-  <div class="row row--padding">
-    {% assign offers = site.data.offers %}
-    {% for offer in offers %}
-        {% include offer-block.html %}
-    {% endfor %}
+<div class="row">
+  <h1>{{page.title}}</h1>
+  <p>{{page.intro}}</p>
+</div>
+
+<div class="offers row">
+  <div class="row row--columns-6-6-gutters row--padding">
+    {% include offers.html %}
   </div>
-</section>
+</div>
