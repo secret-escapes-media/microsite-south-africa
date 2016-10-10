@@ -1,70 +1,67 @@
 // styles for the offer blocks that appear on the terrain pages
 
 
+.offers {
+  &__message {
+    font-size: 1.2;
+    text-transform: capitalize;
+    text-align: center;
+    font-weight: 600;
+  }
+}
+
 .offer {
-  background-color: $light-grey;
-  .row__column{
-    margin-top: 0;
+  color: $text-black;
+  @include bp(large){
+    @include layout(12 1/2);
+    @include gallery(6);
   }
-}
-
-.offer__image {
-  position: relative;
-  height: 18em;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100%;
-  background-size: cover;
-  @include bp(large) {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: auto;
+  & + & {
+    margin-top: $margin;
+    @include bp(large){
+      margin-top: 0;
+      &:nth-child(n+3) {
+        margin-top: $margin;
+      }
+    }
   }
-}
-
-.offer__image-link {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-.offer__content {
-  padding: $margin ($margin * 1.2);
-  p + p { margin-top: .2em; }
-}
-
-.offer__content-title {
-  margin-bottom: .482em;
-  font-size: 1.728em;
-}
-
-.offer__content-subtitle {
-  margin-bottom: .833em;
-  font-size: 1.2em;
-  line-height: 1.44;
-  &:before {
-    content: "";
-    display: inline-block;
-    height: 1em;
-    width: .833em;
-    margin-right: .482em;
-    margin-bottom: .2em;
-    vertical-align: bottom;
-    background-image: url( "../img/icon/map-pin.png" );
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-size: contain;
-    .svg & { background-image: url( "../img/icon/map-pin.svg" ); }
+  &__content {
+    padding: $margin ($margin/1.25);
+    background-color: $white-9;
   }
-}
-
-.offer__content-price {
-  font-weight: bold;
-  font-size: 1.44em;
+  &__bottom {
+    padding: ($margin/2) ($margin/1.25);
+    background-color: $white-66;
+    box-shadow: inset 0px 10px 9px -8px rgba(0,0,0,0.3);
+  }
+  &__title {
+    text-transform: capitalize;
+  }
+  &__location {
+    font-size: .9em;
+    margin-bottom: .8em;
+    &:before {
+      // MAP PIN ICON
+      content: "";
+      display: inline-block;
+      height: 1em;
+      width: .833em;
+      margin-right: .482em;
+      margin-bottom: .1em;
+      vertical-align: bottom;
+      background-image: url( "../img/icon/map-pin.png" );
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-size: contain;
+      .svg & { background-image: url( "../img/icon/map-pin.svg" ); }
+    }
+  }
+  &__price {
+    font-size: 1.5em;
+    font-weight: 600;
+  }
+  &__was-price {
+    text-decoration: line-through;
+  }
 }

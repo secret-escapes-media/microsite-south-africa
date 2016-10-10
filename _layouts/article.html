@@ -2,19 +2,20 @@
 layout: default
 ---
 
-<div class="site-header__offset"></div>
-
-<div class="page">
+<div class="page row row--padding">
   <div class="row">
     <h1>{{page.title}}</h1>
-    <p>{{page.intro}}</p>
+    <p class="page__intro">{{page.intro}}</p>
   </div>
-  <div class="row row--columns-6-6-gutters">
+  <div class="row">
     {% include feature.html %}
   </div>
 </div>
 
-<div class="promo row">
+<div class="promo row row--padding">
+  <a class="logo logo--secretescapes" href="https://www.secretescapes.com/current-sales">
+    <img class="js-svg-swap" src="{{site.baseurl}}/img/logo/secret-escapes.png" alt="Secret Escpaes Logo">
+  </a>
   <p>Book your luxury adventure holiday to South Africa with Secret Escapes</p>
-  <a href="#">Click here to see the current offers</a>
+  <a href="https://www.secretescapes.com/current-sales" class="btn">See Current Offers</a>
 </div>

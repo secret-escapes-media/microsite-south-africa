@@ -9,9 +9,21 @@
 
     {% include header.html %}
 
-    {{ content }}
+    <div class="row--padding">
+      <div class="wrap">
+        {{ content }}
+      </div>
+    </div>
 
     {% include footer.html %}
+
+    <!-- FIXED BG WITH VIDEO ON OVERVIEW PAGE  -->
+    <div class="fixed-background" style="background-image: url('{{site.baseurl}}/img/bg/{{page.class}}.jpg');"></div>
+    {% if page.class == "overview" %}
+      <video class="video-background" autoplay loop muted>
+        <source src="video/Nelly-elephant.mp4" type="video/mp4">
+      </video>
+    {% endif %}
 
   </body>
 

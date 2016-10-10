@@ -31,16 +31,16 @@ section {
 }
 
 .row--padding {
-  padding-left: ( $margin / 2 );
-  padding-right: ( $margin / 2 );
+  padding-left: ( $margin / 1.5 );
+  padding-right: ( $margin / 1.5 );
   @include bp(medium) {
     padding-left: $margin;
     padding-right: $margin;
   }
 }
 .row--margin {
-  margin-left: ( $margin / 2 );
-  margin-right: ( $margin / 2 );
+  margin-left: ( $margin / 1.5 );
+  margin-right: ( $margin / 1.5 );
   @include bp(medium) {
     margin-left: $margin;
     margin-right: $margin;

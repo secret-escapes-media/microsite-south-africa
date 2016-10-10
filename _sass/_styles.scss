@@ -1,36 +1,6 @@
 // all custom styles for the site
 
 
-.site-footer {
-  padding-top: 3em;
-  padding-bottom: 3em;
-  color: darken( $white, 20 );
-  text-align: center;
-  font-size: .8em;
-  font-weight: 400;
-  background-color: $black;
-}
-
-
-// ---------- Background images ----------
-
-.section--fixed-bg {
-  padding-top: 8em;
-  padding-bottom: 8em;
-  color: $white;
-  background-color: $se-light-grey;
-  background: $se-light-grey center no-repeat;
-  background-image: url('../img/bg/bg.jpg');
-  background-size: cover;
-  background-attachment: fixed;
-  p { font-weight: 400; }
-  .page-content &:first-child:before {
-    content: '';
-    display: block;
-    height: 3.375em;
-  }
-}
-
 // ---------- button ----------
 
 .btn {
@@ -38,12 +8,257 @@
   display:inline-block;
   padding: .5em 1.5em;
   border: 1px solid $se-orange;
-  font-weight: 500;
-  border-radius: 10em;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 100em;
   &:hover {
     color: white;
     background-color: $se-orange;
     text-decoration: none;
   }
+  &--red {
+    color: $white;
+    background-color: $sa-red;
+    border: 0;
+    &:hover {
+      background-color: darken($sa-red, 15);
+    }
+  }
   * + & { margin-top: 1em; }
+}
+
+
+// ---------- Fixed & Video Background ----------
+
+body {
+  background-color: $black;
+  color: $white;
+}
+
+.fixed-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: $z-background;
+  @include background-attributes;
+}
+
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: $z-background;
+
+
+  vertical-align: middle;
+  width: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  background-position: center;
+  background-size: 100%;
+  background-size: cover;
+  object-fit: cover;
+
+
+}
+
+
+// ---------- Page ----------
+
+.wrap {
+  margin-top: 15em;
+  margin-top: 45vh;
+  margin-bottom: ($margin * 4);
+}
+
+.page {
+  padding-top: ($margin / 2);
+  padding-bottom: $margin;
+  font-family: $main-font-family;
+  color: $text-black;
+  border-top: .75em solid $black;
+  background-color: $white-9;
+  &__intro {
+    font-size: 1.2em;
+    font-style: italic;
+    line-height: 1.4;
+  }
+}
+
+
+// ---------- SECRET ESCAPES PROMO SECTION ----------
+
+.promo {
+  padding: ($margin * 2) $margin;
+  font-size: 1.2em;
+  letter-spacing: .015em;
+  line-height: 1.2;
+  text-align: center;
+  background-color: $black-75;
+  .logo {
+    max-width: 240px;
+    margin-bottom: .75em;
+  }
+}
+
+
+// ---------- YOUTUBE VIDEO THUMBNAIL ----------
+
+.video {
+  position: relative;
+  height: 0;
+  max-width: 100%;
+  padding-bottom: 56.25%;
+  background-color: #000;
+  overflow: hidden;
+  &__iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  &__thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    @include background-attributes;
+  }
+  &__play {
+    $button-size: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: $button-size;
+    width: $button-size;
+    margin-top: -( $button-size / 2 );
+    margin-left: -( $button-size / 2 );
+    background-image: url("../img/icon/play.png");
+    @include background-attributes;
+    background-size: contain;
+    cursor: pointer;
+    @include transition;
+    &:hover {
+      transform: scale( 1.25, 1.25);
+    }
+  }
+}
+
+
+// ---------- LARGE PAGE INTRO ----------
+
+.intro {
+  &__title {
+    margin-bottom: .075em;
+    font-size: 3.5em;
+    line-height: .85;
+    @include bp(large){
+      font-size: 5em;
+    }
+    @include bp(xlarge){
+      font-size: 7em;
+    }
+    span {
+      line-height: 1;
+      display: block;
+      font-weight: 200;
+      font-style: italic;
+      font-size: .55em;
+    }
+  }
+  &__description {
+    font-size: 1.33em;
+    font-style: italic;
+    line-height: 1.4;
+    font-weight: 600;
+    letter-spacing: .025em;
+  }
+  &--margin-bottom{
+    margin-bottom: ($margin * 8);
+  }
+}
+
+
+// ---------- FEATURE ----------
+
+$link-line-height: 3px;
+.feature {
+  @include bp(large){
+    @include layout(12 1);
+    @include gallery(6);
+  }
+  & + & {
+    margin-top: $margin;
+    @include bp(large){
+      margin-top: 0;
+      &:nth-child(n+3) {
+        margin-top: $margin;
+      }
+    }
+  }
+  &__image {
+    &:before {
+      // LABEL ON TOP LEFT OF IMAGE
+      content: 'Must See';
+      position: absolute;
+      display: inline-block;
+      margin-top: -.5em;
+      margin-left: -.5em;
+      padding: .5em 1em;
+      font-size: .9em;
+      font-weight: 600;
+      background-color: $black;
+      color: $white;
+    }
+  }
+  &:nth-child(2n) &__image:before{
+    // ALTERNATE CONTENT FOR LABEL
+    content: 'We Recommend';
+  }
+  &__title {
+    font-size: 1.5em;
+    text-transform: capitalize;
+    margin-bottom: 0.2em;
+  }
+  &__subtitle {
+    font-size: 1em;
+  }
+  &__content {
+    padding-top: ($margin / 1.5);
+    padding-bottom: ($margin / 1.5);
+  }
+  &__link {
+    position: relative;
+    display: inline-block;
+    padding-top: .25em;
+    padding-bottom: .25em;
+    font-weight: 600;
+    @include transition;
+    &:after {
+      // LINE FOR HOVER EFFECT
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: block;
+      height: $link-line-height;
+      background-color: black;
+      @include transition;
+    }
+    &:hover {
+      text-decoration: none;
+      transform: translateY(-$link-line-height);
+      &:after {
+        bottom: -$link-line-height;
+        height: ($link-line-height * 2);
+      }
+    }
+  }
 }

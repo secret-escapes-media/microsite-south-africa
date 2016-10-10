@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Fashion & Design
-class: fashion-design
+class: fashion-and-design
 nav-order: 3
 intro: >
   From Cape Town – crowned World Design Capital 2014 – to the emerging scene in Johannesburg, the spotlight is on South Africa’s native talent. Fashion designer David Tlale is regarded by many as the country’s most daring sartorial star, with boutiques in two of the hippest city neighbourhoods: Woodstock and Sandton.

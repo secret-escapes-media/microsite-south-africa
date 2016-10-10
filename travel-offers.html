@@ -7,15 +7,13 @@ intro: >
   South Africa is often described as an entire world in one country, and with so many incredible experiences to be had this year, now is the time to visit. Browse our offers on regional tours and sumptuous stays at top-end hotels.
 ---
 
-<div class="site-header__offset"></div>
-
-<div class="row">
-  <h1>{{page.title}}</h1>
-  <p>{{page.intro}}</p>
+<div class="row intro">
+  <h1 class="intro__title">{{page.title}}</h1>
+  <p class="intro__description">{{page.intro}}</p>
 </div>
 
 <div class="offers row">
-  <div class="row row--columns-6-6-gutters row--padding">
+  <div class="row">
     {% include offers.html %}
   </div>
 </div>

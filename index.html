@@ -7,24 +7,24 @@ intro: >
   Secret Escapes has partnered with South African Tourism to highlight the very best experiences for 2016, from the indisputable must-sees to our own carefully picked recommendations.
 ---
 
-<div class="site-header__offset"></div>
-
-<div class="row">
-  <h1>{{page.title}}</h1>
-  <p>{{page.intro}}</p>
+<div class="row intro intro--margin-bottom">
+  <h1 class="intro__title"><span>Discover</span> South Africa</h1>
+  <p class="intro__description">{{page.intro}}</p>
 </div>
 
-<div class="row">
-  <div>VIDEO GOES HERE</div>
-  <h2>Go where the wild things are</h2>
-  <p>Few places in the world offer travellers as much diversity as South Africa. Lashed by the Atlantic on the West and lapped by the warm Indian Ocean on the East, this extraordinary country is probably the hardest destination to pack for – but it’s worth the challenge. Take in the roaming Big Five in Kruger, the stacked wine barrels of Stellenbosch, the penguin-inhabited shore on the Western Cape and the views over Cape Town from the mighty Table Mountain. The more time you have to visit, the better.</p>
-</div>
-
-<div class="offers row">
-  <div class="row">
-    <h3>Book and save up to 30% on our hand-picked collection of South Africa escapes</h3>
+<div class="section row">
+  <div class="video js-youtube-thumbnail" data-thumbnail-img="img/content/overview/video.jpg">
+    <iframe class="video__iframe" src='https://www.youtube.com/embed/jeBbQABLRC0?rel=0&amp;showinfo=0' frameborder='0'></iframe>
   </div>
-  <div class="row row--columns-6-6-gutters row--padding">
+  <div class="home__page row--padding">
+    <h2 class="home__page-title">Go where the wild things are</h2>
+    <p>Few places in the world offer travellers as much diversity as South Africa. Lashed by the Atlantic on the West and lapped by the warm Indian Ocean on the East, this extraordinary country is probably the hardest destination to pack for – but it’s worth the challenge. Take in the roaming Big Five in Kruger, the stacked wine barrels of Stellenbosch, the penguin-inhabited shore on the Western Cape and the views over Cape Town from the mighty Table Mountain. The more time you have to visit, the better.</p>
+  </div>
+</div>
+
+<div class="section offers row">
+  <h3 class="row offers__message">Book and save up to 30% on our hand-picked collection of South Africa escapes</h3>
+  <div class="row">
     {% include offers.html %}
   </div>
 </div>

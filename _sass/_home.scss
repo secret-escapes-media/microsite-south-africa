@@ -1,0 +1,15 @@
+// Styles for the home page only
+
+
+.home {
+  &__page {
+    padding-top: ($margin * 1.5);
+    padding-bottom: ($margin * 1.5);
+    background-color: $white;
+    background-color: $white-9;
+    color: $text-black;
+  }
+  &__page-title {
+    text-transform: capitalize;
+  }
+}

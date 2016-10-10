@@ -1,25 +1,18 @@
 {% assign page-features = page.features %}
 {% for feature in page-features %}
-
-  <div class="row__column">
-    <div class="row">
-      <a href="{{feature.link}}"><img src="{{site.baseurl}}/img/content/{{page.class}}/{{feaure}}" alt="{{feature.title}}"></a>
-    </div>
-    <div class="row">
-      <h2>{{feature.title}}</h2>
-        <p>
-          {% if feature.location %}
-            {{ feature.location }}
-          {% else %}
-            Various
-          {% endif %}
-        </p>
-        <p>{{feature.description}}</p>
-        <div>
-          <a href="{{feature.link}}">Find Out More</a>
-        </div>
+  <div class="feature row__column">
+    <a class="feature__image" href="{{feature.link}}"><img src="{{site.baseurl}}/img/content/{{page.class}}/{{feature.title | slugify}}.jpg" alt="{{feature.title}}"></a>
+    <div class="feature__content">
+      <h2 class="feature__title">{{feature.title}}</h2>
+      <p class="h4 feature__subtitle">
+        {% if feature.location %}
+          {{ feature.location }}
+        {% else %}
+          Various
+        {% endif %}
+      </p>
+      <p>{{feature.description}}</p>
+      <a class="feature__link" href="{{feature.link}}">Find Out More</a>
     </div>
   </div>
-
 {% endfor %}
-

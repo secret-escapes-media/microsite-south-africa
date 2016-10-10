@@ -4,13 +4,13 @@
 // -------- root typography styles --------
 
 $core-font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
-$main-font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
-$title-font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+$main-font-family: 'omnes-pro', 'Helvetica Neue', sans-serif;
+$title-font-family: 'omnes-pro', 'Helvetica Neue', sans-serif;
 
 html { font-size:62.5%; }
 body,
 input, textarea, keygen, select, button {
-  font: 400 14px/1.728 $main-font-family;
+  font: 400 14px/1.45 $main-font-family;
   -webkit-text-size-adjust: 100%;
   @include bp(medium) {
     font-size: 15px;
@@ -25,42 +25,17 @@ h2, .h2,
 h3, .h3,
 h4, .h4,
 h5, .h5 {
+  margin-bottom: .25em;
   font-family: $title-font-family;
+  font-weight: 600;
   line-height: 1.2;
-  margin-bottom: .5em;
+  text-transform: uppercase;
 }
 
-h1, .h1 {
-  font-size: 3.375em;
-  @include bp(medium) {
-    font-size: 4em;
-  }
-  @include bp(large) {
-    font-size: 5.063em;
-  }
-}
-
-h2, .h2 {
-  font-size: 2em;
-  @include bp(medium) {
-    font-size: 2.488em;
-  }
-  @include bp(large) {
-    font-size: 2.986em;
-  }
-}
-
-h3, .h3 {
-  font-size: 1.728em;
-  @include bp(medium) {
-    font-size: 2.074em;
-  }
-  @include bp(large) {
-    font-size: 2.488em;
-  }
-}
-
-h4, .h4 { font-size: 1.728em; }
+h1, .h1 { font-size: 3.375em; }
+h2, .h2 { font-size: 2em; }
+h3, .h3 { font-size: 1.728em; }
+h4, .h4 { font-size: 1.2em; }
 
 
 // -------- general content styles --------

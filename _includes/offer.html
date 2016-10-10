@@ -1,8 +1,16 @@
-<div class="row__column">
+<div class="offer row__column">
   <a href="{{offer.link}}"><div class="bg-image-ratio bg-image-ratio--16-9" style="background-image: url('{{ site.baseurl }}/img/offers/{{ offer.class }}.jpg')"></div></a>
-  <h2 class="offer__content-title"><a id="title-link-{{ offer.class }}" href="{{ offer.url }}">{{ offer.title }}</a></h2>
-  <h3 class="h4 offer__content-subtitle">{{ offer.location }}</h3>
-  <p>{{ offer.description }}</p>
-  <p>From <span class="offer__content-price">£{{ offer.price }}</span> {{ offer.price-description }}</p>
-  <a id="button-link-{{ offer.class }}" href="{{ offer.url }}" class="btn">View Offer</a>
+  <div class="offer__content">
+    <h2 class="offer__title"><a id="title-link-{{ offer.class }}" href="{{ offer.url }}">{{ offer.title }}</a></h2>
+    <h3 class="h4 offer__location">{{ offer.location }}</h3>
+    <p>{{ offer.description }}</p>
+  </div>
+  <div class="offer__bottom row row--columns-8-4-gutters row--columns-vertical-align">
+    <div class="row__column">
+      <p>From <span class="offer__price">£{{ offer.price }}</span> <span class="offer__was-price">£{{ offer.was-price }}</span> {{ offer.price-description }}</p>
+    </div>
+    <div class="row__column">
+      <a id="button-link-{{ offer.class }}" class="btn btn--red" href="{{ offer.url }}">View Offer</a>
+    </div>
+  </div>
 </div>

@@ -4,6 +4,10 @@
 $core-nav-height: 70px;
 $site-nav-height: 45px;
 $site-header-height: ($core-nav-height + $site-nav-height);
+
+
+// ---------- HEADER CONTAINER ----------
+
 .site-header {
   position: absolute;
   top: 0;
@@ -20,11 +24,14 @@ $site-header-height: ($core-nav-height + $site-nav-height);
   }
 }
 
+
+// ---------- NAV FOR CORE SE SITE ----------
+
 .core-nav {
   font-family: $core-font-family;
   color: $white;
   text-align: center;
-  background-color: $black-66;
+  background-color: $black-75;
   * { vertical-align: middle; }
   &__wrap {
     position: relative;
@@ -131,17 +138,21 @@ $site-header-height: ($core-nav-height + $site-nav-height);
   }
 }
 
+
+// ---------- NAV FOR MICROSITE ----------
+
 $nav-arrow-width: 66px;
 .site-nav {
   height: $site-nav-height;
-  font-family: $core-font-family;
+  font-family: $title-font-family;
+  font-weight: 600;
   text-align: center;
   color: $white;
   font-size: 13px;
   line-height: 1.2;
   letter-spacing: .066em;
   text-transform: uppercase;
-  background-color: $se-dark-grey-66;
+  background-color: $se-dark-grey-75;
   overflow: hidden;
   &__list {
     overflow-x: auto;
@@ -185,15 +196,19 @@ $nav-arrow-width: 66px;
       transform: translateY(-50%);
       @include transition;
     }
-    &:hover,
-    &--current { color: $se-orange; }
-    &:hover { background-color: $black-25; }
   }
   &__link {
     display: inline-block;
     width: 100%;
-    padding: 15px 1.2em;
-    &:hover { text-decoration: none; }
+    padding: ($site-nav-height / 3) 1.2em;
+    border-bottom: 4px solid $white;
+    @include transition;
+    &:hover,
+    &--current {
+      padding-bottom: ($site-nav-height / 3) - 4px ;
+      background-color: $black-5;
+      text-decoration: none;
+    }
   }
   @include bp(xxlarge){
     .flexbox & {
@@ -206,6 +221,9 @@ $nav-arrow-width: 66px;
     }
   }
 }
+
+
+// ---------- MOBILE NAV OFF CANVAS ----------
 
 $mobile-nav-width: 75%;
 .mobile-nav {
@@ -273,6 +291,38 @@ $mobile-nav-width: 75%;
   }
 }
 
+
+// ---------- SITE FOOTER ----------
+.site-footer {
+  font-size: 1.2em;
+  background-color: $black-75;
+  padding-top: $margin;
+  padding-bottom: $margin;
+  @include bp(large){
+    display: none;
+  };
+}
+
+.footer-nav {
+  &__item {
+    list-style-type: none;
+    & + & { border-top: 1px solid $white-15; }
+  }
+  &__link {
+    display: block;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    @include transition;
+    &:hover {
+      text-decoration: none;
+      color: $se-orange
+    }
+  }
+}
+
+
+// ---------- ICONS ----------
+
 $icon-size: 27px;
 .icon {
   display: inline-block;
@@ -293,11 +343,14 @@ $icon-size: 27px;
   }
 }
 
+
+// ---------- LOGOS ----------
+
 .logo {
   display: inline-block;
   &--secret-escapes {
     max-width: 180px;
     padding-top: 4px;
   }
-  &--partner { max-width: 130px; }
+  &--partner { max-width: 120px; }
 }

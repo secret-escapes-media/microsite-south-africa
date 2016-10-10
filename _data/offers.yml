@@ -4,6 +4,7 @@
     location: Region, Country
     description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure architecto eum exercitationem neque.
     price: 999999
+    was-price: 888888
     price-description: per room per night
     link: #
 
@@ -13,6 +14,7 @@
     location: Region, Country
     description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure architecto eum exercitationem neque.
     price: 999999
+    was-price: 888888
     price-description: per room per night
     link: #
 
@@ -22,5 +24,6 @@
     location: Region, Country
     description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure architecto eum exercitationem neque.
     price: 999999
+    was-price: 888888
     price-description: per room per night
     link: #
