@@ -139,7 +139,7 @@ body {
     width: $button-size;
     margin-top: -( $button-size / 2 );
     margin-left: -( $button-size / 2 );
-    background-image: url("../img/icon/play.png");
+    background-image: url("../img/icons/play.png");
     @include background-attributes;
     background-size: contain;
     cursor: pointer;
