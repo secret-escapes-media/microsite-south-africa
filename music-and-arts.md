@@ -27,9 +27,9 @@ features:
       Johannesburg's Arts on Main is breathing new life into the city centre and is an important feature on the South African arts and crafts landscape. This inner city development provides a stimulating space for artists from many disciplines, including film, literature and contemporary art, to create and sell their work.
     link: https://ad.doubleclick.net/ddm/trackclk/N5532.1692340SECRETESCAPES.COM/B9371472.127476399;dc_trk_aid=300491193;dc_trk_cid=68261300;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=
 
-  - title: Maboneng Township Art Experience
-    location: Cape Town
+  - title: Newtown Cultural Precinct
+    location: Johannesburg
     description: >
-      It is once again time for the ever-inspiring Maboneng Township Arts Experience in the Gugulethu Township. Make sure to mark your calendars for the 29th of November 2015. At this arts & cultural experience you will be able to explore art through the townships as the loving residents of Gugulethu open up their homes to you.
-    link: https://ad.doubleclick.net/ddm/trackclk/N5532.1692340SECRETESCAPES.COM/B9371472.127477400;dc_trk_aid=300493284;dc_trk_cid=68261300;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=
+      The Newtown Cultural Precinct, in downtown Johannesburg, has a distinctly cosmopolitan vibe; and underlying its trendy coffee shops, restaurants, art galleries and clubs is the same avant-garde attitude that made it a hot-bed of protest theatre, music and poetry during the apartheid era.
+    link: http://country.southafrica.net/country/uk/en/articles/entry/article-southafrica.net-newtown-cultural-precinct18
 ---

@@ -21,15 +21,15 @@ features:
       You’d expect to find a classy shopping centre such as 44 Stanley in an upmarket area of San Francisco, Madrid or Rio – certainly not in a former industrial area of Johannesburg where chop shops and garages once ruled. Today the area has been transformed into a wonderful retail space.
     link: https://ad.doubleclick.net/ddm/trackclk/N5532.1692340SECRETESCAPES.COM/B9371472.127476396;dc_trk_aid=300491090;dc_trk_cid=68261300;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=
 
-  - title: Designs worth shopping for
-    location: Cape Town
+  - title: Arts On Main
+    location: Johannesburg
     description: >
-      Inspired by the recent Design Indaba and the beautifully crafted South African products on sale at the expo, here’s a rundown of where to find some of the creative people who ply their trade in the city bowl and surrounds, as well as some newly discovered favourite places to shop in Cape Town – based on the Design Indaba Route.
-    link: https://ad.doubleclick.net/ddm/trackclk/N5532.1692340SECRETESCAPES.COM/B9371472.127476395;dc_trk_aid=300480515;dc_trk_cid=68261300;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=
+      The Arts on Main development is as much about paying homage to Johannesburg's history as it is a vote of confidence in the future of the city and its vibrant community of artists. As a multi-discipline arts centre, it combines studio, commercial, residential and retail spaces in a renovated warehouse that was originally built in 1911.
+    link: http://uk.southafrica.net/what-to-do/city-and-lifestyle/article-arts-on-main-johannesburg
 
-  - title: Designer Clothing Boutiques in Cape Town
-    location: Cape Town
+  - title: Sandton City
+    location: Johannesburg
     description: >
-      Sandton City has it all; from the best-known international brand names to exciting local boutiques and speciality stores. As one of South Africa’s oldest and most exclusive malls, visitors to Sandton City shopping centre are advised to bring an empty suitcase with them on their trip to South Africa.
-    link: https://ad.doubleclick.net/ddm/trackclk/N5532.1692340SECRETESCAPES.COM/B9371472.127476717;dc_trk_aid=300496489;dc_trk_cid=68261300;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=
+      Sandton City Shopping Centre in Johannesburg is one of the best-known and well-loved of South African shopping destinations and is home to over 400 international and local fashion brands. Situated in one of the most exclusive parts of the city, and dating from 1974, Sandton City really is the grand-dame of malls, a retail piece de resistance, well-known for constantly updating its style and facilities.
+    link: http://uk.southafrica.net/what-to-do/city-and-lifestyle/sandton-city-enus7
 ---

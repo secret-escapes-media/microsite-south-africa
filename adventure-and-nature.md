@@ -25,7 +25,7 @@ features:
     location: Hermanus
     description: >
       Whether you visit South Africa’s whale-watching capital Hermanus or choose a scenic spot along the Garden Route or Wild Coast, seeing these marine giants in their natural environment is an experience that you won’t want to miss.
-    link: https://ad.doubleclick.net/ddm/trackclk/N5532.1692340SECRETESCAPES.COM/B9371472.127477403;dc_trk_aid=300494451;dc_trk_cid=68261300;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=
+    link: http://country.southafrica.net/country/uk/en/articles/entry/whale-watching-enus7
 
   - title: Canopy Tours
     location: Tsitsikamma Forest
@@ -39,9 +39,8 @@ features:
       The Soweto bungee jump adds a whole new dimension to sightseeing in this famous township. Bridging the gap between adventure and township tourism, it allows visitors to enjoy one of its most famous landmarks like never before. Soweto bungee jumps and swings will have you falling head over heels for this township in no time.
     link: https://ad.doubleclick.net/ddm/trackclk/N5532.1692340SECRETESCAPES.COM/B9371472.127477405;dc_trk_aid=300497416;dc_trk_cid=68261300;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=
 
-  - title: Riding the dunes in Eastern Cape
-    location: Eastern Cape
+  - title: Dune boarding
     description: >
-      Sand sledding and sandboarding replace one beautiful natural formation with another – sand for snow – as the venue for seeing how fast you can get to the bottom. The main difference between the two activities? With sand sledding you sit, and with sandboarding you stand.
-    link: https://ad.doubleclick.net/ddm/trackclk/N5532.1692340SECRETESCAPES.COM/B9371472.127477406;dc_trk_aid=300496485;dc_trk_cid=68261300;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=
+      In South Africa, dune boarding is a fairly recent development, but it's caught on fast, because there's certainly no shortage of sand. South Africa boasts some of the world's highest beach dunes. And away from the beach, dune boarders have found a great alternative: old gold mine dumps.
+    link: http://country.southafrica.net/country/uk/en/articles/entry/article-southafrica.net-dune-boarding 
 ---

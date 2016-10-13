@@ -26,9 +26,9 @@ features:
       Soweto township tours are the best way for the first time visitor to immerse themselves in the urban vibe of the place that was at the heart of the freedom struggle. A tour of Soweto not only includes national heritage sites, but vibrant restaurants and clubs.
     link: https://ad.doubleclick.net/ddm/trackclk/N5532.1692340SECRETESCAPES.COM/B9371472.127476715;dc_trk_aid=300494457;dc_trk_cid=68261300;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=
 
-  - title: Spiritual retreats in South Africa
-    location: Ixopo
+  - title: Flower sellers of Adderley Street
+    location: Cape Town
     description: >
-      In South Africa, spiritual retreats can be found in many beautiful places, ideal for getting in touch with one's roots. There’s the Buddhist Retreat in Ixopo, the Kurisa Moya Nature Lodge in Limpopo, Temenos Retreat Centre in scenic McGregor… and so many more.
-    link: https://ad.doubleclick.net/ddm/trackclk/N5532.1692340SECRETESCAPES.COM/B9371472.127476715;dc_trk_aid=300494457;dc_trk_cid=68261300;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=
+      It seems all you had to do was amble down to the famous flower sellers on Adderley Street in Cape Town, and examine their offerings. The legendary marsh rose protea (Orothamnus zeyheri) was discovered by botanist Carl Zeyher, who described it for science from a twig obtained from the Adderley Street flower sellers in the early 1800s.
+    link: http://uk.southafrica.net/what-to-do/city-and-lifestyle/flower-sellers-of-adderley-street
 ---

@@ -279,3 +279,16 @@ $link-line-height: 3px;
     }
   }
 }
+
+.csstransforms.csstransforms3d .stamp-effect {
+  opacity: .75;
+  transform: rotate(355deg) translate(0, 1.2em);
+  &--large {
+    @include bp(large){
+      transform: rotate(355deg) scale(1.2) translate(1.2em, .8em);
+    }
+    @include bp(xlarge){
+      transform: rotate(355deg) scale(1.66) translate(1.333em,0.333em);
+    }
+  }
+}

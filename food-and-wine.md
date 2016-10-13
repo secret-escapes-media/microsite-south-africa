@@ -21,10 +21,11 @@ features:
     African Relish is a recreational Karoo cookery school in Prince Albert, a quaint town in the Karoo. Gourmands increasingly visit this region for its restful atmosphere, abundance of locally grown produce, organic and small-scale food artisan producers, local wines, and gorgeous scenery.
   link: https://ad.doubleclick.net/ddm/trackclk/N5532.1692340SECRETESCAPES.COM/B9371472.127477410;dc_trk_aid=300493283;dc_trk_cid=68261300;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=
 
-- title: 9 food experience to enjoy in South Africa
+- title: Eating out in Soweto
+  location: Soweto
   description: >
-    Yes, we have Table Mountain, the Big Five, pristine beaches, the alluring winelands and world-class airports... but we also have food experiences as diverse as our Rainbow Nation.
-  link: https://ad.doubleclick.net/ddm/trackclk/N5532.1692340SECRETESCAPES.COM/B9371472.127477407;dc_trk_aid=300494455;dc_trk_cid=68261300;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=
+    Eating out in Soweto offers an authentic dining experience and a taste of township life where you will find a wonderful mix of taverns, shebeens, roadside eateries and butcheries.
+  link: http://uk.southafrica.net/what-to-do/food-and-wine/article-southafrica.net-eating-out-in-soweto10
 
 - title: Old Biscuit Mill
   location: Cape Town
