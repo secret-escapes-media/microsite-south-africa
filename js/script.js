@@ -64,7 +64,7 @@
 ///////////////////////////////////////
 
   // stopped on touch devices
-  if ( !("ontouchstart" in document.documentElement) ) {
+  if ( $('html.touch').length === 0 ) {
 
     // Loops through all videos on page
     $('.js-youtube-thumbnail').each(function(index, el) {

@@ -52,9 +52,7 @@ body {
   right: 0;
   bottom: 0;
   z-index: $z-background;
-
-
-  vertical-align: middle;
+  display: none;
   width: 100%;
   min-height: 100%;
   max-height: 100%;
@@ -62,7 +60,11 @@ body {
   background-size: 100%;
   background-size: cover;
   object-fit: cover;
-
+  vertical-align: middle;
+  @include bp(large){
+    display: block;
+    .touch & { display: none; }
+  };
 
 }
 
@@ -70,9 +72,11 @@ body {
 // ---------- Page ----------
 
 .wrap {
-  margin-top: 15em;
-  margin-top: 45vh;
   margin-bottom: ($margin * 4);
+  margin-top: 13em;
+  @media (min-height:450px) { margin-top: 20em; }
+  @media (min-height:750px) { margin-top: 27.5em; }
+  @media (min-height:900px) { margin-top: 30em; }
 }
 
 .page {
@@ -83,9 +87,12 @@ body {
   border-top: .75em solid $black;
   background-color: $white-9;
   &__intro {
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-style: italic;
     line-height: 1.4;
+    @include bp(large){
+      font-size: 1.2em;
+    };
   }
 }
 
@@ -99,7 +106,7 @@ body {
   line-height: 1.2;
   text-align: center;
   background-color: $black-75;
-  .logo {
+  &__logo {
     max-width: 240px;
     margin-bottom: .75em;
   }
@@ -155,7 +162,7 @@ body {
 
 .intro {
   &__title {
-    margin-bottom: .075em;
+    margin-bottom: .2em;
     font-size: 3.5em;
     line-height: .85;
     @include bp(large){
@@ -172,15 +179,25 @@ body {
       font-size: .55em;
     }
   }
+  &__subtitle {
+    font-size: 2.488em;
+    line-height: 1;
+    @include bp(large){
+      font-size: 3.375em;
+    }
+  }
   &__description {
-    font-size: 1.33em;
+    font-size: 1.1em;
     font-style: italic;
-    line-height: 1.4;
+    line-height: 1.33;
     font-weight: 600;
     letter-spacing: .025em;
+    @include bp(large){
+      font-size: 1.33em;
+    }
   }
   &--margin-bottom{
-    margin-bottom: ($margin * 8);
+    margin-bottom: ($margin * 2);
   }
 }
 

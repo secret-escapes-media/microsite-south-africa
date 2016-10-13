@@ -9,11 +9,16 @@
 .music-and-arts .page       { border-top-color: $sa-red; }
 
 // HEADER SITE NAVIGATION LINKS
-.site-nav__link--lifestyle            { border-bottom-color: $sa-yellow;}
-.site-nav__link--food-and-wine        { border-bottom-color: $sa-yellow;}
-.site-nav__link--fashion-and-design   { border-bottom-color: $sa-green;}
-.site-nav__link--adventure-and-nature { border-bottom-color: $sa-blue;}
-.site-nav__link--music-and-arts       { border-bottom-color: $sa-red;}
+.site-nav__link--lifestyle:hover,
+.site-nav__link--lifestyle.site-nav__link--current            { border-bottom-color: $sa-yellow;}
+.site-nav__link--food-and-wine:hover,
+.site-nav__link--food-and-wine.site-nav__link--current        { border-bottom-color: $sa-yellow;}
+.site-nav__link--fashion-and-design:hover,
+.site-nav__link--fashion-and-design.site-nav__link--current   { border-bottom-color: $sa-green;}
+.site-nav__link--adventure-and-nature:hover,
+.site-nav__link--adventure-and-nature.site-nav__link--current { border-bottom-color: $sa-blue;}
+.site-nav__link--music-and-arts:hover,
+.site-nav__link--music-and-arts.site-nav__link--current       { border-bottom-color: $sa-red;}
 
 // FOOTER SITE NAVIGATION LINKS
 .footer-nav__link--lifestyle:hover            { color: $sa-yellow;}

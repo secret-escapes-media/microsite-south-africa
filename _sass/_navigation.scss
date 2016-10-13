@@ -170,11 +170,15 @@ $nav-arrow-width: 66px;
         z-index: $z-nav-upper;
         display: block;
         width: $nav-arrow-width;
-        height: auto;
+        height: $site-nav-height;
         background-image: url("../img/icons/nav-arrow-dark.png");
         background-position: center;
         background-repeat: no-repeat;
         background-size: $nav-arrow-width auto;
+      }
+      @include bp(xxlarge){
+        padding-right: 0;
+        &:before { display: none; }
       }
     }
   }
@@ -201,13 +205,14 @@ $nav-arrow-width: 66px;
     display: inline-block;
     width: 100%;
     padding: ($site-nav-height / 3) 1.2em;
-    border-bottom: 4px solid $white;
+    border-bottom: 4px solid transparent;
     @include transition;
     &:hover,
     &--current {
       padding-bottom: ($site-nav-height / 3) - 4px ;
       background-color: $black-5;
       text-decoration: none;
+      border-bottom-color: $white;
     }
   }
   @include bp(xxlarge){
@@ -353,4 +358,5 @@ $icon-size: 27px;
     padding-top: 4px;
   }
   &--partner { max-width: 120px; }
+  &--stylist { max-width: 180px;}
 }
