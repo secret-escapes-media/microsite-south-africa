@@ -1,29 +1,59 @@
-  - title: An offer
-    category: category-1
-    class: unique-offer-class
-    location: Region, Country
-    description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure architecto eum exercitationem neque.
-    price: 999999
-    was-price: 888888
-    price-description: per room per night
-    link: #
+- title: Once-in-a-lifetime South Africa & Victoria Falls holiday
+  class: once-in-a-lifetime-south-africa-victoria-falls-holiday
+  category:
+  location: Cape Town, Kruger & Zambia
+  description: A 10-night South African adventure split between Cape Town, Kruger National Park and Zimbabwe, with open-vehicle safari and Victoria Falls tour included
+  price: 2699
+  was-price: 3499
+  price-description: per person for 10 nights
+  link: https://www.secretescapes.com/once-in-a-lifetime-south-africa-and-victoria-falls-holiday-cape-town-kruger-and-zambia/sale
 
-  - title: Another offer
-    category: category-2
-    class: unique-offer-class
-    location: Region, Country
-    description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure architecto eum exercitationem neque.
-    price: 999999
-    was-price: 888888
-    price-description: per room per night
-    link: #
+- title: Santa Maria Beach House and Spa
+  class: santa-maria-beach-house-and-spa
+  category:
+  location: Cape Town, South Africa
+  description: Hip self-catering stay at a trendy beach house in the heart of Bloubergstrand - with choice of accommodation and full fridge on arrival
+  price: 237
+  was-price: 296
+  price-description: per room per night
+  link: https://www.secretescapes.com/santa-maria-beach-house-and-spa-cape-town-south-africa/sale
 
-  - title: A third offer
-    category: category-3
-    class: unique-offer-class
-    location: Region, Country
-    description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure architecto eum exercitationem neque.
-    price: 999999
-    was-price: 888888
-    price-description: per room per night
-    link: #
+- title: Epic South Africa holiday with safari & cruise
+  class: epic-south-africa-holiday-with-safari-cruise
+  category:
+  location: Johannesburg & Durban, plus a safari & Indian Ocean cruise
+  description: An incredible South African holiday, with five-star hotels, a safari stay and a return cruise between Durban and Mozambique - travel included
+  price: 2399
+  was-price: 2999
+  price-description: per person for 14 nights
+  link: https://www.secretescapes.com/epic-south-africa-holiday-with-safari-and-cruise-johannesburg-and-durban-plus-a-safari-and-indian-ocean-cruise/sale
+
+- title: South Africa food, culture & winelands experience
+  class: south-africa-food-culture-winelands-experience
+  category:
+  location: Cape Town, Stellenbosch, the Garden Route & a game reserve
+  description: A heavenly South African experience for food, wine and culture lovers, with a culinary musical show in Cape Town, eye-opening township tour, winelands sojourn and optional safari stay
+  price: 2199
+  was-price: 2999
+  price-description: per person for 13 nights
+  link: https://www.secretescapes.com/south-africa-food-culture-and-winelands-experience-cape-town-stellenbosch-the-garden-route-and-a-game-reserve/sale
+
+- title: Cultural South Africa city & Winelands holiday
+  class: cultural-south-africa-city-winelands-holiday
+  category:
+  location: Cape Town & Stellenbosch
+  description: A stay near Cape Town's V&A Waterfront plus a sojourn in the Cape Winelands district, with a culinary musical show and tour of the capital's creative hubs - travel included
+  price: 1949
+  was-price: 2549
+  price-description: per person for 6 nights
+  link: https://www.secretescapes.com/cultural-south-africa-city-and-winelands-holiday-cape-town-and-stellenbosch/sale
+
+- title: Incredible city & safari South Africa holiday
+  class: incredible-city-safari-south-africa-holiday
+  category:
+  location: Cape Town, Hazyview & Kruger National Park
+  description: A nine-night adventure in South Africa, with Cape Town, country and safari stays, including tours, safaris and all travel
+  price: 2699
+  was-price: 3499
+  price-description: per person for 9 nights
+  link: https://www.secretescapes.com/incredible-city-and-safari-south-africa-holiday-cape-town-hazyview-and-kruger-national-park/sale
