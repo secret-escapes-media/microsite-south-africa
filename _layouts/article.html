@@ -1,12 +1,21 @@
 ---
 layout: default
 ---
+{% assign offers = site.data.offers | where: "category", page.class %}
+{% assign offers-length = offers | size %}
 
 <div class="page row row--padding">
   <div class="row">
     <h1>{{page.title}}</h1>
     <p class="page__intro">{{page.intro}}</p>
   </div>
+  {% if offers-length > 0 %}
+    <div class="row js-stylist-offer">
+      {% for offer in offers %}
+        {% include offer-full-width.html %}
+      {% endfor %}
+    </div>
+  {% endif %}
   <div class="row">
     {% include feature.html %}
   </div>

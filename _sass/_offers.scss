@@ -13,8 +13,8 @@
 .offer {
   color: $text-black;
   @include bp(large){
-    @include layout(12 1/2);
-    @include gallery(6);
+  @include layout(12 1/2);
+  @include gallery(6);
   }
   & + & {
     margin-top: $margin;
@@ -26,16 +26,37 @@
     }
   }
   &__content {
-    padding: $margin ($margin/1.25);
+    padding: ($margin/1.25);
     background-color: $white-9;
   }
   &__bottom {
     padding: ($margin/2) ($margin/1.25);
     background-color: $white-66;
     box-shadow: inset 0px 10px 9px -8px rgba(0,0,0,0.3);
+    line-height: 1.2;
+    &-column {
+      & + & { margin-top: .5em; }
+    }
+    @include bp(large){
+      display: table;
+      width: 100%;
+      &-column {
+        display: table-cell;
+        vertical-align: middle;
+        &--fixed {
+          text-align: right;
+          width: 140px;
+        }
+      }
+    }
   }
   &__title {
-    text-transform: capitalize;
+    text-transform: initial;
+    line-height: 1.1;
+    margin-bottom: .5em;
+    & > a:hover {
+      text-decoration: none;
+    }
   }
   &__location {
     font-size: .9em;
@@ -63,5 +84,33 @@
   }
   &__was-price {
     text-decoration: line-through;
+  }
+  &--full-width{
+    margin-bottom: 3em;
+    font-size: 1em;
+    background-color: $white;
+    @include gallery(12);
+    .offer__bottom {
+      padding: 0;
+      background-color: transparent;
+      box-shadow: none;
+    }
+    .offer__image:before {
+      // LABEL ON TOP LEFT OF IMAGE
+      content: 'Stylist Approved Offer';
+      position: absolute;
+      z-index: $z-content-upper;
+      display: inline-block;
+      margin-top: -.5em;
+      margin-left: -.5em;
+      padding: .5em 1em;
+      font-size: .9em;
+      font-weight: 600;
+      background-color: $black;
+      color: $white;
+      @include bp(large){
+        font-size: 1.2em;
+      }
+    }
   }
 }

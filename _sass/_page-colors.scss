@@ -40,3 +40,10 @@
 .fashion-and-design .feature__image:before   {background-color: $sa-green;}
 .adventure-and-nature .feature__image:before {background-color: $sa-blue;}
 .music-and-arts .feature__image:before       {background-color: $sa-red;}
+
+// FULL WIDTH OFFER IMAGE OVERLAY
+.lifestyle .offer--full-width .offer__image:before             { background-color: $sa-yellow; color: $text-black; }
+.food-and-wine .offer--full-width .offer__image:before         { background-color: $sa-yellow; color: $text-black; }
+.fashion-and-design .offer--full-width .offer__image:before    { background-color: $sa-green;}
+.adventure-and-nature .offer--full-width .offer__image:before  { background-color: $sa-blue;}
+.music-and-arts .offer--full-width .offer__image:before        { background-color: $sa-red;}

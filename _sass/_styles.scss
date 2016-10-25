@@ -292,3 +292,34 @@ $link-line-height: 3px;
     }
   }
 }
+
+.stylist-overlay:before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 5px;
+  z-index: 5;
+  display: block;
+
+  width: 60px;
+  height: 26px;
+  background-image: url(../img/logo/stylist-stamp.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: rotate(355deg);
+  @include bp(small){
+    width: 120px;
+    height: 51px;
+  }
+  @include bp(medium){
+    top: 17px;
+    left: 10px;
+    width: 150px;
+    height: 64px;
+  }
+  @include bp(large){
+    width: 198px;
+    height: 84px;
+  }
+}
