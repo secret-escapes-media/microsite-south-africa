@@ -90,6 +90,9 @@
     font-size: 1em;
     background-color: $white;
     @include gallery(12);
+    & + & {
+      @include break;
+    }
     .offer__bottom {
       padding: 0;
       background-color: transparent;

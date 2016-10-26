@@ -2,7 +2,6 @@
 layout: article
 title: Lifestyle
 class: lifestyle
-nav-order: 2
 intro: >
   Life is best enjoyed outdoors in this remarkably scenic country, with horse races, farmers’ markets and festivals all great opportunities to rub shoulders with locals. It’s easy to find peace and quiet too, with remote spa sanctuaries and nature trails coaxing urbanites out of the cities.
 
