@@ -1,5 +1,5 @@
-<div class="offer row__column">
-  <a href="{{offer.link}}"><div class="bg-image-ratio bg-image-ratio--3-2" style="background-image: url('{{ site.baseurl }}/img/offers/{{ offer.class }}.jpg')"></div></a>
+<div id="offer-{{ offer.class }}" class="offer row__column">
+  <a id="image-link-{{ offer.class }}" href="{{offer.link}}"><div class="bg-image-ratio bg-image-ratio--3-2" style="background-image: url('{{ site.baseurl }}/img/offers/{{ offer.class }}.jpg')"></div></a>
   <div class="offer__content">
     <h2 class="offer__title"><a id="title-link-{{ offer.class }}" href="{{ offer.link }}">{{ offer.title }}</a></h2>
     <h3 class="h4 offer__location">{{ offer.location }}</h3>
