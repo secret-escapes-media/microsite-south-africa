@@ -65,7 +65,7 @@ $site-header-height: ($core-nav-height + $site-nav-height);
     @include bp(medium){
       &--center{ width: auto; }
     };
-    @include bp( large ){
+    @include bp( xlarge ){
       &--right {
         right: 0;
         display: block;
@@ -284,10 +284,13 @@ $mobile-nav-width: 75%;
     padding: 1em;
     background: $se-dark-grey-85;
     text-align: center;
+     > * {
+       vertical-align: middle;
+     }
     @include bp-vertical {
       position: static;
     }
-    @include bp(large){
+    @include bp(xlarge){
       display: none;
     }
   }
@@ -357,6 +360,11 @@ $icon-size: 27px;
     max-width: 180px;
     padding-top: 4px;
   }
-  &--partner { max-width: 120px; }
+  &--partner {
+    max-width: 100px;
+    & + & {
+      padding-left: 1em;
+    }
+  }
   &--stylist { max-width: 180px;}
 }
