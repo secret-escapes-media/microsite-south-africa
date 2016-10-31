@@ -64,8 +64,21 @@ body {
   @include bp(large){
     display: block;
     .touch & { display: none; }
-  };
-
+  }
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: $z-background;
+    display: none;
+    background-color: $black-66;
+    opacity: 0;
+    @include bp(large){
+      display: block;
+    }
+  }
 }
 
 

@@ -116,5 +116,13 @@
     $('.js-stylist-offer').hide();
   }
 
+
+///////////////////////////////////////
+//      Fade in video overlay
+///////////////////////////////////////
+
+$(window).scroll(function(){
+  $('.video-background__overlay').css("opacity", 0 + $(window).scrollTop() / 500);
+});
 ///////////////////////////////////////////////////////////////////////////////
 });})(jQuery, this); // on ready end
