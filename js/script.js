@@ -124,5 +124,75 @@
 $(window).scroll(function(){
   $('.video-background__overlay').css("opacity", 0 + $(window).scrollTop() / 500);
 });
+
+
+///////////////////////////////////////
+//      GAME
+///////////////////////////////////////
+
+// Sees type of activity preffered & price difference from UK & SA
+$('.js-submit-choices').on('click', function(e) {
+  e.preventDefault();
+
+  // setting variables
+  var adventureTotal   = 0,
+      luxuryTotal      = 0,
+      ukPriceTotal     = 0,
+      saPriceTotal     = 0,
+      pefferedType     = "",
+      pickedActivities = [];
+
+  // counts selected activities, finds type & adds prices to totals
+  $('input[type="radio"]:checked').each(function() {
+    var activityName = $(this).parent('label').text(),
+        activityType = $(this).attr('value'),
+        ukPrice      = $(this).data('price-uk'),
+        saPrice      = $(this).data('price-sa');
+    // sees if activity is adventure or luxury
+    if (activityType === 'adventure') {
+      adventureTotal++;
+    } else if (activityType === 'luxury'){
+      luxuryTotal++;
+    }
+    // Adds the prices to each total
+    ukPriceTotal += ukPrice;
+    saPriceTotal += saPrice;
+
+    activityName = $.trim(activityName);
+    pickedActivities.push(activityName);
+  });
+
+  // which type is preferred
+  if (adventureTotal > luxuryTotal) {
+    pefferedType = "Adventurous";
+  } else {
+    pefferedType = "luxurious";
+  }
+
+  // money saved
+  var moneySaved = ukPriceTotal - saPriceTotal;
+
+  //
+  console.log("your picked activities were: ");
+  for (var i = 0; i < pickedActivities.length; i++) {
+    console.log("==  " + pickedActivities[i]);
+  }
+  console.log(" ");
+  console.log("your preffered type of activity is = " + pefferedType);
+  console.log(" ");
+  console.log("you could save £" + moneySaved + " in south africa compared with UK" );
+  console.log("heres a voucher for £50 off as well");
+  console.log("Big Button = book an offer");
+  console.log(" ");
+  console.log("here are a few " + pefferedType + " recommendations");
+
+});
+
+// resets the selected checkboxes
+$('.js-reset-game').on('click', function(e) {
+  e.preventDefault();
+  $('input[type="radio"]:checked').prop('checked', false);
+});
+
 ///////////////////////////////////////////////////////////////////////////////
 });})(jQuery, this); // on ready end
