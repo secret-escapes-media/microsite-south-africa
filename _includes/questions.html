@@ -1,0 +1,4 @@
+{% assign questions = site.data.questions %}
+{% for question in questions %}
+  {% include question.html %}
+{% endfor %}

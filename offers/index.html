@@ -2,19 +2,24 @@
 layout: default
 title: Offers
 class: offers
-nav-order: 6
+nav-order: 7
 intro: >
   South Africa is often described as an entire world in one country, and with so many incredible experiences to be had this year, now is the time to visit. Browse our offers on regional tours and sumptuous stays at top-end hotels.
 ---
 
-<div class="row intro intro--margin-bottom">
-  <img class="js-svg-swap logo logo--stylist stamp-effect stamp-effect--large" src="{{site.baseurl}}/img/logo/stylist-stamp.png" alt="Stylist Logo">
-  <h1 class="intro__title">{{page.title}}</h1>
-  <p class="intro__description">{{page.intro}}</p>
-</div>
+<section class="row">
+  <div class="page__intro">
+    <h1 class="title title--largest title--bolder title--tighter title--condense">{{page.title}}</h1>
+    <p class="paragraph paragraph--lead page__intro--text-shadow">{{page.intro}}</p>
+  </div>
+</section>
 
-<div class="offers row">
+<section class="row offers section">
   <div class="row">
     {% include offers.html %}
   </div>
-</div>
+</section>
+
+<section class="row section">
+  {% include competition-promo.html %}
+</section>

@@ -34,6 +34,7 @@ gulp.task('concatScripts', function(){
   return gulp.src([
     './js/modernizr-custom.js',
     './bower_components/jquery/dist/jquery.min.js',
+    './bower_components/unslider/dist/js/unslider-min.js',
     './js/script.js'])
   .pipe(concat('scripts.js'))
   .pipe(uglify())

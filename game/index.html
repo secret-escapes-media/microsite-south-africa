@@ -1,0 +1,143 @@
+---
+layout: plain
+title: Game
+class: game
+
+money-section: |
+  <div class="row align-center">
+    <p class="paragraph paragraph--lead">if you did all these things in South Africa instead of the UK, you would save:</p>
+    <div class="title title--content">£<span class="js-saved-amount">000</span></div>
+    <div class="row row--columns-6-6-gutters">
+      <div class="row__column align-right">UK price: £<span class="js-uk-amount">000</span></div>
+      <div class="row__column align-left">SOUTH AFRICA price: £<span class="js-sa-amount">000</span></div>
+    </div>
+  </div>
+
+  <div class="row align-center">
+    <p class="paragraph paragraph--lead">Save even more money with £50 off voucher</p>
+    <div><a class="btn btn--large" href="#voucher-link">Claim Now</a></div>
+  </div>
+---
+
+<section class="game">
+
+  <h1 class="game__overlay game__overlay--top-center align-center game__title">Would you rather?</h1>
+  <div class="game__overlay game__overlay--center game__middle">or</div>
+  <a class="game__overlay game__overlay--top-right game__close js-close-game" href="{{site.baseurl}}"><img class="js-svg-swap" src="{{site.baseurl}}/img/icons/close.png" alt="close icon"></a>
+
+  <div class="game__questions">
+    {% include questions.html %}
+  </div>
+
+  <div class="game__results">
+    <div class="row row--padding">
+
+      <!-- ADVENTURE RESULT -->
+      <div class="game__result game__result--adventure">
+
+        <h2 class="row title title--main title--main-small align-center"><span class="title title--main-pre">You're the</span> <span>Adventurous</span> <span class="title title--main-pre" style="margin-top:0;">type</span></h2>
+
+        {{page.money-section}}
+
+        <div class="row">
+          <p class="paragraph paragraph--lead">You might be interested these as well:</p>
+        </div>
+
+        <div class="row row--columns-4-4-4-gutters">
+
+          <div class="row__column">
+            <div class="bg-image-ratio bg-image-ratio--3-2" style="background-image: url('{{site.baseurl}}/img/img.png');"></div>
+            <div class="inner-section inner-section--light">
+              <div class="title title--content title--content-small">
+                Adventurous activity
+              </div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat incidunt dolorem possimus vitae quis fugiat perferendis ea eos necessitatibus. Voluptatum id, facilis nobis vel dolorum quisquam nostrum ad, similique doloribus!</p>
+              <a class="btn" href="#">Discover More</a>
+            </div>
+          </div>
+
+          <div class="row__column">
+            <div class="bg-image-ratio bg-image-ratio--3-2" style="background-image: url('{{site.baseurl}}/img/img.png');"></div>
+            <div class="inner-section inner-section--light">
+              <div class="title title--content title--content-small">
+                Adventurous activity
+              </div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat incidunt dolorem possimus vitae quis fugiat perferendis ea eos necessitatibus. Voluptatum id, facilis nobis vel dolorum quisquam nostrum ad, similique doloribus!</p>
+              <a class="btn" href="#">Discover More</a>
+            </div>
+          </div>
+
+          <div class="row__column">
+            <div class="bg-image-ratio bg-image-ratio--3-2" style="background-image: url('{{site.baseurl}}/img/img.png');"></div>
+            <div class="inner-section inner-section--light">
+              <div class="title title--content title--content-small">
+                Adventurous activity
+              </div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat incidunt dolorem possimus vitae quis fugiat perferendis ea eos necessitatibus. Voluptatum id, facilis nobis vel dolorum quisquam nostrum ad, similique doloribus!</p>
+              <a class="btn" href="#">Discover More</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- END - ADVENTURE RESULT -->
+
+      <!-- LUXURY RESULT -->
+      <div class="game__result game__result--luxury">
+
+        <h2 class="row title title--main title--main-small align-center"><span class="title title--main-pre">You're the</span> <span>Luxurious</span> <span class="title title--main-pre" style="margin-top:0;">type</span></h2>
+
+        {{page.money-section}}
+
+        <div class="row">
+          <p class="paragraph paragraph--lead">You might be interested these as well:</p>
+        </div>
+
+        <div class="row row--columns-4-4-4-gutters">
+
+          <div class="row__column">
+            <div class="bg-image-ratio bg-image-ratio--3-2" style="background-image: url('{{site.baseurl}}/img/img.png');"></div>
+            <div class="inner-section inner-section--light">
+              <div class="title title--content title--content-small">
+                Luxurious activity
+              </div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat incidunt dolorem possimus vitae quis fugiat perferendis ea eos necessitatibus. Voluptatum id, facilis nobis vel dolorum quisquam nostrum ad, similique doloribus!</p>
+              <a class="btn" href="#">Discover More</a>
+            </div>
+          </div>
+
+          <div class="row__column">
+            <div class="bg-image-ratio bg-image-ratio--3-2" style="background-image: url('{{site.baseurl}}/img/img.png');"></div>
+            <div class="inner-section inner-section--light">
+              <div class="title title--content title--content-small">
+                Luxurious activity
+              </div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat incidunt dolorem possimus vitae quis fugiat perferendis ea eos necessitatibus. Voluptatum id, facilis nobis vel dolorum quisquam nostrum ad, similique doloribus!</p>
+              <a class="btn" href="#">Discover More</a>
+            </div>
+          </div>
+
+          <div class="row__column">
+            <div class="bg-image-ratio bg-image-ratio--3-2" style="background-image: url('{{site.baseurl}}/img/img.png');"></div>
+            <div class="inner-section inner-section--light">
+              <div class="title title--content title--content-small">
+                Luxurious activity
+              </div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat incidunt dolorem possimus vitae quis fugiat perferendis ea eos necessitatibus. Voluptatum id, facilis nobis vel dolorum quisquam nostrum ad, similique doloribus!</p>
+              <a class="btn" href="#">Discover More</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- END - LUXURY RESULT -->
+
+      <!-- TRY AGAIN LINK -->
+      <div class="row row--padding align-center">
+        <p>Changed your mind? &nbsp;&nbsp;&nbsp;<a class="js-reset-game btn" href="{{site.baseurl}}/game">Try Again</a> </p>
+      </div>
+
+    </div>
+  </div>
+
+</section>

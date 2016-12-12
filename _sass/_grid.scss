@@ -15,13 +15,8 @@ $margin: 2em;
 
 // -------- grid sections --------
 
-section {
-  padding-top: 5.063em;
-  padding-bottom: 5.063em;
-  @include bp(large) {
-    padding-top: 6.192em;
-    padding-bottom: 6.192em;
-  }
+.section + .section {
+  padding-top: 4em;
 }
 
 .row {
@@ -51,6 +46,9 @@ section {
   margin-top: ( $margin / 2 );
   @include bp(large) {
     margin-top: 0;
+  }
+  .no-mobile-gutter &{
+    margin-top: 0 !important;
   }
 }
 

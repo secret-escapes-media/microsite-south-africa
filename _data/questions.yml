@@ -1,0 +1,44 @@
+- number: 0
+  topic: nature
+  adventure-text: Nature Adventurous Activity
+  adventure-price-uk: 2034
+  adventure-price-sa: 987
+  luxury-text: Nature Luxury Activity
+  luxury-price-uk: 2034
+  luxury-price-sa: 987
+
+- number: 1
+  topic: culture
+  adventure-text: Culture Adventurous Activity
+  adventure-price-uk: 2034
+  adventure-price-sa: 987
+  luxury-text: Culture Luxury Activity
+  luxury-price-uk: 2034
+  luxury-price-sa: 987
+
+- number: 2
+  topic: food
+  adventure-text: Food & Drink Adventurous Activity
+  adventure-price-uk: 2034
+  adventure-price-sa: 987
+  luxury-text: Food & Drink Luxury Activity
+  luxury-price-uk: 2034
+  luxury-price-sa: 987
+
+- number: 3
+  topic: adventure
+  adventure-text: Adventure Adventurous Activity
+  adventure-price-uk: 2034
+  adventure-price-sa: 987
+  luxury-text: Adventure Luxury Activity
+  luxury-price-uk: 2034
+  luxury-price-sa: 987
+
+- number: 4
+  topic: another
+  adventure-text: Another Adventurous Activity
+  adventure-price-uk: 2034
+  adventure-price-sa: 987
+  luxury-text: Another Luxury Activity
+  luxury-price-uk: 2034
+  luxury-price-sa: 987
