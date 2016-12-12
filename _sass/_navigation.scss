@@ -65,7 +65,7 @@ $site-header-height: ($core-nav-height + $site-nav-height);
     @include bp(medium){
       &--center{ width: auto; }
     };
-    @include bp( xlarge ){
+    @include bp( large ){
       &--right {
         right: 0;
         display: block;
@@ -79,7 +79,7 @@ $site-header-height: ($core-nav-height + $site-nav-height);
         }
       }
     }
-    @include bp( xxlarge ){
+    @include bp( xlarge ){
       &--left {
         display: none;
       }
@@ -101,12 +101,12 @@ $site-header-height: ($core-nav-height + $site-nav-height);
     height: ($core-nav-height / 1.5);
     width: 0.5em;
     margin-left: 0.5em;
-    border-left: 1px solid $white-15;
+    border-left: 1px solid $white-25;
     @include bp( medium ) {
       width: 1em;
       margin-left: 1em;
     }
-    @include bp( xxlarge ){
+    @include bp( xlarge ){
       display: inline-block;
     }
   }
@@ -116,7 +116,7 @@ $site-header-height: ($core-nav-height + $site-nav-height);
     font-size: .833em;
     font-weight: 700;
     color: $se-light-grey;
-    @include bp( xxlarge ){
+    @include bp( xlarge ){
       display: inline-block;
     }
   }
@@ -155,34 +155,34 @@ $nav-arrow-width: 66px;
   background-color: $se-dark-grey-75;
   overflow: hidden;
   &__list {
+    padding-right: $nav-arrow-width;
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
-    .touch & {
-      padding-right: $nav-arrow-width;
-      &:before {
-        // prompt for horizontal scroll on phone
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        z-index: $z-nav-upper;
-        display: block;
-        width: $nav-arrow-width;
-        height: $site-nav-height;
-        background-image: url("../img/icons/nav-arrow-dark.png");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: $nav-arrow-width auto;
-      }
-      @include bp(xxlarge){
-        padding-right: 0;
-        &:before { display: none; }
-      }
+    &:before {
+      // prompt for horizontal scroll on phone
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: $z-nav-upper;
+      display: block;
+      width: $nav-arrow-width;
+      height: $site-nav-height;
+      background-image: url("../img/icons/nav-arrow-dark.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: $nav-arrow-width auto;
+    }
+    @include bp(xlarge){
+      padding-right: 0;
+      overflow: visible;
+      &:before { display: none; }
     }
   }
   &__item {
+    height: $site-nav-height;
     position: relative;
     display: inline-block;
     white-space: nowrap;
@@ -191,31 +191,40 @@ $nav-arrow-width: 66px;
       // dividing lines between site nav items
       content: '';
       position: absolute;
-      top: 50%;
+      top: 0;
       left: 0;
       display: block;
-      height: ($site-nav-height / 1.33);
+      height: $site-nav-height;
       width: 1px;
-      background-color: $white-15;
-      transform: translateY(-50%);
+      background-color: $white-25;
       @include transition;
+      .csstransforms.csstransforms3d & {
+        top: 50%;
+        height: ($site-nav-height / 1.5);
+        transform: translateY(-50%);
+      }
     }
+
   }
   &__link {
     display: inline-block;
     width: 100%;
     padding: ($site-nav-height / 3) 1.2em;
+    margin-bottom: -4px;
     border-bottom: 4px solid transparent;
     @include transition;
     &:hover,
     &--current {
       padding-bottom: ($site-nav-height / 3) - 4px ;
+      margin-bottom: 0;
       background-color: $black-5;
       text-decoration: none;
       border-bottom-color: $white;
     }
   }
-  @include bp(xxlarge){
+  @include bp(xlarge){
+    overflow: visible;
+    height: auto;
     .flexbox & {
       &__list {
         display: flex;
@@ -223,6 +232,114 @@ $nav-arrow-width: 66px;
         justify-content: space-around;
       }
       &__item { flex-grow: 1; }
+    }
+  }
+  // resets the nav for the footer to stop side scrolling
+  @media (max-width: $xlarge) {
+    &--footer {
+      height: auto;
+      background-color: $se-dark-grey-85;
+    }
+    &--footer & {
+      &__list{
+        padding-right: 0;
+        border-top: 1px solid $white-15;
+        white-space: normal;
+        &:before {
+          content: none;
+        }
+        .svg & {
+          display: flex;
+          flex-flow: row wrap;
+        }
+      }
+      &__item {
+        display: inline-block;
+        width: 33.33%;
+        border-bottom: 1px solid $white-15;
+        &:before { content: none; }
+        .svg & {
+          flex-grow: 1;
+        }
+        @media (max-width: $medium) {
+          width: 100%;
+        }
+      }
+      &__link {
+        border: 0;
+        &:hover,
+        &--current {
+          padding-bottom: ($site-nav-height / 3);
+          border: 0;
+        }
+      }
+    }
+  }
+}
+
+.drop-nav {
+  position: absolute;
+  display: none;
+  width: 15em;
+  transform-origin: top center;
+  @include transition;
+  .csstransforms.csstransforms3d & {
+    display: block;
+    transform: scaleY(0);
+  }
+  &__item {
+    display: block;
+    height: $site-nav-height;
+    background-color: $se-dark-grey-75;
+    @include transition;
+    &:hover { background-color: $black-75; }
+    border-top: 1px solid $white-25;
+    & + & {
+    }
+  }
+  &__link {
+    display: block;
+    line-height: $site-nav-height;
+    &:hover { text-decoration: none; }
+  }
+  @include bp(xlarge){
+    .site-nav__item:hover &{
+      display: block;
+      .csstransforms.csstransforms3d & {
+        transform: scaleY(1);
+      }
+    }
+  }
+  .site-nav--footer & {
+    display: none;
+  }
+  &__mobile {
+    @include bp(xlarge){
+      display: none;
+    }
+    li {
+      display: block;
+      border-left-width: .33em;
+      border-style: solid;
+      background-color: $black-33;
+      margin-right: 1em;
+      @include bp(medium){
+        display: inline-block;
+      }
+      a {
+        display: block;
+        height: $margin * 1.5;
+        padding-left: ($margin / 2);
+        padding-right: $margin;
+        line-height: $margin * 1.5;
+        &:hover { text-decoration: none; }
+      }
+    }
+    li + li {
+      border-top: 1px solid $white-5;
+      @include bp(medium){
+        border-top: 0;
+      }
     }
   }
 }
@@ -290,42 +407,37 @@ $mobile-nav-width: 75%;
     @include bp-vertical {
       position: static;
     }
-    @include bp(xlarge){
+    @include bp(large){
       display: none;
     }
   }
-  @include bp(xxlarge){
+  @include bp(xlarge){
     display: none;
   }
 }
 
 
 // ---------- SITE FOOTER ----------
-.site-footer {
-  font-size: 1.2em;
-  background-color: $black-75;
-  padding-top: $margin;
-  padding-bottom: $margin;
-  @include bp(large){
-    display: none;
-  };
-}
-
-.footer-nav {
-  &__item {
-    list-style-type: none;
-    & + & { border-top: 1px solid $white-15; }
+.footer-content {
+  background-color: $black-85;
+  &__logos {
+    font-size: .9em;
+    border-top: 1px solid $white-15;
+    padding-top: $margin;
+    padding-bottom: ($margin * 1.5);
   }
-  &__link {
-    display: block;
-    padding-top: .5em;
-    padding-bottom: .5em;
-    @include transition;
-    &:hover {
-      text-decoration: none;
-      color: $se-orange
-    }
+  &__experts {
+    padding-top: ($margin * 1.5);
+    padding-bottom: $margin;
   }
+  .logo {
+    vertical-align: middle;
+    margin-left: ($margin/4);
+    margin-right: ($margin/4);
+  }
+  p { margin-top: .5em; }
+  .logo--secret-escapes { max-width: 110px; }
+  .logo--partner { max-width: 100px; }
 }
 
 
@@ -366,5 +478,6 @@ $icon-size: 27px;
       padding-left: 1em;
     }
   }
-  &--stylist { max-width: 180px;}
+  &--south-african-airways { max-width: 140px;}
+  &--premier-holidays { max-width: 80px;}
 }

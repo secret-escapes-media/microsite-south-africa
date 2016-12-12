@@ -1,0 +1,16 @@
+<div class="question question--0{{forloop.index}}">
+  <div class="option option--left">
+    <input class="option__input" id="{{question.topic}}-adventure" type="radio" name="{{question.topic}}" value="adventure">
+    <label class="option__label row--padding" for="{{question.topic}}-adventure"  data-price-uk="{{question.adventure-price-uk}}" data-price-sa="{{question.adventure-price-sa}}">
+      {{question.adventure-text}}
+    </label>
+    <div class="option__bg" style="background-image: url({{site.baseurl}}/img/bg/{{question.topic}}.jpg);"></div>
+  </div>
+  <div class="option option--right">
+    <input class="option__input" id="{{question.topic}}-luxury" type="radio" name="{{question.topic}}" value="luxury">
+    <label class="option__label row--padding" for="{{question.topic}}-luxury" data-price-uk="{{question.luxury-price-uk}}" data-price-sa="{{question.luxury-price-sa}}">
+      {{question.luxury-text}}
+    </label>
+    <div class="option__bg" style="background-image: url({{site.baseurl}}/img/bg/{{question.topic}}.jpg);"></div>
+  </div>
+</div>

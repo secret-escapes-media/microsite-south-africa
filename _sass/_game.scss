@@ -1,0 +1,144 @@
+.game {
+  overflow: hidden;
+  height: 100%;
+  &__questions {
+    height: 100%;
+  }
+  &__title{
+    font-size: 2.25em;
+    text-transform: uppercase;
+    letter-spacing: .25em;
+    line-height: 1;
+  }
+  &__middle {
+    font-size: 1.8em;
+    line-height: 0;
+  }
+  &__close {
+    display: block;
+    height: 60px;
+    width: 60px;
+    background-image: url('../img/icons/close.png');
+    svg & { background-image: url('../img/icons/close.svg'); }
+    background-size: 27px;
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    text-indent: -999%;
+    overflow: hidden;
+  }
+  &__overlay {
+    position: fixed;
+    z-index: $z-content-upper;
+    &--top-right {
+      top: 0;
+      right: 0;
+    }
+    &--top-center {
+      top: 30px;
+      left: 50%;
+      width: 100%;
+      transform: translateX(-50%);
+    }
+    &--center {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
+  }
+  &--starter {
+    height: 25em;
+    .game__overlay {
+      position: absolute;
+      z-index: $z-overlay;
+      width: auto;
+    }
+    .option__label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: $z-content-upper;
+      font-size: 2.25em;
+    }
+    .option__bg {
+      z-index: $z-content;
+    }
+  }
+  &__results {
+    height: 100%;
+    overflow-y: auto;
+  }
+}
+
+
+.question {
+  height: 100%;
+  display: none;
+  &.is-active{
+    display: block;
+  }
+}
+
+.option {
+  position: absolute;
+  top:0;
+  bottom:0;
+  width: 100%;
+  height: 50%;
+  &__bg {
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: $z-background;
+    @include background-attributes;
+  }
+  &--right {
+    top: auto;
+    bottom: 0;
+    label {
+    }
+  }
+  &--left {
+    top: 0;
+    bottom: auto;
+    label {
+    }
+  }
+  @include bp(large){
+    width: 50%;
+    height: 100%;
+    &--right {
+      right: 0;
+    }
+    &--left {
+      left: 0;
+    }
+  }
+  &__label {
+    display: block;
+    height: 100%;
+    text-align: center;
+    font-size: 3em;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    background-color: $black-66;
+    @include transition;
+    .flexbox & {
+      display:flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &:hover {
+      text-decoration: none;
+      background-color: $black-5;
+    }
+  }
+  &__input {
+    position: absolute;
+    visibility: hidden;
+  }
+}

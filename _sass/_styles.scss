@@ -1,6 +1,24 @@
 // all custom styles for the site
 
 
+.caption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: ($margin/3) ($margin/2);
+  background-color: $black-5;
+  color: $white !important;
+  &--image-credit {
+    font-size: .75em;
+    opacity: .66;
+    @include transition;
+    &:hover {
+      opacity: .9;
+    }
+  }
+}
+
+
 // ---------- button ----------
 
 .btn {
@@ -8,6 +26,7 @@
   display:inline-block;
   padding: .5em 1.5em;
   border: 1px solid $se-orange;
+  font-family: $main-font-family;
   font-weight: 600;
   text-align: center;
   border-radius: 100em;
@@ -15,6 +34,17 @@
     color: white;
     background-color: $se-orange;
     text-decoration: none;
+  }
+  &--large {
+    font-size: 1.2em;
+  }
+  &--orange {
+    color: $white;
+    background-color:  $se-orange;
+    border: 0;
+    &:hover {
+      background-color: darken( $se-orange, 5);
+    }
   }
   &--red {
     color: $white;
@@ -63,52 +93,20 @@ body {
   vertical-align: middle;
   @include bp(large){
     display: block;
+    .no-supports &,
     .touch & { display: none; }
-  };
-
-}
-
-
-// ---------- Page ----------
-
-.wrap {
-  margin-bottom: ($margin * 4);
-  margin-top: 13em;
-  @media (min-height:450px) { margin-top: 20em; }
-  @media (min-height:750px) { margin-top: 27.5em; }
-  @media (min-height:900px) { margin-top: 30em; }
-}
-
-.page {
-  padding-top: ($margin / 2);
-  padding-bottom: $margin;
-  font-family: $main-font-family;
-  color: $text-black;
-  border-top: .75em solid $black;
-  background-color: $white-9;
-  &__intro {
-    font-size: 1.1em;
-    font-style: italic;
-    line-height: 1.4;
-    @include bp(large){
-      font-size: 1.2em;
-    };
   }
-}
-
-
-// ---------- SECRET ESCAPES PROMO SECTION ----------
-
-.promo {
-  padding: ($margin * 2) $margin;
-  font-size: 1.2em;
-  letter-spacing: .015em;
-  line-height: 1.2;
-  text-align: center;
-  background-color: $black-75;
-  &__logo {
-    max-width: 240px;
-    margin-bottom: .75em;
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: $z-background;
+    background-color: rgba(5, 24, 34, 0.66);
+    opacity: 0;
+    .no-supports &,
+    .touch & { display: none; }
   }
 }
 
@@ -158,168 +156,18 @@ body {
 }
 
 
-// ---------- LARGE PAGE INTRO ----------
+// ---------- INTERVIEW STYLE ----------
 
-.intro {
-  &__title {
-    margin-bottom: .2em;
-    font-size: 3.5em;
-    line-height: .85;
-    @include bp(large){
-      font-size: 5em;
-    }
-    @include bp(xlarge){
-      font-size: 7em;
-    }
-    span {
-      line-height: 1;
-      display: block;
-      font-weight: 200;
-      font-style: italic;
-      font-size: .55em;
-    }
-  }
-  &__subtitle {
-    font-size: 2.488em;
-    line-height: 1;
-    @include bp(large){
-      font-size: 3.375em;
-    }
-  }
-  &__description {
-    font-size: 1.1em;
-    font-style: italic;
-    line-height: 1.33;
-    font-weight: 600;
-    letter-spacing: .025em;
-    @include bp(large){
-      font-size: 1.33em;
-    }
-  }
-  &--margin-bottom{
-    margin-bottom: ($margin * 2);
-  }
-}
-
-
-// ---------- FEATURE ----------
-
-$link-line-height: 3px;
-.feature {
+.interview {
+  padding-top: $margin/3;
+  padding-bottom: $margin/3;
+  .row__column + .row__column { margin-top: $margin; }
   @include bp(large){
-    @include layout(12 1);
-    @include gallery(6);
+    padding-top: 0;
+    padding-bottom: 0;
+    .row__column + .row__column { margin-top: 0; }
   }
-  & + & {
-    margin-top: $margin;
-    @include bp(large){
-      margin-top: 0;
-      &:nth-child(n+3) {
-        margin-top: $margin;
-      }
-    }
-  }
-  &__image {
-    &:before {
-      // LABEL ON TOP LEFT OF IMAGE
-      content: 'Must See';
-      position: absolute;
-      display: inline-block;
-      margin-top: -.5em;
-      margin-left: -.5em;
-      padding: .5em 1em;
-      font-size: .9em;
-      font-weight: 600;
-      background-color: $black;
-      color: $white;
-    }
-  }
-  &:nth-child(2n) &__image:before{
-    // ALTERNATE CONTENT FOR LABEL
-    content: 'We Recommend';
-  }
-  &__title {
-    font-size: 1.5em;
-    text-transform: capitalize;
-    margin-bottom: 0.2em;
-  }
-  &__subtitle {
-    font-size: 1em;
-  }
-  &__content {
-    padding-top: ($margin / 1.5);
-    padding-bottom: ($margin / 1.5);
-  }
-  &__link {
-    position: relative;
-    display: inline-block;
-    padding-top: .25em;
-    padding-bottom: .25em;
-    font-weight: 600;
-    @include transition;
-    &:after {
-      // LINE FOR HOVER EFFECT
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      display: block;
-      height: $link-line-height;
-      background-color: black;
-      @include transition;
-    }
-    &:hover {
-      text-decoration: none;
-      transform: translateY(-$link-line-height);
-      &:after {
-        bottom: -$link-line-height;
-        height: ($link-line-height * 2);
-      }
-    }
-  }
-}
-
-.csstransforms.csstransforms3d .stamp-effect {
-  opacity: .75;
-  transform: rotate(355deg) translate(0, 1.2em);
-  &--large {
-    @include bp(large){
-      transform: rotate(355deg) scale(1.2) translate(1.2em, .8em);
-    }
-    @include bp(xlarge){
-      transform: rotate(355deg) scale(1.66) translate(1.333em,0.333em);
-    }
-  }
-}
-
-.stylist-overlay:before {
-  content: '';
-  position: absolute;
-  top: 8px;
-  left: 5px;
-  z-index: 5;
-  display: block;
-
-  width: 60px;
-  height: 26px;
-  background-image: url(../img/logo/stylist-stamp.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  transform: rotate(355deg);
-  @include bp(small){
-    width: 120px;
-    height: 51px;
-  }
-  @include bp(medium){
-    top: 17px;
-    left: 10px;
-    width: 150px;
-    height: 64px;
-  }
-  @include bp(large){
-    width: 198px;
-    height: 84px;
+  &__question {
+    & + & { margin-top: $margin; }
   }
 }

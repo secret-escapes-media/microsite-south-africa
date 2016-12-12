@@ -1,0 +1,59 @@
+// adding to the unslider default styles
+
+
+$button-size: 44px;
+$dot-size: 12px;
+
+// NAV DOTS
+.unslider-nav ol li.unslider-active {
+  background-color: $black-5;
+  border: 0;
+}
+.unslider-nav ol li {
+  height: $dot-size;
+  width: $dot-size;
+  border-radius: $dot-size;
+  border-color: $black-25;
+}
+.unslider-nav {
+  visibility: hidden;
+  height: $button-size;
+  ol { height: $button-size; }
+  @include bp(medium){
+    visibility: visible;
+  }
+}
+.unslider-nav ol li { margin-top: (($button-size - $dot-size) / 2); }
+
+
+// NEXT & PREV BUTTONS
+.unslider-arrow {
+  height: $button-size;
+  width: $button-size;
+  background-color: $black-5;
+  text-indent: -999em;
+  border-radius: $button-size;
+  @include background-attributes;
+  background-size: ($button-size/2);
+  @include transition;
+  &:hover {
+    background-color: $black-75;
+  }
+}
+.unslider-arrow.next {
+  right: 0;
+  background-image: url('../img/icons/arrow-right.png');
+  background-position: 52.5% 50%;
+  .svgasimg & { background-image: url('../img/icons/arrow-right.svg'); }
+}
+.unslider-arrow.prev {
+  left: 0;
+  background-image: url('../img/icons/arrow-left.png');
+  background-position: 47.5% 50%;
+  .svgasimg & { background-image: url('../img/icons/arrow-left.svg'); }
+}
+
+
+// GENERAL SPACING
+.unslider { margin-top: 1em; }
+.my-slider{ margin-bottom: .5em; }

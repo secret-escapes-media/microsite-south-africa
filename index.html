@@ -4,31 +4,35 @@ title: Overview
 class: overview
 nav-order: 1
 intro: >
-  Secret Escapes has partnered with South African Tourism to highlight the very best experiences for 2016, from the indisputable must-sees to our own carefully picked recommendations.
+  A destination of variety, diversity, and vibrancy. Get closer to the African scene with your Secret Escapes video guide, and explore everything from savannah to city in this dedicated destination site
 ---
 
-<div class="row intro intro--margin-bottom">
-  <h1 class="intro__title"><span>Discover</span> South Africa</h1>
-  <p class="intro__description">{{page.intro}}</p>
-</div>
+<section class="row section">
+  <div class="page__intro">
+    <h1 class="title title--largest title--bolder title--tighter title--condense"><span class="title title--tight title--italic title--light title--largest-sub">Discover</span> South Africa</h1>
+    <p class="paragraph paragraph--lead page__intro--text-shadow">{{page.intro}}</p>
+  </div>
+</section>
 
-<div class="section row">
+<section class="row section">
   <div class="video js-youtube-thumbnail" data-thumbnail-img="img/content/overview/video.jpg">
-    <iframe class="video__iframe" src='https://www.youtube.com/embed/jeBbQABLRC0?rel=0&amp;showinfo=0' frameborder='0'></iframe>
+    <iframe class="video__iframe" src='https://www.youtube.com/embed/sQ7X0dZe2Nc?rel=0&amp;showinfo=0' frameborder='0'></iframe>
   </div>
-  <div class="home__page row--padding">
-    <h2 class="home__page-title">Go where the wild things are</h2>
-    <p>Few places in the world offer travellers as much diversity as South Africa. Lashed by the Atlantic on the West and lapped by the warm Indian Ocean on the East, this extraordinary country is probably the hardest destination to pack for – but it’s worth the challenge. Take in the roaming Big Five in Kruger, the stacked wine barrels of Stellenbosch, the penguin-inhabited shore on the Western Cape and the views over Cape Town from the mighty Table Mountain. The more time you have to visit, the better.</p>
+  <div class="inner-section inner-section--light">
+    <p>South Africa is a land which encompasses so many different landscapes makes for a photographer’s dream, a thrill seeker’s heaven, a traveller’s elysian fields. With the Atlantic feverishly bubbling to one side, and the Indian Ocean offering warm dips and beach bliss, South Africa is a country rife with a dynamic juxtaposition of landscapes and lifestyles, making for truly immersive experiences. Be it catching up with the Big Five in the savannah, or hanging out with the cool cats of Maboneng, Jo’burg, South Africa never fails to deliver something for everyone – creating itineraries the size of novels.</p>
   </div>
-</div>
+</section>
 
-<div class="section offers row">
-  <div class="row intro">
-    <img class="js-svg-swap logo logo--stylist stamp-effect" src="{{site.baseurl}}/img/logo/stylist-stamp.png" alt="Stylist Logo">
-    <h2 class="intro__subtitle">Travel Offers</h2>
-    <p class="intro__description">Book and save up to 30% on our hand-picked collection of South Africa escapes</p>
+<section class="row section">
+  {% include competition-promo.html %}
+</section>
+
+<section class="row offers section">
+  <div class="row">
+    <h2 class="title title--larger title--bolder title--tight title--condense">Travel Offers</h2>
+    <p class="paragraph paragraph--lead page__intro--text-shadow">Book our hand-picked collection of South Africa escapes</p>
   </div>
   <div class="row">
     {% include offers.html %}
   </div>
-</div>
+</section>
