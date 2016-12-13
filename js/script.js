@@ -115,6 +115,20 @@
 
     });
 
+    // check for autoplay queryString
+    if (getQueryStringByName('autoplay')) {
+      console.log('there is query string');
+      // play the video
+      var video     = $('.js-autoplay .video__iframe'),
+          videoSrc  = video.attr('src'),
+          thumbnail = video.find('.video__thumbnail');
+      // add auto play query to iframe
+      video.attr('src', videoSrc + '&autoplay=1');
+      // hide thumbnail and show video
+      thumbnail.hide();
+      video.css('visibility', 'visible');
+    }
+
   }
 
 
