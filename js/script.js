@@ -258,11 +258,46 @@ var details       = $('.js-details'),
 //      SECRETS
 ///////////////////////////////////////
 
-$('.js-remove-cover').on('click', function() {
-  var parent = $(this).closest('.secret');
-  parent.addClass('is-revealed');
-  $(this).addClass('removed');
-});
+var secret          = $('.secret'),
+    secretCover     = $('.js-reveal-secret'),
+    secretTitle     = $('.secret__title'),
+    secretContent   = $('.secret__content'),
+    nextButton      = $('.js-next-secret'),
+    activeClass     = 'is-visible',
+    secretsRevealed = 'secrets-revealed';
+
+  // check if secrets have been revealed
+  if (!(getCookie(secretsRevealed))) {
+    // hide and show all of the elements
+    secretCover.show();
+    secret.hide().filter(":first-child").show();
+    secretTitle.hide();
+    secretContent.hide();
+  }
+
+  // function for revealing the next secret
+  function revealSecret(element) {
+    $(element).closest('.secret').addClass(activeClass);
+    $(element).closest('.secret').find('.secret__title').fadeIn(animationTime);
+    $(element).closest('.secret').find('.secret__content').slideDown(animationTime);
+    $(element).closest('.secret').find('.secret__cover').slideUp(animationTime);
+    // if all are revealed, set cookie so they are revealed on load
+    if ($('.secret.is-visible').last().next('.secret').next('.secret').length === 0) {
+      // set cookie that all secrets are revealed. removed when client is closed
+      document.cookie = secretsRevealed + "=1";
+    }
+  }
+
+  // on clicking the secret ?
+  secretCover.on('click', function() {
+    // reveal the secret
+    revealSecret(this);
+    // show the next secret after the clicked secret is revealed
+    window.setTimeout(function(){
+      $('.secret.is-visible').last().next('.secret').slideDown(animationTime);
+    }, animationTime);
+  });
+
 
 ///////////////////////////////////////////////////////////////////////////////
 });})(jQuery, this); // on ready end
