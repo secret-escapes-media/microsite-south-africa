@@ -18,13 +18,11 @@
 
     {% include footer.html %}
 
-    <!-- FIXED BG WITH VIDEO ON OVERVIEW PAGE  -->
-    <div class="fixed-background" style="background-image: url('{{site.baseurl}}/img/bg/{{page.class}}.jpg');"></div>
-    {% if page.class == "overview" %}
-      <!-- <video class="video-background" autoplay loop muted>
-        <source src="video/519506400.mp4" type="video/mp4">
-      </video>
-      <div class="video-background__overlay"></div> -->
+    <!-- FIXED BG  -->
+    {% if page.standard-bg %}
+      <div class="fixed-background" style="background-image: url('{{site.baseurl}}/img/bg/overview.jpg');"></div>
+    {% else %}
+      <div class="fixed-background" style="background-image: url('{{site.baseurl}}/img/bg/{{page.class}}.jpg');"></div>
     {% endif %}
 
   </body>

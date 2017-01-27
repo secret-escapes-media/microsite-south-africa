@@ -1,0 +1,154 @@
+---
+layout: default
+title: Value
+class: value
+nav-order: 7
+intro: It may be a long-haul flight away from Europe, but South Africa can be a surprisingly credit-card-friendly destination, offering you value in unexpected places. Where luxury costs less, you’ll be set for a holiday enjoying the finer things in life – with little extra expenditure!
+
+options:
+
+  - title: Scuba Diving
+    description: So there’s probably no comparison here; a choice between the murky waters of the Channel or the crystal clear, warm Indian Ocean. Yep.
+    price-uk: 160
+    price-sa-rnd: 1900
+    price-sa-gbp: 109.62
+
+  - title: A nice meal for two, with wine
+    description: You could enjoy a three-course meal, for two, with wine, in central London. But it’ll probably be raining as you leave, so trade it in for the same in Cape Town, with gorgeous weather and a sumptuous feast.
+    price-uk: 100
+    price-sa-rnd: 500
+    price-sa-gbp: 28.85
+
+  - title: A beer &amp; a glass of&nbsp;wine
+    description: The holiday standard – how much does a drink out cost? The answer is sure to please...
+    price-uk: 12
+    price-sa-rnd: 80
+    price-sa-gbp: 4.62
+
+  - title: A sightseeing trip
+    description: Comparing that well-known open-top bus service, you could tour the grey smog of London town or actually enjoy the bus’ open top in warmth in South Africa.
+    price-uk: 30
+    price-sa-rnd: 170
+    price-sa-gbp: 9.81
+
+  - title: A hot air balloon ride
+    description: You could soar above Kentish fields. Or you could glide across open savannah, and spot the wildlife that Africa is so famous for.
+    price-uk: 200
+    price-sa-rnd: 1900
+    price-sa-gbp: 109.62
+
+  - title: Surfing lesson
+    description: Surfing! For a group lesson to get you on your way to riding the waves, pick from temperamental Cornwall or effortlessly sunny Cape Town… Not a tough choice really.
+    price-uk: 35
+    price-sa-rnd: 300
+    price-sa-gbp: 18.30
+
+  - title: Paragliding
+    description: The Yorkshire Dales are beautiful, granted. But launching off Lion’s Head and soaring over Cape Town, with the Twelve Apostles in your backdrop, is something else entirely.
+    price-uk: 160
+    price-sa-rnd: 750
+    price-sa-gbp: 44.96
+
+  - title: A show
+    description: London may have its West End, but theatre and performance proliferates in South Africa. Just check how much you could save on great seats in Cape Town, compared to London.
+    price-uk: 90
+    price-sa-rnd: 500
+    price-sa-gbp: 28.85
+
+  - title: A tacky souvenir &amp; a postcard
+    description: Another holiday essential. Think fridge magnets galore and endless punning. Your friends and family will be positively beaming.
+    price-uk: 3.50
+    price-uk-label: "3.50"
+    price-sa-rnd: 20
+    price-sa-gbp: 1.15
+
+  - title: Food and wine half-day tour
+    description: Indulge in a tour of Stellenbosch or Franschhoek, with a sumptuous local feast and Cape Winelands’ famous wines to sample. Or head to a famous English vineyard (wait.. what?) and enjoy, well, a bit of cheese and English wine.
+    price-uk: 70
+    price-sa-rnd: 500
+    price-sa-gbp: 29.87
+
+  - title: A 10km taxi ride
+    description: Comparing a black cab in London to a normal taxi in Jo’burg over a 10km stretch, you may be pleasantly surprised. Well, a bit surprised – we all know black cabs are pricey…
+    price-uk: 30
+    price-sa-rnd: 135
+    price-sa-gbp: 8.06
+
+  - title: Spa day
+    description: Replenish yourself with a full day at the spa, and indulge body, mind and soul. Do it in South Africa, and the sun will beam down as you leave, ensuring a lasting sense of calm.
+    price-uk: 175
+    price-sa-rnd: 1600
+    price-sa-gbp: 95.91
+
+---
+
+
+<section class="row section">
+  <div class="page__intro">
+    <h1 class="title title--large title--bolder title--tight title--condense">Discover How Far Your Rand Will Go</h1>
+    <p class="paragraph paragraph--lead page__intro--text-shadow">{{page.intro}}</p>
+    <p class="paragraph paragraph--lead page__intro--text-shadow">Select a few iconic holiday staples below, and see how much you could save in comparison with the UK. On top of discovering how cheap your favourite things are, we’ll offer you a further £50 off any of our South Africa holidays!</p>
+  </div>
+</section>
+
+<section class="row section">
+  <div class="title title--smaller title--lower align-center">Pick From The Following</div>
+  <div class="options">
+    {% assign options = page.options %}
+    {% for option in options %}
+    <div class="option js-select not-selected is-closed" data-title="{{option.title}}" data-price-uk="{{option.price-uk}}" data-price-sa="{{option.price-sa-gbp}}" style="background-image: url('{{site.baseurl}}/img/content/value/{{option.title | slugify}}.jpg');">
+      <div class="option__title">
+        <span class="title title--sub-heading title--lower title--tight">{{option.title}}</span>
+      </div>
+      <div class="js-toggle-details option__icon option__icon--open"></div>
+      <div class="js-details option__detail">
+        <p>{{option.description}}</p>
+        <p class="">£<span class="title title--smallest">{% if option.price-uk-label %}{{option.price-uk-label}}{% else %}{{option.price-uk}}{% endif %}</span> <span class="inline-divider">|</span> R<span class="title title--smallest">{{option.price-sa-rnd}}</span></p>
+      </div>
+      <div class="js-select-overlay option__selected"></div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+
+<section class="row section align-center">
+  <div class="row">
+    <a class="js-calculate-game btn btn--orange btn--xlarge">Discover your savings</a>
+  </div>
+</section>
+
+
+<section class="section js-result result">
+
+  <div class="section align-center">
+    <div class="row">
+      <div class="title title--smaller title--lower">You Could Save Around</div>
+      <div class="js-result-saving title title--largest title--sub-heading">£0000.00</div>
+    </div>
+    <div class="row">
+      <div class="title title--tiny title--lower">Total Costs</div>
+      <div>
+        <span class="result__total result__total--uk"><span class="js-result-uk title title--smaller title--bolder">$0000.00</span></span> vs
+        <span class="result__total result__total--sa"><span class="js-result-sa title title--smaller title--bolder">$0000.00</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="row row--padding inner-section inner-section--dark competition-promo">
+      <div class="row--columns-7-5 row--columns-vertical-align">
+        <div class="row__column">
+          <h1 class="title title--large title--bolder title--tight">Save even more with £50 off</h1>
+          <p class="paragraph paragraph--large">Book any South African break on Secret Escapes and get £50 off*. <br class="desktop-break">Have an incredible holiday for even less.</p>
+          <a href="{{site.baseurl}}/offers" class="btn btn--large btn--orange">Book Now</a>
+        </div>
+        <div class="row__column"></div>
+      </div>
+    </div>
+    <div class="row row--padding">
+      <p>* To claim £50 off your South Africa trip, please email your booking reference and registered email address to media@secretescapes.com. £50 will be refunded directly back on to your card. Please note this is only valid on booking to South Africa made between 1st january 2017 - 31st March 2017.</p>
+    </div>
+  </div>
+
+</section>

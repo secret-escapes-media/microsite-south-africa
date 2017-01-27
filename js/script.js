@@ -50,6 +50,24 @@
     infinite: true
   });
 
+  // rouund number to price
+  function priceOutput(amount) {
+    var price = parseFloat(Math.round(amount * 100) / 100).toFixed(2);
+    return '£' + price;
+  }
+
+  // gets cookies & checks for name
+  function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0)==' ') c = c.substring(1);
+      if (c.indexOf(name) === 0) return c.substring(name.length,c.length);
+    }
+    return "";
+  }
+
 
 ///////////////////////////////////////
 //        Navigation
@@ -132,24 +150,6 @@
   }
 
 
-// ///////////////////////////////////////
-// //    Stlyist offer query string
-// ///////////////////////////////////////
-//
-//   if ( !(getQueryStringByName('stylist-offer')) ) {
-//     $('.js-stylist-offer').hide();
-//   }
-
-
-///////////////////////////////////////
-//      Fade in video overlay
-///////////////////////////////////////
-
-$(window).scroll(function(){
-  $('.video-background__overlay').css("opacity", 0 + $(window).scrollTop() / 500);
-});
-
-
 ///////////////////////////////////////
 //      Expand Interview
 ///////////////////////////////////////
@@ -173,125 +173,131 @@ $('.js-expand-interview-toggle').on('click',function(e){
 });
 
 
-// ///////////////////////////////////////
-// //      Game
-// ///////////////////////////////////////
-//
-// // setting variables
-// var questions       = $('.question'),
-//     questionNum     = 0,
-//     activeQuestion  = questions[questionNum],
-//     activeClass     = 'is-active',
-//     luxuryTotal     = 0,
-//     adventureTotal  = 0,
-//     ukPriceTotal    = 0,
-//     saPriceTotal    = 0;
-//
-// // // hide results content
-// $('.game__results, .game__result').hide();
-// // $('.game__overlay, .game__questions, .game__result--luxury').hide();
-//
-// // function for close button. Goes back to previous page
-// $('.js-close-game').on('click',function(e) {
-//   e.preventDefault();
-//   history.back();
-// });
-//
-// // function for reset button. refreshes current page to keep first choice
-// $('.js-reset-game').on('click',function(e) {
-//   e.preventDefault();
-//   window.location.reload();
-// });
-//
-// // checks if question has already been answered with block end of on page
-// // string format - ?question=0&answer=adventure
-// if ( getQueryStringByName('question') && getQueryStringByName('answer') ) {
-//
-//   // collect question and answer
-//   var answeredQuestion = getQueryStringByName('question'),
-//       answeredValue    = getQueryStringByName('answer'),
-//       answeredUkPrice  = getQueryStringByName('uk-price'),
-//       answeredSaPrice  = getQueryStringByName('sa-price');
-//
-//   // add answer to the total
-//   if (answeredValue === "adventure"){
-//     adventureTotal++;
-//   } else {
-//     luxuryTotal++;
-//   }
-//
-//   // convert string to numbers
-//   answeredUkPrice = parseInt(answeredUkPrice, 10);
-//   answeredSaPrice = parseInt(answeredSaPrice, 10);
-//   // collect the price totals
-//   ukPriceTotal += answeredUkPrice;
-//   saPriceTotal += answeredSaPrice;
-//
-//   // removes the answered question from html
-//   $(questions[answeredQuestion]).remove();
-//   // removes the answered question from the array
-//   questions.splice(answeredQuestion, 1);
-//   // sets new first question to show
-//   activeQuestion = questions[questionNum];
-// }
-//
-// // shows the first question in list
-// $(activeQuestion).addClass(activeClass);
-//
-// // event for when answer is clicked
-// $('.option label').on('click', function(e){
-//   e.preventDefault();
-//
-//   var answer = $(this).siblings('input').val(),
-//       answerUkPrice = $(this).data('price-uk'),
-//       answerSaPrice = $(this).data('price-sa');
-//
-//   // get value of clicked element & increment each value
-//   if ( $(this).siblings('input').val() === "adventure"){
-//     adventureTotal++;
-//   } else {
-//     luxuryTotal++;
-//   }
-//
-//   // collect the price totals
-//   ukPriceTotal += answerUkPrice;
-//   saPriceTotal += answerSaPrice;
-//
-//   // remove the current question and show the next
-//   $(activeQuestion).removeClass(activeClass);
-//   questionNum++;
-//   activeQuestion = questions[questionNum];
-//   $(activeQuestion).addClass(activeClass);
-//
-//   // calculates after all questions are answered
-//   if ( questionNum >= questions.length ) {
-//     if (luxuryTotal > adventureTotal) {
-//       $('.game__result--luxury').show();
-//     } else {
-//       $('.game__result--adventure').show();
-//     }
-//
-//     // calculate and input price differences
-//     $('.js-saved-amount').html(ukPriceTotal - saPriceTotal);
-//     $('.js-uk-amount').html(ukPriceTotal);
-//     $('.js-sa-amount').html(saPriceTotal);
-//
-//     // shows results and hides everything else
-//     $('.game__results').show();
-//     $('.game__questions, .game__overlay--top-center, .game__overlay--center').hide();
-//   }
-// });
+///////////////////////////////////////
+//      Game
+///////////////////////////////////////
+
+var details       = $('.js-details'),
+    detailstoggle = $('.js-toggle-details'),
+    animationTime = 250,
+    option        = $('.js-select'),
+    optionOverlay = $('.js-select-overlay'),
+    calculate     = $('.js-calculate-game'),
+    result        = $('.js-result'),
+    resultSaving  = $('.js-result-saving'),
+    resultUK      = $('.js-result-uk'),
+    resultSA      = $('.js-result-sa');
+
+  // unselects all options & hides results
+  optionOverlay.hide();
+  result.hide();
+
+  // selects option
+  option.on('click', function(e) {
+    e.preventDefault();
+    // stops if child element is clicked or details are open
+    if (e.target !== e.currentTarget || $(this).hasClass('is-open') ) return;
+    // toggles classes and shows overlay
+    $(this).find('.option__selected').fadeIn(animationTime);
+    $(this).addClass('is-selected').removeClass('not-selected');
+  });
+
+  // deselects when selected
+  optionOverlay.on('click', function(e) {
+    e.preventDefault();
+    // stops if details are open
+    if ($(this).closest('.option').hasClass('is-open')) return;
+    // toggles classes and hides overlay
+    $(this).fadeOut(animationTime);
+    $(this).closest('.option').addClass('not-selected').removeClass('is-selected');
+  });
+
+  // toggle show details of the option
+  details.hide();
+  detailstoggle.on('click', function(e) {
+    e.preventDefault();
+    var thisOption = $(this).closest('.option');
+    // toggles information and icon
+    if ($(this).closest('.option').hasClass('is-closed')){
+      $(this).next('.js-details').slideDown(animationTime);
+      thisOption.removeClass('is-closed').addClass('is-open');
+      $(this).removeClass('option__icon--open').addClass('option__icon--close');
+    } else {
+      $(this).next('.js-details').slideUp(animationTime);
+      thisOption.removeClass('is-open').addClass('is-closed');
+      $(this).removeClass('option__icon--close').addClass('option__icon--open');
+    }
+  });
+
+  // calculate saving & show results
+  calculate.on('click', function(e){
+    e.preventDefault();
+    var totalPriceUK  = 0,
+        totalPriceSA  = 0,
+        totalSaving   = 0;
+    // completes if there are options selected
+    if ($('.option.is-selected').length > 0 ) {
+      // goes through each option and adds to total if selected
+      $('.option.is-selected').each(function() {
+        totalPriceUK += $(this).data('price-uk');
+        totalPriceSA += $(this).data('price-sa');
+      });
+      // calcualate the total saving compared with the UK
+      totalSaving = totalPriceUK - totalPriceSA;
+      // output prices to sections on the page
+      resultSaving.text(priceOutput(totalSaving));
+      resultUK.text(priceOutput(totalPriceUK));
+      resultSA.text(priceOutput(totalPriceSA));
+      // show the results on page
+      result.slideDown(animationTime);
+    }
+  });
 
 
 ///////////////////////////////////////
 //      SECRETS
 ///////////////////////////////////////
 
-$('.js-remove-cover').on('click', function() {
-  var parent = $(this).closest('.secret');
-  parent.addClass('is-revealed');
-  $(this).addClass('removed');
-});
+var secret          = $('.secret'),
+    secretCover     = $('.js-reveal-secret'),
+    secretTitle     = $('.secret__title'),
+    secretContent   = $('.secret__content'),
+    nextButton      = $('.js-next-secret'),
+    activeClass     = 'is-visible',
+    secretsRevealed = 'secrets-revealed';
+
+  // check if secrets have been revealed
+  if (!(getCookie(secretsRevealed))) {
+    // hide and show all of the elements
+    secretCover.show();
+    secret.hide().filter(":first-child").show();
+    secretTitle.hide();
+    secretContent.hide();
+  }
+
+  // function for revealing the next secret
+  function revealSecret(element) {
+    $(element).closest('.secret').addClass(activeClass);
+    $(element).closest('.secret').find('.secret__title').fadeIn(animationTime);
+    $(element).closest('.secret').find('.secret__content').slideDown(animationTime);
+    $(element).closest('.secret').find('.secret__cover').slideUp(animationTime);
+    // if all are revealed, set cookie so they are revealed on load
+    if ($('.secret.is-visible').last().next('.secret').next('.secret').length === 0) {
+      // set cookie that all secrets are revealed. removed when client is closed
+      document.cookie = secretsRevealed + "=1";
+    }
+  }
+
+  // on clicking the secret ?
+  secretCover.on('click', function() {
+    // reveal the secret
+    revealSecret(this);
+    // show the next secret after the clicked secret is revealed
+    window.setTimeout(function(){
+      $('.secret.is-visible').last().next('.secret').slideDown(animationTime);
+    }, animationTime);
+  });
+
 
 ///////////////////////////////////////////////////////////////////////////////
 });})(jQuery, this); // on ready end
