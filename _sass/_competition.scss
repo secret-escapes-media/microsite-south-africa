@@ -5,6 +5,7 @@
   padding-top: 4em;
   padding-bottom: 4em;
   background-image: url(../img/bg/competition-promo.png);
+  &__terms { margin-top: 1em; }
   @include background-attributes;
   @include bp(large){
     background-image: url(../img/bg/competition-promo-fade.png);
