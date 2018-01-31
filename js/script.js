@@ -40,16 +40,6 @@
     return decodeURIComponent(results[2].replace(/\+/g, " "));
   }
 
-  // general image slider
-  $('.my-slider').unslider({
-    autoplay: true,
-    delay: 4000,
-    speed: 1500,
-    nav: false,
-    arrows: false,
-    infinite: true
-  });
-
   // rouund number to price
   function priceOutput(amount) {
     var price = parseFloat(Math.round(amount * 100) / 100).toFixed(2);
@@ -296,6 +286,20 @@ var secret          = $('.secret'),
     window.setTimeout(function(){
       $('.secret.is-visible').last().next('.secret').slideDown(animationTime);
     }, animationTime);
+  });
+
+
+  $('.js-countdown').each(function() {
+    // gets the expires date from the object
+    var livedate = $(this).data('date');
+    $(this).countdown(livedate, function(event) {
+      $(this).html(event.strftime(''
+        + '<span class="countdown__item"><span class="countdown__num">%-m</span> month%!m</span>'
+        + '<span class="countdown__item"><span class="countdown__num countdown__days">%-n</span> day%!n</span>'
+        + '<span class="countdown__item"><span class="countdown__num countdown__hours">%-H</span> hour%!H</span>'
+        + '<span class="countdown__item"><span class="countdown__num countdown__minutes">%-M</span> minute%!M</span>'
+        + '<span class="countdown__item"><span class="countdown__num countdown__seconds">%-S</span> second%!S</span>'));
+    });
   });
 
 

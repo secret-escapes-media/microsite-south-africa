@@ -82,15 +82,22 @@ input, textarea, keygen, select, button {
     line-height: 1.25;
   }
   &--large { font-size: 1.05em; }
+  &--larger { font-size: 1.05em; }
   @include bp(large){
     &--lead { font-size: 1.467em; }
     &--large { font-size: 1.2em; }
+    &--larger { font-size: 1.7em; }
   }
 }
 
 
 // -------- general content styles --------
 
+p {
+  max-width: 850px;
+  .align-center &,
+  &.align-center { margin-left: auto; margin-right: auto; }
+}
 p + *         { margin-top: .66em; }
 li            { list-style-position: inside; }
 ul li         { list-style-type: disc; }
@@ -100,3 +107,25 @@ strong        { font-weight: 600; }
 .align-center { text-align: center; }
 .align-right  { text-align: right; }
 .align-left   { text-align: left; }
+
+
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: $light-grey;
+  margin: 2em 0;
+  padding: 0;
+  .title + & { padding-top: 0; margin-top: 2em; }
+  & + p { padding-top: 0 !important; }
+  .text--white & { background-color: rgba($white,0.1); }
+}
+.hr {
+  &--center { width: 80px; margin-left: auto; margin-right: auto; }
+  &--margin { margin-top: 2em; margin-bottom: 2em; }
+  &--white  { background-color: $light-grey; }
+  &--dark   { background-color: $dark-grey; }
+  &--left { width: 80px; margin-left: 0; }
+  &--bold { height: 3px; }
+}
+
