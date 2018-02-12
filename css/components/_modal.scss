@@ -1,0 +1,162 @@
+
+$icon-size: 3em;
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: $z-overlay;
+  background-color: rgba($grey-darkest,0.85);
+  cursor: pointer;
+  overflow: hidden;
+  &.is-open { display: block;}
+  &.is-closed { display: none; }
+  &__ui-wrap {
+    position: absolute;
+    top: $icon-size;
+    left: 0;
+    right: 0;
+    bottom: $icon-size;
+    width: 100%;
+    max-width: $xl;
+    margin-top: 0 !important;
+    cursor: auto;
+  }
+  &__content-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 0 !important;
+    max-width: $xl;
+    cursor: auto;
+    overflow-y: auto;
+    .flexbox & {
+      display: flex;
+      align-items: center;
+    }
+  }
+  &__content {
+    margin: auto;
+    background-color: $white;
+    &--padding{
+      padding: $s2 ($s2/1.5);
+      @include bp(lg){
+        padding: ($s2*1.25) $s2;
+      }
+    }
+  }
+  &__close {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 3em;
+    width: 3em;
+    background-color: rgba($black, .5);
+    background-image: url('../img/icons/close.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 1em;
+    cursor: pointer;
+    z-index: $z-overlay-upper;
+    @include transition;
+    .svg & { background-image: url('../img/icons/close.svg'); }
+    &:hover{ background-color: $black; }
+  }
+  &__nav {
+    position: absolute;
+    bottom: -$icon-size;
+    z-index: $z-overlay-upper;
+    height: $icon-size;
+    width: 50%;
+    margin-top: -($icon-size/2);
+    background-color: rgba($black, .5);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 1em;
+    cursor: pointer;
+    user-select: none;
+    @include transition;
+    &--next {
+      border-left: 1px solid rgba($white,.25);
+      right: 0;
+      background-image: url('../img/icons/arrow-right.png');
+      .svg & { background-image: url('../img/icons/arrow-right.svg'); }
+    }
+    &--previous {
+      left: 0;
+      background-image: url('../img/icons/arrow-left.png');
+      .svg & { background-image: url('../img/icons/arrow-left.svg'); }
+    }
+    &:hover{ background-color: $black; }
+  }
+  @include bp(md){
+    &__content-wrap {
+      margin-left: $icon-size;
+      margin-right: $icon-size;
+    }
+    &__nav{
+      top: 50%;
+      height: ($icon-size*2);
+      width: $icon-size;
+      &--next{
+        border-left: 0;
+      }
+    }
+  }
+
+  &__details {
+    border-top: 1px solid $grey-light;
+    border-bottom: 1px solid $grey-light;
+    margin: 1em 0;
+    &-item {
+      display: inline-block;
+      font-size: 0.8em;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-bottom: 1px solid $grey-light;
+      padding: 5px 10px;
+      width: 100%;
+      @include bp(lg){
+        width: auto;
+        border-bottom: 0;
+        border-right: 1px solid $grey-light;
+        padding: 8px 30px;
+        &:last-child { border-right: 0; }
+      }
+      &:first-child { padding-left: 0; }
+      &:last-child { padding-right: 0; border-bottom: 0; }
+    }
+    &-location {
+      margin-top: 0.3em;
+      margin-bottom: 0.3em;
+      text-indent: -1.5em;
+      &:before {
+        content: "";
+        display: inline-block;
+        font-size: 10px;
+        height: 1.5em;
+        width: 1.05em;
+        margin-right: .8em;
+        margin-bottom: .4em;
+        vertical-align: middle;
+        background-image: url( "../img/icons/map-pin.png" );
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-size: contain;
+        opacity: 0.6;
+        .svg & { background-image: url( "../img/icons/map-pin.svg" ); }
+      }
+    }
+  }
+
+}
+
+.disable-scroll {
+  overflow: hidden;
+}

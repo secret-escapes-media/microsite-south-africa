@@ -1,0 +1,39 @@
+---
+layout: default
+---
+
+{% include page/banner.html %}
+
+
+
+<div class="page__background">
+  <div class="page__background-image js-bg-fade" style="background-image: url({{site.baseurl}}/img/bg/{{page.id}}.jpg);"></div>
+</div>
+
+
+
+<div class="page__content">
+
+
+  {% if page.intro %}
+  <!-- Page intro -->
+  <div class="row row--padding bg--white bg--rounded bg--shadow text--center intro{% if page.sections %} has-nav{% endif %}">
+    <div class="wp" id="section-intro"></div>
+    <div class="intro__content vpad--lg">
+      {{page.intro}}
+    </div>
+    {% if page.sections %}
+    <div class="intro__nav">
+      {% include nav/page-nav.html %}
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+
+
+  {{ content }}
+
+
+</div>
+
+{% include modal/modal-poi.html %}

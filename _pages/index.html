@@ -1,46 +1,42 @@
 ---
-layout: default
+layout: standard
+id: overview
 title: Overview
-class: overview
 nav-order: 1
+
+
+
+banner:
+  content: >
+    <span class="banner__title--super title title--xxl title--np title--upper title--light title--italic">Discover</span>
+    <h1 class="banner__title title title--upper title--bold">South Africa</h1>
+    <p class="text--xl">A destination of variety, diversity, and vibrancy. Get closer to the African scene with your Secret Escapes video guide, and explore everything from savannah to city in this dedicated destination site</p>
+
+
+
 intro: >
-  A destination of variety, diversity, and vibrancy. Get closer to the African scene with your Secret Escapes video guide, and explore everything from savannah to city in this dedicated destination site
+  <p class="text--xl">South Africa is a land which encompasses so many different landscapes makes for a photographer’s dream, a thrill seeker’s heaven, a traveller’s elysian fields. With the Atlantic feverishly bubbling to one side, and the Indian Ocean offering warm dips and beach bliss, South Africa is a country rife with a dynamic juxtaposition of landscapes and lifestyles, making for truly immersive experiences. Be it catching up with the Big Five in the savannah, or hanging out with the cool cats of Maboneng, Jo’burg, South Africa never fails to deliver something for everyone – creating itineraries the size of novels.</p>
+
+
+
 ---
 
-<section class="row section">
-  <div class="page__intro">
-    <h1 class="title title--largest title--bolder title--tighter title--condense"><span class="title title--tight title--italic title--light title--largest-sub">Discover</span> South Africa</h1>
-    <p class="paragraph paragraph--lead page__intro--text-shadow">{{page.intro}}</p>
+
+
+
+  <div class="row text--white">
+    <div class="wp" id="section-offers"></div>
+
+    <h2 class="title title--xxxxl title--upper title--bold">Travel offers</h2>
+    <p class="text--xl">Book our hand-picked collection of South Africa escapes</p>
+
   </div>
-</section>
 
-
-
-<section class="row section">
-  <div class="roadtrips">
-    <h3 class="title title--smaller title--bold">Get on the road, and discover the real South Africa</h3>
-    <p class="paragraph--lead text--bold">Our team are currently road trippin' across the spellbinding landscapes of South Africa. Discover their story soon. Don't miss the launch!</p>
-    <div class="js-countdown countdown row--xl" data-date="2018/03/01"></div>
-  </div>
-</section>
-
-
-
-<section class="row section" id="feature-video">
-  <div class="video js-youtube-thumbnail js-autoplay" data-thumbnail-img="img/content/overview/video.jpg">
-    <iframe class="video__iframe" src='https://www.youtube.com/embed/Epwoqj0qyac?rel=0&amp;showinfo=0' frameborder='0' allowfullscreen="allowfullscreen"></iframe>
-  </div>
-  <div class="inner-section inner-section--light">
-    <p>South Africa is a land which encompasses so many different landscapes makes for a photographer’s dream, a thrill seeker’s heaven, a traveller’s elysian fields. With the Atlantic feverishly bubbling to one side, and the Indian Ocean offering warm dips and beach bliss, South Africa is a country rife with a dynamic juxtaposition of landscapes and lifestyles, making for truly immersive experiences. Be it catching up with the Big Five in the savannah, or hanging out with the cool cats of Maboneng, Jo’burg, South Africa never fails to deliver something for everyone – creating itineraries the size of novels.</p>
-  </div>
-</section>
-
-<section class="row offers section">
   <div class="row">
-    <h2 class="title title--larger title--bolder title--tight title--condense">Travel Offers</h2>
-    <p class="paragraph paragraph--lead page__intro--text-shadow">Book our hand-picked collection of South Africa escapes</p>
+    {% assign offers = site.data.offers %}
+    {% for offer in offers %}
+      {% include components/offer.html %}
+    {% endfor %}
   </div>
-  <div class="row">
-    {% include offers.html %}
-  </div>
-</section>
+
+

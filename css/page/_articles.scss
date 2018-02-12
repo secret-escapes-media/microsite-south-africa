@@ -1,0 +1,152 @@
+// Styles for the page layout of each article
+
+
+.page {
+  &__margin-top{ height: 50%; }
+  &__wrap {
+    margin-bottom: ($s2 * 4);
+  }
+  &__intro {
+    max-width: $xl;
+    &--text-shadow { text-shadow: 0px 2px 19px rgba($black,.75); }
+  }
+  &__intro-logo {
+    margin-top: 1.25em;
+    @include bp(xxxl){
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin-top: 0;
+    }
+  }
+}
+
+.inner-section {
+  padding: 1.728em 1.5em;
+  &--light {
+    background-color: rgba($white,0.9);
+  }
+  &--dark {
+    background-color: rgba($black,.75);
+  }
+  @include bp(lg){
+    padding: 1.8em 2.2em;
+  }
+}
+
+.subject {
+  margin-bottom: 8em;
+  line-height: 1.5;
+  .inner-section { padding-bottom: 2.467em; }
+  &__title {
+    padding-top: .8em;
+    padding-bottom: .8em;
+    text-align: center;
+    background-color: rgba($black,.66);
+    border-bottom: 12px solid $black;
+  }
+}
+
+
+// ---------------- subject colours ----------------
+
+// culture
+.culture-01--border { border-color: #3dac00;}
+.culture-01--bg     { background-color: rgba(61,172,0,.66); }
+.culture-02--border { border-color: #00ab53;}
+.culture-02--bg     { background-color: rgba(0,171,83,.66); }
+.culture-03--border { border-color: #91ab00;}
+.culture-03--bg     { background-color: rgba(145,171,0,.66); }
+
+// nature
+.nature-01--border { border-color: #a1b82c; }
+.nature-01--bg     { background-color: rgba(161,184,44,.5); }
+.nature-02--border { border-color: #1ab16b; }
+.nature-02--bg     { background-color: rgba(26,177,107,.5); }
+.nature-03--border { border-color: #22d1c0; }
+.nature-03--bg     { background-color: rgba(34,209,192,.5); }
+
+// food
+.food-01--border { border-color: #fd7e23; }
+.food-01--bg     { background-color: rgba(253,126,35,.5); }
+.food-02--border { border-color: #fc381d; }
+.food-02--bg     { background-color: rgba(252,56,29,.5); }
+.food-03--border { border-color: #bb3913; }
+.food-03--bg     { background-color: rgba(187,57,19,.5); }
+
+// adventure
+.adventure-01--border { border-color: #2dc7b2; }
+.adventure-01--bg     { background-color: rgba(45,199,178,.5); }
+.adventure-02--border { border-color: #053d62; }
+.adventure-02--bg     { background-color: rgba(5,61,98,.66); }
+.adventure-03--border { border-color: #80bd35; }
+.adventure-03--bg     { background-color: rgba(128,189,53,.5); }
+
+
+
+
+
+// ---------------- mobile nav ----------------
+
+.drop-nav {
+  position: absolute;
+  display: none;
+  width: 15em;
+  transform-origin: top center;
+  @include transition;
+  .csstransforms.csstransforms3d & {
+    display: block;
+    transform: scaleY(0);
+  }
+  &__item {
+    display: block;
+    height: $site-nav-height;
+    background-color: rgba($grey-darkest,0.9);
+    @include transition;
+    &:hover { background-color: rgba($grey-darkest,0.75); }
+    border-top: 1px solid rgba($white,.25);
+    & + & { }
+  }
+  &__link {
+    display: block;
+    line-height: $site-nav-height;
+    &:hover { text-decoration: none; }
+  }
+  @include bp(xl){
+    .site-nav__item:hover &{
+      display: block;
+      .csstransforms.csstransforms3d & {
+        transform: scaleY(1);
+      }
+    }
+  }
+  &__mobile {
+    @include bp(xl){
+      display: none;
+    }
+    li {
+      display: block;
+      border-left-width: .33em;
+      border-style: solid;
+      background-color: rgba($black,.33);
+      margin-right: 1em;
+      @include bp(md){
+        display: inline-block;
+      }
+      a {
+        display: block;
+        height: $s2 * 2;
+        line-height: $s2 * 2;
+        padding-left: ($s2 / 2);
+        padding-right: $s2;
+        &:hover { text-decoration: none; }
+      }
+    }
+    li + li {
+      border-top: 1px solid rgba($white,.5);
+      @include bp(md){
+        border-top: 0;
+      }
+    }
+  }
+}

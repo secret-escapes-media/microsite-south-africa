@@ -1,0 +1,89 @@
+// general styles for the project that wouldn't be a reuseable component
+
+.bg {
+  &--white      { background-color: $white; }
+  &--white-5    { background-color: rgba($white,.5); }
+  &--black-20    { background-color: rgba($black,.2); }
+  &--grey { background-color: $grey; }
+  &--grey-dark { background-color: $grey-dark; }
+  &--grey-darker { background-color: $grey-darker; }
+  &--grey-darkest { background-color: $grey-darkest; }
+  &--grey-light { background-color: $grey-light; }
+  &--grey-lighter { background-color: $grey-lighter; }
+  &--grey-lightest { background-color: $grey-lightest; }
+
+  &--theme-primary { background-color: $theme-primary; }
+  &--theme-secondary { background-color: $theme-secondary; }
+
+  &--fixed {
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    background-attachment: fixed;
+    .touch & { background-attachment: scroll; }
+  }
+  &--rounded { border-radius: 4px; }
+  &--shadow { @include shadow; }
+}
+
+
+
+
+// ---------- PAGE INTRO ----------
+
+.intro {
+  $page-nav-height: 50px;
+  position: relative;
+  &.has-nav {
+    padding-bottom: $page-nav-height;
+    &__content {}
+  }
+}
+
+
+
+
+// ---------- YOUTUBE VIDEO THUMBNAIL ----------
+
+.video {
+  position: relative;
+  height: 0;
+  max-width: 100%;
+  padding-bottom: 56.25%;
+  background-color: #000;
+  overflow: hidden;
+  &__iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  &__thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    @include background-attributes;
+  }
+  &__play {
+    $button-size: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: $button-size;
+    width: $button-size;
+    margin-top: -( $button-size / 2 );
+    margin-left: -( $button-size / 2 );
+    background-image: url("../img/icons/play.png");
+    @include background-attributes;
+    background-size: contain;
+    cursor: pointer;
+    @include transition;
+    &:hover {
+      transform: scale( 1.25, 1.25);
+    }
+  }
+}
+

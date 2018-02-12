@@ -1,29 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  {% include head.html %}
+  {% include page/head.html %}
 
-  <body id="top" class="{% if page.class %}{{ page.class }}{% endif %}" {% if page.class %}data-current-page="{{ page.class }}"{% endif %}>
+  <body id="top" class="page--{{page.id}} layout--{{page.layout}}" data-current-page="{{page.id}}"{% if page.group %} data-current-group="{{page.group}}"{% endif %}>
 
-    {% include tracking.html %}
+    {% include page/tracking.html %}
 
-    {% include header.html %}
+    {% include page/header.html %}
 
-    <div class="page__margin-top"></div>
-    <div class="row--padding">
-      <div class="page__wrap">
-        {{ content }}
-      </div>
-    </div>
+    {{ content }}
 
-    {% include footer.html %}
-
-    <!-- FIXED BG  -->
-    {% if page.standard-bg %}
-      <div class="fixed-background" style="background-image: url('{{site.baseurl}}/img/bg/overview.jpg');"></div>
-    {% else %}
-      <div class="fixed-background" style="background-image: url('{{site.baseurl}}/img/bg/{{page.class}}.jpg');"></div>
-    {% endif %}
+    {% include page/footer.html %}
 
   </body>
 

@@ -1,10 +1,20 @@
 # Site settings
 title: South Africa
-description: >
-  Secret Escapes brings you a range of must-do activities – for all the essential attractions, and something new suggestions for a South African adventure.
+
+clients:
+  - name: South African Tourism
+    link: "https://www.visit-corsica.com/en"
+
+description: Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nullam quis risus eget urna mollis ornare vel eu leo.
+
 baseurl: "/southafrica" # the subpath of your site, e.g. /blog/
 url: "http://mp.secretescapes.com" # the base hostname & protocol for your site
 
+
 # Build settings
 markdown: kramdown
-exclude: [node_modules, gulpfile.js, package.json, bower_components, bower.json, README.md]
+exclude: [node_modules, gulpfile.js, package.json, package-lock.json, js/script.js]
+keep_files: [js/scripts.min.js]
+sass:
+    sass_dir: css
+    style: compressed

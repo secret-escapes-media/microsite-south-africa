@@ -1,0 +1,11 @@
+{% assign offers = site.data.offers | sort: 'saved' | reverse %}
+
+<div class="row">
+  {% for offer in offers %}
+    {% if offer.se-offer %}
+      {% include components/offer.html type='se' %}
+    {% else %}
+      {% include components/offer.html type='direct' %}
+    {% endif %}
+  {% endfor %}
+</div>

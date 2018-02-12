@@ -1,0 +1,62 @@
+// the title banner that appears at the top of every page. sometimes animated bgs
+
+$core-nav-height:     $s9;
+$core-nav-height-sm:  $s8;
+
+.banner {
+  position: relative;
+  overflow: hidden;
+  color: white;
+  height: 80%;
+  min-height: 460px;
+  .overview & { height: 80%; }
+  &__wrap {
+    display: table;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($grey-darkest,0.3);
+    @include bp(lg){
+      background-color: transparent;
+    }
+  }
+  &__content {
+    display: table-cell;
+    vertical-align: middle;
+    padding-top: $core-nav-height-sm*2;
+    @include bp(md){
+      padding-top: $core-nav-height*2;
+    }
+  }
+
+  &__title {
+    line-height: 1;
+    display: block;
+    margin: auto;
+    font-size: $s7;
+    @include bp(md){ font-size: $s9; }
+    @include bp(xl){ font-size: $s11; }
+    &--sub { line-height: 1; }
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: $z-background;
+    background-color: $grey-dark;
+
+    @include background-attributes;
+    @include max-bp(lg){
+      background-position: center right;
+    }
+  }
+  &__nav {
+    position: absolute;
+    width: 100%;
+    top: $core-nav-height-sm;
+    @include bp(md){ top: $core-nav-height; }
+  }
+
+}

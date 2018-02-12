@@ -1,26 +1,27 @@
 ---
-layout: default
+layout: standard
+id: offers
 title: Offers
-class: offers
-nav-order: 9
-intro: >
-  South Africa is often described as an entire world in one country, and with so many incredible experiences to be had this year, now is the time to visit. Browse our offers on regional tours and sumptuous stays at top-end hotels.
+nav-order: 4
+
+
+
+banner:
+  intro: >
+    <p class="text--xl">South Africa is often described as an entire world in one country, and with so many incredible experiences to be had this year, now is the time to visit. Browse our offers on regional tours and sumptuous stays at top-end hotels.</p>
+
+
 ---
 
-<section class="row">
-  <div class="page__intro">
-    <h1 class="title title--largest title--bolder title--tighter title--condense">{{page.title}}</h1>
-    <p class="paragraph paragraph--lead page__intro--text-shadow">
-      {{page.intro}}
-    </p>
-    <div class="page__intro-logo">
-      <a class="logo logo--south-african-airways" href="https://www.flysaa.com/jo/en/"><img class="js-svg-swap" src="{{ site.baseurl }}/img/logo/south-african-airways-white.png" alt="South African Airways Logo"></a>
-    </div>
-  </div>
-</section>
 
-<section class="row offers section">
-  <div class="row">
-    {% include offers.html %}
-  </div>
-</section>
+
+<div class="row vpad--lg">
+  {% include components/offers.html %}
+</div>
+
+
+
+
+{% include components/offer-promo.html %}
+
+

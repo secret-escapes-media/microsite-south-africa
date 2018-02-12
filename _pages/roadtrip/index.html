@@ -1,0 +1,28 @@
+---
+layout: standard
+id: roadtrip
+title: Roadtrip
+nav-order: 2
+group: roadtrip
+---
+
+
+
+{% assign group-pages = site.html_pages | sort:"group-order" %}
+
+<div class="row row--6-6-gutters">
+  {% for page in group-pages %}
+    {% if page.group-order %}
+    <div class="col vpad-bottom--lg">
+      <a class="bg-img bg-img--4-3 bg-img--rounded bg-img--shadow bg--grey-darkest" href="{{page.url}}">
+        <div class="bg-img__content text--center text--white">
+          <span class="title title--lg title--bold title--upper">{{page.title}}</span>
+        </div>
+        <div class="bg-img__bg" style="background-image: url({{site.baseurl}}/img/bg/{{page.id}}-nav.jpg)"></div>
+      </a>
+    </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+
