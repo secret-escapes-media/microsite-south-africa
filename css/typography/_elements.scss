@@ -19,6 +19,7 @@
   &--white  { color: $white; }
   &--black  { color: $text; }
   &--dark   { color: $text-dark; }
+  &--shadow { text-shadow: 0 2px 19px rgba($black,.75); }
 
   &--quote  {
     .page__content * + & {
@@ -70,15 +71,32 @@
 
 hr {
   border: 0;
-  height: 1px;
+  height: 2px;
   background-color: $grey-lighter;
   margin: $s1;
   .title + & { padding-top: 0; margin-top: $s1; }
   .page__content & + p { padding-top: 0; }
-  .text--white & { background-color: rgba($white,0.3); }
+  .text--white & { background-color: $white; }
 }
 .hr {
   &--center { width: 80px; margin-left: auto; margin-right: auto; }
   &--left { width: 80px; display: block; margin-left: 0; }
+}
+
+
+// -------- lists --------
+
+.list {
+  &--lined {
+    & > li {
+      margin-left: 0;
+      list-style-type: none !important;
+      padding: $s-4 0;
+      border-top: 2px solid $grey-lightest;
+      .page__content .text--white & { border-top: 2px solid rgba($white,.2); }
+      &:last-child { padding-bottom: 0; }
+      & + & { margin-top: 0; }
+    }
+  }
 }
 

@@ -1,0 +1,64 @@
+---
+layout: default
+---
+
+
+
+<div class="banner">
+  <div class="banner__wrap">
+    <div class="banner__content row--padding">
+      <div class="row text--white">
+
+        <h1 class="banner__title title title--upper title--bold">{{page.banner.title}}</h1>
+        <p class="text--lg">{{page.banner.intro}}</p>
+
+        <ul class="list--lined">
+          <li><p><span class="text--bold">Journey:</span> {{page.meta.journey}}</p></li>
+          <li><p><span class="text--bold">Length:</span> {{page.meta.distance}} / {{page.meta.time}}</p></li>
+        </ul>
+
+        <a href="#roadtrip" class="btn btn--solid">Start the journey</a>
+
+      </div>
+    </div>
+  </div>
+  {% assign pages = site.html_pages %}
+  {% if pages.size > 1 %}
+    {% include nav/microsite-nav.html class="banner__nav" %}
+  {% endif %}
+</div>
+
+
+
+<div class="page__background">
+  <div class="page__background-image js-bg-fade" style="background-image: url({{site.baseurl}}/img/bg/{{page.id}}.jpg);"></div>
+</div>
+
+
+
+
+
+<div class="roadtrip bg--white">
+  <div class="wp" id="roadtrip"></div>
+
+  <div class="roadtrip__canvas" id="map"></div>
+
+  <div class="roadtrip__pane">
+    <div class="roadtrip__pane__content">
+      {% for roadtrip in page.roadtrip %}
+        <div class="section text--center">
+          <h2 class="title title--xl title--bold">{{ roadtrip.title }}</h2>
+          <span class="title title--sm title--sub title--bold title--upper title--kerning">{{ roadtrip.subtitle }}</span>
+        </div>
+        {% for highlight in roadtrip.highlights %}
+        <div class="row roadtrip__highlight place place--{{highlight.id}} js-place" data-marker-id="{{highlight.id}}">
+          <h4 class="title title--sm title--sub title--bold title--upper title--kerning">{{highlight.title}}</h4>
+          <p>{{highlight.content}}</p>
+        </div>
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+
+</div>
+

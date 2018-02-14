@@ -45,10 +45,12 @@ gulp.task('js', function(){
     './js/_components/on-ready/start.js',
 
     // components
+    './js/markers.js',
     './js/_components/standard.js',
     './js/_components/offer-countdown.js',
     './js/_components/modal.js',
     './js/_components/unslider.js',
+    './js/_components/map.js',
 
     // custom js for project
     './js/script.js',

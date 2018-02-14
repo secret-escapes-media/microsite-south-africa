@@ -7,11 +7,11 @@ $core-nav-height-sm:  $s8;
   position: relative;
   overflow: hidden;
   color: white;
-  height: 80%;
+  height: 66%;
   min-height: 460px;
-  .overview & { height: 80%; }
+  .page--overview & { height: 100%; }
   &__wrap {
-    display: table;
+    position: relative;
     width: 100%;
     height: 100%;
     background-color: rgba($grey-darkest,0.3);
@@ -20,11 +20,18 @@ $core-nav-height-sm:  $s8;
     }
   }
   &__content {
-    display: table-cell;
-    vertical-align: middle;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     padding-top: $core-nav-height-sm*2;
     @include bp(md){
       padding-top: $core-nav-height*2;
+    }
+    .page--overview & {
+      bottom: auto;
+      top: 50%;
+      transform: translateY(-50%);
     }
   }
 
@@ -36,6 +43,14 @@ $core-nav-height-sm:  $s8;
     @include bp(md){ font-size: $s9; }
     @include bp(xl){ font-size: $s11; }
     &--sub { line-height: 1; }
+    &--super { line-height: 1; }
+  }
+
+  &__intro {
+    font-family: $font-family-headline-02;
+    font-weight: 400;
+    line-height: 1.4;
+    max-width: $lg;
   }
 
   &__bg {

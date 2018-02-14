@@ -17,16 +17,18 @@ layout: default
 
   {% if page.intro %}
   <!-- Page intro -->
-  <div class="row row--padding bg--white bg--rounded bg--shadow text--center intro{% if page.sections %} has-nav{% endif %}">
-    <div class="wp" id="section-intro"></div>
-    <div class="intro__content vpad--lg">
-      {{page.intro}}
+  <div class="row row--padding">
+    <div class="row--padding bg--white bg--rounded bg--shadow text--center intro{% if page.sections %} has-nav{% endif %}">
+      <div class="wp" id="section-intro"></div>
+      <div class="intro__content vpad--lg">
+        {{page.intro}}
+      </div>
+      {% if page.sections %}
+      <div class="intro__nav">
+        {% include nav/page-nav.html %}
+      </div>
+      {% endif %}
     </div>
-    {% if page.sections %}
-    <div class="intro__nav">
-      {% include nav/page-nav.html %}
-    </div>
-    {% endif %}
   </div>
   {% endif %}
 

@@ -1,33 +1,30 @@
 <div class="banner">
   <div class="banner__wrap">
     <div class="banner__content row--padding">
-      <div class="row text--white">
+      <div class="row row--padding text--white">
 
-        {% if page.banner.content %}
+        {% if page.banner.title %}
+          <h1 class="banner__title title title--upper title--bold">{{page.banner.title}}</h1>
+        {% elsif page.banner.content %}
           {{page.banner.content}}
         {% else %}
-
-          {% if page.banner.title-super %}
-            <div class="banner__title--super title title--xxl title--np title--upper title--light title--italic">{{page.banner.title-super}}</div>
-          {% endif %}
-
-          <h1 class="banner__title title title--upper title--bold">
-            {% if page.banner.title %}
-              {{page.banner.title}}
-            {% else %}
-              {{page.title}}
-            {% endif %}
-          </h1>
-
-          {% if page.banner.title-sub %}
-            <div class="banner__title--sub title title--xl title--np title--upper title--light title--italic">{{page.banner.title-sub}}</div>
-          {% endif %}
-
-          {% if page.banner.intro %}
-            {{page.banner.intro}}
-          {% endif %}
-
+          <h1 class="banner__title title title--upper title--bold">{{page.title}}</h1>
         {% endif %}
+
+        {% if page.banner.title-super %}
+          <div class="banner__title--super title title--xxl title--np title--upper title--light title--italic">{{page.banner.title-super}}</div>
+        {% endif %}
+
+        {% if page.banner.title-sub %}
+          <div class="banner__title--sub title title--xl title--np title--upper title--light title--italic">{{page.banner.title-sub}}</div>
+        {% endif %}
+
+        {% if page.banner.intro %}
+        <div class="banner__intro">
+          {{page.banner.intro}}
+        </div>
+        {% endif %}
+
 
       </div>
     </div>

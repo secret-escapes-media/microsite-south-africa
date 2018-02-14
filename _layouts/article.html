@@ -30,17 +30,17 @@ layout: default
 </div>
 
 
-
-<!-- page subjects -->
-{% assign subjects = page.subjects %}
-{% for subject in subjects %}
-  <section id="{{ subject.title | slugify }}" class="row subject">
-    <div class="subject__title {{page.id}}-0{{forloop.index}}--bg {{page.id}}-0{{forloop.index}}--border row--padding text--white">
-      <h2 class="title title--sm title--bold title--kerning-lg title--upper">{{ subject.title }}</h2>
-    </div>
-    <div class="inner-section inner-section--light">
-      {{ subject.content | liquify }}
-    </div>
-  </section>
-{% endfor %}
-
+<div class="section">
+  <!-- page subjects -->
+  {% assign subjects = page.subjects %}
+  {% for subject in subjects %}
+    <section id="{{ subject.title | slugify }}" class="row subject">
+      <div class="subject__title {{page.id}}-0{{forloop.index}}--bg {{page.id}}-0{{forloop.index}}--border row--padding text--white">
+        <h2 class="title title--sm title--bold title--kerning-lg title--upper">{{ subject.title }}</h2>
+      </div>
+      <div class="inner-section inner-section--light">
+        {{ subject.content | liquify }}
+      </div>
+    </section>
+  {% endfor %}
+</div>

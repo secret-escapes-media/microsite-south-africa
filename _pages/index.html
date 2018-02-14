@@ -8,14 +8,11 @@ nav-order: 1
 
 banner:
   content: >
-    <span class="banner__title--super title title--xxl title--np title--upper title--light title--italic">Discover</span>
+    <span class="banner__title--super title title--xxl title--np title--upper title--italic title--bold">Discover the real</span>
     <h1 class="banner__title title title--upper title--bold">South Africa</h1>
-    <p class="text--xl">A destination of variety, diversity, and vibrancy. Get closer to the African scene with your Secret Escapes video guide, and explore everything from savannah to city in this dedicated destination site</p>
-
-
-
-intro: >
-  <p class="text--xl">South Africa is a land which encompasses so many different landscapes makes for a photographer’s dream, a thrill seeker’s heaven, a traveller’s elysian fields. With the Atlantic feverishly bubbling to one side, and the Indian Ocean offering warm dips and beach bliss, South Africa is a country rife with a dynamic juxtaposition of landscapes and lifestyles, making for truly immersive experiences. Be it catching up with the Big Five in the savannah, or hanging out with the cool cats of Maboneng, Jo’burg, South Africa never fails to deliver something for everyone – creating itineraries the size of novels.</p>
+  intro: >
+    <p class="text--xxl text--shadow">A destination of variety, diversity, and vibrancy. Get closer to the African scene with your Secret Escapes video guide, and explore everything from savannah to city in this dedicated destination site</p>
+    <a href="#section-roadtrips" class="btn btn--lg btn--solid">Start exploring</a>
 
 
 
@@ -24,19 +21,72 @@ intro: >
 
 
 
-  <div class="row text--white">
-    <div class="wp" id="section-offers"></div>
+<div class="section">
+  <div id="section-roadtrips" class="wp"></div>
+  {% assign roadtrips = site.html_pages | where:"group","roadtrip" %}
+  <div class="row row--padding row--4-8-gutters row--valign">
 
-    <h2 class="title title--xxxxl title--upper title--bold">Travel offers</h2>
-    <p class="text--xl">Book our hand-picked collection of South Africa escapes</p>
+    <div class="col text--white">
+      <h4 class="title title--xl title--bold">Roadtrip South Africa</h4>
+      <p class="text--lg text--italic">Donec id elit non mi porta gravida at eget metus. Nulla vitae elit libero, a pharetra augue. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue. Etiam porta sem malesuada magna mollis euismod.</p>
+    </div>
+
+    <!-- hero roadtrip -->
+    {% for roadtrip in roadtrips %}
+    {% if roadtrip.id == "big-one" %}
+      <div class="col">
+        {% include components/roadtrip.html class="large" %}
+      </div>
+    {% endif %}
+    {% endfor %}
 
   </div>
 
-  <div class="row">
-    {% assign offers = site.data.offers %}
-    {% for offer in offers %}
-      {% include components/offer.html %}
+  <div class="row row--padding row--6-6-gutters">
+    <!-- 2 roadtrips -->
+    {% for roadtrip in roadtrips %}
+    {% if roadtrip.id != "big-one" %}
+    <div class="col">
+      {% include components/roadtrip.html %}
+    </div>
+    {% endif %}
+    {% endfor %}
+
+  </div>
+</div>
+
+
+
+
+<div class="section">
+  {% assign guides = site.html_pages | where:"group","explore" %}
+  <div class="row row--padding text--white text--center">
+    <h3 class="title title--xl title--bold">Learn more about South Africa</h3>
+  </div>
+
+  <div class="row row--padding row--3-3-3-3-gutters">
+    {% for guide in guides %}
+      <div class="col">
+        <a href="{{site.baseurl}}{{guide.url}}" class="bg-img bg-img--3-4 bg-img--rounded bg-img--shadow bg-img--hover bg--grey-darkest">
+          <div class="bg-img__content text--white text--center">
+            <span class="title title--sm title--bold">{{guide.title}}</span>
+            <p>{{guide.banner.intro|strip_html|truncatewords:12}}</p>
+            <span class="btn btn--sm btn--solid">Read more</span>
+          </div>
+          <div class="bg-img__bg" style="background-image: url({{site.baseurl}}/img/bg/{{guide.id}}-nav.jpg);"></div>
+        </a>
+      </div>
     {% endfor %}
   </div>
+</div>
 
 
+
+
+<div class="section offers-banner vpad--xxxl" style="background-image: url({{site.baseurl}}/img/bg/offers.jpg);">
+  <div class="row row--padding text--center text--white">
+  <h3 class="title title--xxxl title--upper title--bold">Travel Offers</h3>
+  <p class="text--xl">Nullam quis risus eget urna mollis ornare vel eu leo. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+  <a href="{{site.baseurl}}/offers" class="btn btn--solid">View South Africa offers</a>
+  </div>
+</div>

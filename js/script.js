@@ -33,12 +33,17 @@ if( $('.intro').hasClass('has-nav') ){
 
 
 function bgOverlay(){
+  var wh = $(window).height();
 	var st = $(document).scrollTop();
-	var wh = $(window).height();
 
-	$('.js-bg-fade ').css({
-		"opacity": ((wh - (st/4)) / wh)
-	});
+
+  if( wh > st ){
+  	$('.js-bg-fade ').css({
+  		"opacity": ((wh - (st*0.8)) / wh)
+  	});
+  }else{
+    $('.js-bg-fade ').css({"opacity": "0.2"});
+  }
 }
 
 $(document).scroll(function() {

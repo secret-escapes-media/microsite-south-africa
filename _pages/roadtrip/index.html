@@ -3,26 +3,39 @@ layout: standard
 id: roadtrip
 title: Roadtrip
 nav-order: 2
-group: roadtrip
+group-id: roadtrip
+
+
+banner:
+  title: Roadtrips
+  intro: >
+    <p class="text--xl">Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+
+
 ---
 
 
 
 {% assign group-pages = site.html_pages | sort:"group-order" %}
-
-<div class="row row--6-6-gutters">
-  {% for page in group-pages %}
-    {% if page.group-order %}
-    <div class="col vpad-bottom--lg">
-      <a class="bg-img bg-img--4-3 bg-img--rounded bg-img--shadow bg--grey-darkest" href="{{page.url}}">
-        <div class="bg-img__content text--center text--white">
-          <span class="title title--lg title--bold title--upper">{{page.title}}</span>
+<div class="section">
+  <div class="row row--padding row--4-4-4-gutters">
+    {% for group-page in group-pages %}
+      {% if group-page.group == page.group-id %}
+        <div class="col">
+          <a href="{{group-page.url}}" class="roadtrip-tile roadtrip-tile--large bg-img bg-img--3-4 bg-img--rounded bg-img--shadow bg--grey-darkest">
+            <div class="roadtrip-tile__content text--white">
+              <span class="title title--md title--bold">{{group-page.title}}</span>
+              <ul class="list--lined">
+                <li><p><span class="text--bold">Journey:</span> {{group-page.meta.journey}}</p></li>
+                <li><p><span class="text--bold">Length:</span> {{group-page.meta.distance}} / {{group-page.meta.time}}</p></li>
+              </ul>
+            </div>
+            <div class="bg-img__bg" style="background-image: url({{site.baseurl}}/img/bg/{{group-page.id}}-nav.jpg);"></div>
+          </a>
         </div>
-        <div class="bg-img__bg" style="background-image: url({{site.baseurl}}/img/bg/{{page.id}}-nav.jpg)"></div>
-      </a>
-    </div>
-    {% endif %}
-  {% endfor %}
+      {% endif %}
+    {% endfor %}
+  </div>
 </div>
 
 
