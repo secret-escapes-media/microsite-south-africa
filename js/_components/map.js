@@ -5,6 +5,32 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 
+var containerElement   = $('.roadtrip'),
+    mapElement         = $('.roadtrip__map'),
+    startLocation      = [28.046636, -26.204650],
+    endLocation        = [31.015211, -29.805921],
+    mapCenter          = [29.270221, -27.909632],
+    pointHopper        = {};
+
+// GeoJSON feature collection for the start
+var start = turf.featureCollection([turf.point(startLocation)]);
+// GeoJSON feature collection for the end
+var end = turf.featureCollection([turf.point(endLocation)]);
+// empty feature collection will be used as the data source for the route before users add any new data
+var nothing = turf.featureCollection([]);
+// an empty GeoJSON feature collection for waypoints
+var stopoffs = turf.featureCollection([]);
+
+
+// sizes map to full window height
+$(document).ready(function(){
+  mapElement.css({"height": $(window).height() });
+});
+
+
+
+
+
 
 //////////////////////////////////////////////////////////////////////////////// SETTINGS
 
@@ -14,166 +40,256 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiaGFtaXNoamdyYXkiLCJhIjoiY2pkbjBmeGN6MDd1YzMzb
 var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/hamishjgray/cjdn0g91q24ef2sp9ead7rl4s',
-  center: [12.471999, 42.074841],
+  center: mapCenter,
   logoPosition: 'bottom-right',
-  zoom: 5.5
+  zoom: 6
 });
 map.scrollZoom.disable();
+map.addControl(new mapboxgl.NavigationControl());
 
-// additional map settings
-var activeClass        = 'is-active',
-    markerClass        = 'marker',
-    panelItemClass     = 'place',
-    transparent        = 'rgba(0,0,0,0)',
-    activeMarkerFill   = 'rgba(143,48,57,.15)',
-    activeMarkerStroke = 'rgba(185,27,44,1)' ;
+
+
 
 
 
 //////////////////////////////////////////////////////////////////////////////// FUNCTIONS
 
-// keeps italy focused in viewport
-function centerMap() {
-  map.fitBounds(
-    [[7.8,35.5], [18.5,47.1]],
-    { speed: 3 }
-  );
-}
+function newStopoff(marker) {
 
-// animates focusing on active marker
-function flyToMarker(obj) {
-  map.flyTo({
-    center: obj.geometry.coordinates,
-    zoom: 6
+  // Make a request to the Optimization API
+  $.ajax({
+    method: 'GET',
+    url: assembleQueryURL(),
+  }).done(function(data) {
+    // Create a GeoJSON feature collection
+    var routeGeoJSON = turf.featureCollection([turf.feature(data.trips[0].geometry)]);
+
+    // If there is no route provided, reset
+    if (!data.trips[0]) {
+      routeGeoJSON = nothing;
+    } else {
+      map.getSource('route')
+        .setData(routeGeoJSON);
+    }
+
   });
 }
 
-// highlights activated marker & opens place info in side panel
-function activateMarker(markerId) {
+function updateStopoffs(geojson) {
+  map.getSource('stopoffs-symbol')
+    .setData(geojson);
+}
 
-  // error message if no marker id
-  if (!(markerId)) {
-    console.error('please pass a markerId for activeMarker()');
-    return false;
+function objectToArray(obj) {
+  var keys = Object.keys(obj);
+  var routeGeoJSON = keys.map(function(key) {
+    return obj[key];
+  });
+  return routeGeoJSON;
+}
+
+function assembleQueryURL() {
+  var coordinates = [];
+  var waypoints = objectToArray(pointHopper);
+
+  if (waypoints.length > 0) {
+    waypoints.forEach(function(d, i) {
+      coordinates.push(d.geometry.coordinates);
+    });
   }
 
-  // reset active marker if there is one
-  var activeId = $('body').attr('data-active-marker');
-  if (activeId) {
-    var activeMarker = $('.' + markerClass + '.' + activeClass);
-    var activePanel  = $('.' + panelItemClass + '.' + activeClass);
-
-    // remove active marker & panel
-    activeMarker.removeClass(activeClass);
-    activePanel.removeClass(activeClass);
-
-    // remove global reference
-    $('body').attr('data-active-marker', '' );
-  }
-
-  // find elements for active marker & place
-  var theMarker = $('.' + markerClass + '--' + markerId);
-  var thePanel  = $('.' + panelItemClass + '--' + markerId);
-
-  // set global reference
-  $('body').attr( "data-active-marker", markerId );
-
-  // add class to marker & panel
-  theMarker.addClass(activeClass);
-  thePanel.addClass(activeClass);
-
-  // Changes map focus to active marker
-  for (var i = 0; i < markers.features.length; i++) {
-    // loop through all markers in geojson
-    if (markers.features[i].properties.id == markerId) {
-      // if id matches, use coordinates to in flyto function
-      flyToMarker(markers.features[i]);
-    }
-  }
-
+  // Set the profile to `driving`
+  // Coordinates will include the current location of the end,
+  return 'https://api.mapbox.com/optimized-trips/v1/mapbox/driving/' + startLocation + ';' + coordinates.join(';')  + ';' + endLocation + '?overview=full&roundtrip=false&steps=true&geometries=geojson&source=first&destination=last&access_token=' + mapboxgl.accessToken;
 }
 
 
 
-//////////////////////////////////////////////////////////////////////////////// ON MAP LOAD
 
-// functions for when map has finished loading
-map.on('load', function(e) {
 
-  centerMap();
 
-  // Adding markers to the map. Positions in js/makers.js
+//////////////////////////////////////////////////////////////////////////////// ON MAP LOAD RUN FUNCTIONS
+
+map.on('load', function() {
+
+  map.addSource('route', {
+    type: 'geojson',
+    data: nothing
+  });
+
   map.addLayer({
-    id: 'locations',
+    id: 'routeline-active',
+    type: 'line',
+    source: 'route',
+    layout: {
+      'line-join': 'round',
+      'line-cap': 'round'
+    },
+    paint: {
+      'line-color': '#3887be',
+      'line-width': {
+        base: 1,
+        stops: [[12, 3], [22, 12]]
+      }
+    }
+  });
+
+  map.addLayer({
+    id: 'routearrows',
+    type: 'symbol',
+    source: 'route',
+    layout: {
+      'symbol-placement': 'line',
+      'text-field': '▶',
+      'text-size': {
+        base: 1,
+        stops: [[12, 24], [22, 60]]
+      },
+      'symbol-spacing': {
+        base: 1,
+        stops: [[12, 30], [22, 160]]
+      },
+      'text-keep-upright': false
+    },
+    paint: {
+      'text-color': '#3887be',
+      'text-halo-color': 'hsl(55, 11%, 96%)',
+      'text-halo-width': 3
+    }
+  });
+
+  // Start icon
+  map.addLayer({
+    id: 'start',
+    type: 'circle',
+    source: {
+      data: start,
+      type: 'geojson'
+    },
+    paint: {
+      'circle-radius': 10,
+      'circle-color': 'white',
+      'circle-stroke-color': '#8bbe38',
+      'circle-stroke-width': 2
+    }
+  });
+
+  // End icon
+  map.addLayer({
+    id: 'end',
+    type: 'circle',
+    source: {
+      data: end,
+      type: 'geojson'
+    },
+    paint: {
+      'circle-radius': 10,
+      'circle-color': 'white',
+      'circle-stroke-color': '#3887be',
+      'circle-stroke-width': 2
+    }
+  });
+
+  // Waypoints icon
+  map.addLayer({
+    id: 'stopoffs-symbol',
     type: 'symbol',
     source: {
-      type: 'geojson',
-      data: markers
+      data: stopoffs,
+      type: 'geojson'
+    },
+    layout: {
+      'icon-allow-overlap': true,
+      'icon-ignore-placement': true,
+      'icon-image': 'marker-15',
     }
   });
 
-  var lineCoordinates = [];
 
-  // START - marker loop
-  // adds each marker to the map
+  // Once page is fully loaded run requests for markers and route
   markers.features.forEach(function(marker) {
-
-    // create a DOM element for the marker
-    var el                  = document.createElement('div');
-        el.className        = 'marker marker--' + marker.properties.id + ' js-marker';
-        el.dataset.markerId = marker.properties.id;
-
-    // add listener for each marker
-    el.addEventListener('click', function() {
-      // get id of the clicked marker
-      var chosenId = el.dataset.markerId;
-      // highlight this marker
-      activateMarker(chosenId);
-    });
-
-    lineCoordinates.push(marker.geometry.coordinates);
-
-    // add this marker to map canvas
-    new mapboxgl.Marker(el)
-      .setLngLat(marker.geometry.coordinates)
-      .addTo(map);
-
-  }); // END - marker loop
-
-  // add listener for each place on side panel
-  $('.' + panelItemClass).on('click',function(e) {
-    e.preventDefault();
-    // get id of the clicked place
-    var chosenId = $(this).data('marker-id');
-    // highlight this marker
-    activateMarker(chosenId);
+    var pt = turf.point(
+      marker.geometry.coordinates, {
+        title: marker.properties.title,
+        id: marker.properties.id,
+        key: marker.properties.num
+      }
+    );
+    stopoffs.features.push(pt);
+    pointHopper[pt.properties.key] = pt;
   });
 
-  console.log(lineCoordinates);
+  newStopoff();
 
-  map.addLayer({
-      "id": "route",
-      "type": "line",
-      "source": {
-          "type": "geojson",
-          "data": {
-              "type": "Feature",
-              "properties": {},
-              "geometry": {
-                  "type": "LineString",
-                  "coordinates": lineCoordinates
-              }
-          }
-      },
-      "layout": {
-          "line-join": "round",
-          "line-cap": "round"
-      },
-      "paint": {
-          "line-color": "#888",
-          "line-width": 8
-      }
+  map.getSource('stopoffs-symbol').setData(stopoffs);
+
+});
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////// CLICK FUNCTIONS
+
+// function to move map to marker based on given markerID
+function activateMarker(markerId){
+  // loop through all markers in geojson
+  for (var i = 0; i < markers.features.length; i++) {
+    if (markers.features[i].properties.id == markerId) {
+      map.flyTo({
+        zoom: 8,
+        center: markers.features[i].geometry.coordinates
+      });
+    }
+  }
+  // loop over start and end points
+  for (var i = 0; i < startEnd.features.length; i++) {
+    if(startEnd.features[i].properties.id == markerId) {
+      map.flyTo({
+        zoom: 8,
+        center: startEnd.features[i].geometry.coordinates
+      });
+    }
+  }
+}
+
+
+// click section in pane to move the map to related marker
+$('.js-waypoint').click(function(){
+  var markerId = $(this).data('marker-id');
+  activateMarker(markerId);
+});
+
+
+$(document).scroll(function() {
+
+  var st = $(document).scrollTop();
+  var docH = $(document).height();
+  var winH = $(window).height();
+  var footerH = $('footer').height();
+
+  var pageH = docH - footerH - winH;
+
+  // fixed position map on scroll so it fills window height
+  if( ( st>containerElement.offset().top ) && ( st<pageH ) ){
+    mapElement.removeClass('js-map-bottom');
+    mapElement.addClass('js-map-fixed');
+  }else if( ( st>containerElement.offset().top ) && ( st>pageH ) ){
+    mapElement.removeClass('js-map-fixed');
+    mapElement.addClass('js-map-bottom');
+  }else {
+    mapElement.removeClass('js-map-fixed');
+    mapElement.removeClass('js-map-bottom');
+  }
+
+  $('.js-waypoint').each(function(){
+    var markerId = $(this).data('marker-id');
+    var offset = $(this).offset().top;
+    // if waypoint is scrolled to, move map to related marker
+    if(st>offset){ activateMarker(markerId); }
   });
 
 });
+
 

@@ -12,11 +12,6 @@ layout: default
         <h1 class="banner__title title title--upper title--bold">{{page.banner.title}}</h1>
         <p class="text--lg">{{page.banner.intro}}</p>
 
-        <ul class="list--lined">
-          <li><p><span class="text--bold">Journey:</span> {{page.meta.journey}}</p></li>
-          <li><p><span class="text--bold">Length:</span> {{page.meta.distance}} / {{page.meta.time}}</p></li>
-        </ul>
-
         <a href="#roadtrip" class="btn btn--solid">Start the journey</a>
 
       </div>
@@ -37,28 +32,38 @@ layout: default
 
 
 
+<div class="page__content">
 
-<div class="roadtrip bg--white">
-  <div class="wp" id="roadtrip"></div>
+  <div class="roadtrip bg--white">
+    <div class="wp" id="roadtrip"></div>
 
-  <div class="roadtrip__canvas" id="map"></div>
+    <div class="roadtrip__map" id="map"></div>
 
-  <div class="roadtrip__pane">
-    <div class="roadtrip__pane__content">
-      {% for roadtrip in page.roadtrip %}
-        <div class="section text--center">
-          <h2 class="title title--xl title--bold">{{ roadtrip.title }}</h2>
-          <span class="title title--sm title--sub title--bold title--upper title--kerning">{{ roadtrip.subtitle }}</span>
-        </div>
-        {% for highlight in roadtrip.highlights %}
-        <div class="row roadtrip__highlight place place--{{highlight.id}} js-place" data-marker-id="{{highlight.id}}">
-          <h4 class="title title--sm title--sub title--bold title--upper title--kerning">{{highlight.title}}</h4>
-          <p>{{highlight.content}}</p>
-        </div>
+    <div class="roadtrip__pane">
+      <div class="roadtrip__pane__content">
+        {% for roadtrip in page.roadtrip %}
+
+          <div class="section vpad--xxxl text--white row row--padding" style="background-image: url({{site.baseurl}}/img/content/{{page.id}}/banner.jpg);">
+            <h2 class="title title--xl title--bold">{{ roadtrip.title }}</h2>
+
+            <ul class="list--lined">
+              <li><p><span class="text--bold">Journey:</span> {{page.meta.journey}}</p></li>
+              <li><p><span class="text--bold">Length:</span> {{page.meta.distance}} / {{page.meta.time}}</p></li>
+            </ul>
+
+          </div>
+
+          {% for highlight in roadtrip.highlights %}
+          <div class="section row--padding {% cycle 'bg--white','bg--grey-lightest' %} roadtrip__highlight place place--{{highlight.id}} js-waypoint" data-marker-id="{{highlight.id}}">
+            <h4 class="title title--xs title--bold">{{highlight.title}}</h4>
+            <hr class="hr--left">
+            {{highlight.content}}
+          </div>
+          {% endfor %}
         {% endfor %}
-      {% endfor %}
+      </div>
     </div>
+
   </div>
 
 </div>
-

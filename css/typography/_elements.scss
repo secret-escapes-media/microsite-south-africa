@@ -53,7 +53,7 @@
 // -------- general element styles --------
 
 .page__content {
-  * + p               { padding-top: $s1; }
+  * + p               { padding-top: $s-4; }
   * + ul,
   * + ol               { padding-top: $s-4; }
   li                   { list-style-position: outside; margin-left: $s2; }
@@ -73,7 +73,7 @@ hr {
   border: 0;
   height: 2px;
   background-color: $grey-lighter;
-  margin: $s1;
+  margin: $s1 0;
   .title + & { padding-top: 0; margin-top: $s1; }
   .page__content & + p { padding-top: 0; }
   .text--white & { background-color: $white; }

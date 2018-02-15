@@ -3,39 +3,47 @@
 .roadtrip {
   @include layout(12 0);
   width: 100%;
-  height: 100%;
   position: relative;
   margin-top: $s5;
-  display: flex;
   @include bp(lg){
     margin-top: $s8;
   }
+  &:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
 
   // map
-  &__canvas {
-    background-color: $grey-darkest;
+  &__map {
+    background-color: #B5D4F3;
+    position: absolute !important;
+    height: 100vh;
+    top: 0;
     @include bp(xl){
-      @include span(5);
+      @include span(6);
+    }
+    &.js-map-fixed {
+      position: fixed !important;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+    &.js-map-bottom {
+      top: auto;
+      bottom: 0;
     }
   }
+
   // content sidebar
   &__pane {
-    overflow-y: scroll;
-    padding-left: $s2;
-    padding-right: $s2;
-    @include bp(md){
-      padding-left: $s4;
-      padding-right: $s4;
-    }
     @include bp(xl){
-      @include span(7 last);
+      @include span(6 last);
     }
     &__content {
       display: block;
-      padding-top: $s2;
       padding-bottom: $s2;
       @include bp(md){
-        padding-top: $s4;
         padding-bottom: $s4;
       }
     }
