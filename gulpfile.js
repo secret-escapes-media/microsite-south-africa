@@ -45,7 +45,6 @@ gulp.task('js', function(){
     './js/_components/on-ready/start.js',
 
     // components
-    './js/markers.js',
     './js/_components/standard.js',
     './js/_components/offer-countdown.js',
     './js/_components/modal.js',

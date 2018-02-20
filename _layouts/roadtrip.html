@@ -6,13 +6,17 @@ layout: default
 
 <div class="banner">
   <div class="banner__wrap">
-    <div class="banner__content row--padding">
+    <div class="banner__content row--padding js-banner-content-fade">
       <div class="row text--white">
 
-        <h1 class="banner__title title title--upper title--bold">{{page.banner.title}}</h1>
-        <p class="text--lg">{{page.banner.intro}}</p>
+        <span class="banner__title--super banner__breadcrumbs title title--xxs title--upper title--kerning">
+          <a href="{{site.baseurl}}" class="title--bold">South Africa</a> /
+          <a href="{{site.baseurl}}/roadtrip" class="title--bold">Roadtrips</a>
+        </span>
 
-        <a href="#roadtrip" class="btn btn--solid">Start the journey</a>
+        <h1 class="banner__title title title--upper title--bold">{{page.banner.title}}</h1>
+        <hr class="hr--left">
+        <p class="text--xl">{{page.banner.intro}}</p>
 
       </div>
     </div>
@@ -23,47 +27,78 @@ layout: default
   {% endif %}
 </div>
 
-
-
-<div class="page__background">
-  <div class="page__background-image js-bg-fade" style="background-image: url({{site.baseurl}}/img/bg/{{page.id}}.jpg);"></div>
-</div>
+<div class="page__background"></div>
 
 
 
 
 <div class="page__content">
 
-  <div class="roadtrip bg--white">
+  <div class="roadtrip">
     <div class="wp" id="roadtrip"></div>
+
+
 
     <div class="roadtrip__map" id="map"></div>
 
+
+
     <div class="roadtrip__pane">
-      <div class="roadtrip__pane__content">
-        {% for roadtrip in page.roadtrip %}
 
-          <div class="section vpad--xxxl text--white row row--padding" style="background-image: url({{site.baseurl}}/img/content/{{page.id}}/banner.jpg);">
-            <h2 class="title title--xl title--bold">{{ roadtrip.title }}</h2>
-
-            <ul class="list--lined">
-              <li><p><span class="text--bold">Journey:</span> {{page.meta.journey}}</p></li>
-              <li><p><span class="text--bold">Length:</span> {{page.meta.distance}} / {{page.meta.time}}</p></li>
-            </ul>
-
-          </div>
-
-          {% for highlight in roadtrip.highlights %}
-          <div class="section row--padding {% cycle 'bg--white','bg--grey-lightest' %} roadtrip__highlight place place--{{highlight.id}} js-waypoint" data-marker-id="{{highlight.id}}">
-            <h4 class="title title--xs title--bold">{{highlight.title}}</h4>
-            <hr class="hr--left">
-            {{highlight.content}}
-          </div>
-          {% endfor %}
-        {% endfor %}
+      <div class="section vpad--xxxl text--white row row--padding bg--fixed" style="background-image: url({{site.baseurl}}/img/content/{{page.id}}/banner.jpg);">
+        <h2 class="title title--xl title--bold">{{ page.roadtrip.title }}</h2>
+        <ul class="list--lined">
+          <li><p><span class="text--bold">Journey:</span> {{page.roadtrip.meta.journey}}</p></li>
+          <li><p><span class="text--bold">Length:</span> {{page.roadtrip.meta.distance}} / {{page.roadtrip.meta.time}}</p></li>
+        </ul>
       </div>
+
+      <div class="vpad--xl row--padding bg--white">
+        {{page.roadtrip.intro}}
+      </div>
+
+
+      <!-- loop over stops on the roadtrip -->
+      {% for waypoint in page.roadtrip.waypoints %}
+
+        <!-- creates link to next section at the end of the previous section -->
+        {% unless forloop.first %}
+            <div class="text--center">
+              <a href="#waypoint-{{waypoint.id}}" class="btn btn--green">Next stop: {{waypoint.title}}</a>
+            </div>
+          </div>
+        </div>
+        {% endunless %}
+
+        <div class="waypoint place--{{waypoint.id}} js-waypoint {% cycle 'bg--grey-lightest','bg--white' %}" data-marker-id="{{waypoint.id}}">
+
+          <div class="wp" id="waypoint-{{waypoint.id}}"></div>
+
+          <div class="waypoint__images row--6-6">
+            <div class="col bg-img bg-img--16-9" style="background-image: url({{site.baseurl}}/img/content/{{page.id}}/image.jpg)"></div>
+            <div class="col bg-img bg-img--16-9" style="background-image: url({{site.baseurl}}/img/content/{{page.id}}/image.jpg)"></div>
+          </div>
+
+          <div class="waypoint__content">
+
+            <a href="#waypoint-{{waypoint.id}}" class="js-waypoint-link" data-marker-id="{{waypoint.id}}">
+              <h4 class="title title--sm title--bold">{{waypoint.title}}</h4>
+            </a>
+            {{waypoint.content}}
+
+            <div class="waypoint__highlights text--center">
+              <div class="vpad-bottom--xs title title--xs title--bold">Don't miss</div>
+              {% for highlight in waypoint.highlights %}
+                <div class="waypoint__highlight">{{highlight.title}}</div>
+              {% endfor %}
+            </div>
+
+      {% endfor %}
+      </div>
+      </div>
+
+
+
     </div>
-
   </div>
-
 </div>

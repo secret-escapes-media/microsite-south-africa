@@ -32,27 +32,41 @@ if( $('.intro').hasClass('has-nav') ){
 ///////////////////////////////////////
 
 
-function bgOverlay(){
+function bannerFade(){
   var wh = $(window).height();
 	var st = $(document).scrollTop();
 
-
   if( wh > st ){
+
   	$('.js-bg-fade ').css({
   		"opacity": ((wh - (st*0.8)) / wh)
   	});
+
+    $('.js-banner-content-fade ').css({
+  		"opacity": ((wh - (st*0.8)) / wh),
+      "bottom": -(st/3)
+  	});
+
   }else{
-    $('.js-bg-fade ').css({"opacity": "0.2"});
+
+    $('.js-bg-fade ').css({
+      "opacity": "0.2"
+    });
+
+    $('.js-banner-content-fade ').css({
+      "opacity": "0.2",
+      "bottom": "0"
+    });
+
   }
 }
 
 $(document).scroll(function() {
-	bgOverlay();
+  bannerFade();
 });
 $(document).ready(function() {
-	bgOverlay();
+  bannerFade();
 });
-
 
 
 

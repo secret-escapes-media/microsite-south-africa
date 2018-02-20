@@ -37,18 +37,51 @@
 
   // content sidebar
   &__pane {
+    margin-top: 3em;
+    background-color: $white;
     @include bp(xl){
       @include span(6 last);
     }
-    &__content {
-      display: block;
-      padding-bottom: $s2;
-      @include bp(md){
-        padding-bottom: $s4;
-      }
-    }
   }
 }
+
+
+
+// highlights/stopoffs/Waypoints
+.waypoint {
+  position: relative;
+  & .wp { top: 1px; }
+
+  // active state when marker is activated
+  &--active {
+    border-left: 4px solid $theme-secondary;
+  }
+
+  &__images {
+    @include clearfix();
+  }
+  &__content {
+    padding: $s4;
+  }
+
+  &__highlights {
+    margin-top: $s2;
+    padding: $s2 0;
+    border-top: 2px solid $grey-lighter;
+  }
+  &__highlight {
+    background-color: $grey-lighter;
+    color: $grey-darker;
+    font-weight: 600;
+    padding: 0.3em 1.2em;
+    margin: 0 0.3em 0.6em 0.3em;
+    border-radius: 99em;
+    text-align: center;
+    display: inline-block;
+  }
+
+}
+
 
 .marker {
   width: 30px;
@@ -56,3 +89,4 @@
   background-image: url(../img/icons/marker.png);
   background-size: 100% auto;
 }
+

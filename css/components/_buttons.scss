@@ -70,8 +70,11 @@
   &--solid {
     background-color: $theme-primary;
   }
-  &--qantas {
+  &--red {
     background-color: $theme-primary;
+  }
+  &--green {
+    background-color: $theme-secondary;
   }
   &--white {
     background-color: rgba($white,0.9);

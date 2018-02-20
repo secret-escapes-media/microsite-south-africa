@@ -1,5 +1,12 @@
-// this is geojson inside of a variable so can call in main script
-// this geojson is the position of each hotel in each region
+
+
+
+// Coordinates for center of roadtrip map
+var mapCenter = [29.270221, -27.909632];
+
+
+// Coordinates for roadtrip start and end.
+// Separated from other markers so that they have a different appearance
 var startEnd = {
   "features": [
     {
@@ -34,6 +41,9 @@ var startEnd = {
   "type": "FeatureCollection"
 };
 
+
+
+// Roadtrip waypoints/markers
 var markers = {
   "features": [
     {

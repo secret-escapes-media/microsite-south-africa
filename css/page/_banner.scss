@@ -5,7 +5,7 @@ $core-nav-height-sm:  $s8;
 
 .banner {
   position: relative;
-  overflow: hidden;
+  z-index: 0;
   color: white;
   height: 66%;
   min-height: 460px;
@@ -35,11 +35,17 @@ $core-nav-height-sm:  $s8;
     }
   }
 
+  &__breadcrumbs {
+    position: relative;
+    z-index: 1;
+  }
+
   &__title {
     line-height: 1;
     display: block;
     margin: auto;
     font-size: $s7;
+    * + & { padding-top: 0; }
     @include bp(md){ font-size: $s9; }
     @include bp(xl){ font-size: $s11; }
     &--sub { line-height: 1; }
