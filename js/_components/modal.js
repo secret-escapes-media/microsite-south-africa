@@ -18,7 +18,14 @@ function modalOpen(event){
       modal            = $('#'+modalID),
       modalContent     = $(event.currentTarget).data('modal-item-id'),
       modalContentItem = '.modal__content--' + modalContent;
+
   $(modalContentItem).show().addClass('is-open');
+
+  if( $(event.currentTarget).attr('data-video-id') ){
+    var modalVideo = $(event.currentTarget).data('video-id');
+    $('.modal__iframe').attr('src', 'https://www.youtube.com/embed/' + modalVideo + '?controls=1&rel=0&showinfo=0&modestbranding=1');
+  }
+
   // disable scrolling on background content (doesn't work iOS)
   $('body').addClass('disable-scroll');
 
@@ -38,6 +45,8 @@ function modalClose(event){
   setTimeout(function() {
     $('.modal__content-wrap').scrollTop(0);
   }, 280);
+
+  $('.modal__content.is-open .modal__iframe').attr('src', 'https://www.youtube.com/embed/');
   // close modal with fade
   modal.fadeOut('250', function(){
     $(this).removeClass('is-open').addClass('is-closed');
@@ -58,6 +67,12 @@ modalCloseBtn.on('click', function(event) {
 
 // closes modal on background click
 modal.on('click', function(event) {
+  if (event.target !== this){
+    return;
+  }
+  modalClose(event);
+});
+$('.modal__content-wrap').on('click', function(event) {
   if (event.target !== this){
     return;
   }

@@ -22,12 +22,12 @@ banner:
     {% for group-page in group-pages %}
       {% if group-page.group == page.group-id %}
         <div class="col">
-          <a href="{{group-page.url}}" class="roadtrip-tile roadtrip-tile--large bg-img bg-img--3-4 bg-img--rounded bg-img--shadow bg--grey-darkest">
+          <a href="{{site.baseurl}}{{group-page.url}}" class="roadtrip-tile roadtrip-tile--large bg-img bg-img--3-4 bg-img--rounded bg-img--shadow bg--grey-darkest">
             <div class="roadtrip-tile__content text--white">
               <span class="title title--md title--bold">{{group-page.title}}</span>
               <ul class="list--lined">
-                <li><p><span class="text--bold">Journey:</span> {{group-page.meta.journey}}</p></li>
-                <li><p><span class="text--bold">Length:</span> {{group-page.meta.distance}} / {{group-page.meta.time}}</p></li>
+                <li><p><span class="text--bold">Journey:</span> {{group-page.roadtrip.meta.journey}}</p></li>
+                <li><p><span class="text--bold">Length:</span> {{group-page.roadtrip.meta.distance}} / {{group-page.meta.time}}</p></li>
               </ul>
             </div>
             <div class="bg-img__bg" style="background-image: url({{site.baseurl}}/img/bg/{{group-page.id}}-nav.jpg);"></div>

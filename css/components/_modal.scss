@@ -16,13 +16,14 @@ $icon-size: 3em;
   &__ui-wrap {
     position: absolute;
     top: $icon-size;
+    bottom: $icon-size;
     left: 0;
     right: 0;
-    bottom: $icon-size;
     width: 100%;
     max-width: $xl;
     margin-top: 0 !important;
     cursor: auto;
+    .modal--video & { max-width: 1440px; }
   }
   &__content-wrap {
     position: absolute;
@@ -34,6 +35,7 @@ $icon-size: 3em;
     max-width: $xl;
     cursor: auto;
     overflow-y: auto;
+    .modal--video & { max-width: 1440px; }
     .flexbox & {
       display: flex;
       align-items: center;
@@ -48,6 +50,10 @@ $icon-size: 3em;
         padding: ($s2*1.25) $s2;
       }
     }
+  }
+  &__video {
+    width: 100%;
+    background-color: $black;
   }
   &__close {
     position: fixed;
@@ -72,7 +78,7 @@ $icon-size: 3em;
     z-index: $z-overlay-upper;
     height: $icon-size;
     width: 50%;
-    margin-top: -($icon-size/2);
+    margin-top: -$icon-size;
     background-color: rgba($black, .5);
     background-position: center;
     background-repeat: no-repeat;

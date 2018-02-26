@@ -22,13 +22,13 @@ banner:
     {% for group-page in group-pages %}
       {% if group-page.group == page.group-id %}
       <div class="bob{% cycle ""," bob--swap" %}">
-        <a class="bob__image" href="{{group-page.url}}">
+        <a class="bob__image" href="{{site.baseurl}}{{group-page.url}}">
           <div class="bg-img bg-img--4-3 bg-img--rounded bg-img--shadow bg--grey-darkest" style="background-image: url({{site.baseurl}}/img/bg/{{group-page.id}}.jpg)"></div>
         </a>
         <div class="bob__text text--white">
           <span class="title title--xl title--bold">{{group-page.banner.title}}</span>
           <p class="text--xl">{{group-page.banner.intro|strip_html}}</p>
-          <a href="{{group-page.url}}" class="btn btn--solid">Read more</a>
+          <a href="{{site.baseurl}}{{group-page.url}}" class="btn btn--solid">Read more</a>
         </div>
       </div>
       {% endif %}
