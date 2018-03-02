@@ -5,7 +5,7 @@
 .btn {
   position: relative;
   display: inline-block;
-  padding: $s1 $s3;
+  padding: $s0 $s1;
   color: $text-white;
   font-weight: 600;
   font-size: $s-1;
@@ -21,16 +21,17 @@
   @include transition;
   * + & { margin-top: 1.5em; }
   &--sm {
-    padding: $s1 $s4;
+    padding: $s-1 $s1;
     font-size: $s-2;
   }
   &--lg { font-size: $s0; }
   &--orange { background-color: $orange;
     &:hover { background-color: $orange-dark; }
   }
-  &--orange-outline {
-    color: $text;
-    background-color: $white;
+
+  &--outline {
+    color: $white;
+    &-dark { color: $text-dark; }
     &:before {
       // creates a border within the button dimentions. useful if an outline
       // button is inline with a solid colour button
@@ -44,29 +45,28 @@
       border-radius: inherit;
     }
     &:hover {
-      color: $text-white;
+      color: $white;
       background-color: $orange;
     }
-  }
-  &--white-outline {
-    color: $white;
-    &:before {
-      // creates a border within the button dimentions. useful if an outline
-      // button is inline with a solid colour button
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+
+    &-white {
       border: 1px solid $white;
-      border-radius: inherit;
+      &:hover {
+        color: $orange;
+        background-color: $white;
+      }
     }
-    &:hover {
-      color: $orange;
-      background-color: $white;
+
+    &-green {
+      border: 1px solid $theme-secondary;
+      &:hover {
+        color: $white;
+        background-color: $theme-secondary;
+      }
     }
+
   }
+
   &--solid {
     background-color: $theme-primary;
   }

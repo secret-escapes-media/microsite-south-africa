@@ -26,6 +26,7 @@ if( $('body').hasClass('layout--roadtrip') ){
   // sizes map to full window height
   $(document).ready(function(){
     mapElement.css({"height": $(window).height() });
+    containerElement.css({"height": $(window).height() });
   });
 
 
@@ -254,13 +255,25 @@ if( $('body').hasClass('layout--roadtrip') ){
       }
     }
 
-    $('.js-waypoint').removeClass('waypoint--active');
-    $('.js-waypoint').each(function(){
+    // update content panel
+    $('.roadtrip__section--active').scrollTop(0).removeClass('roadtrip__section--active').fadeOut();;
+    $('.roadtrip__section').each(function(){
       if( $(this).data('marker-id') == markerId ){
-        $(this).addClass('waypoint--active');
+        $(this).addClass('roadtrip__section--active').fadeIn();
       }
     });
 
+  }
+
+  function mapReset(){
+    map.flyTo({
+      zoom: 6,
+      center: mapCenter
+    });
+
+    // update content panel
+    $('.roadtrip__section--active').scrollTop(0).removeClass('roadtrip__section--active').fadeOut();;
+    $('.roadtrip__section.roadtrip__intro').addClass('roadtrip__section--active').fadeIn();
   }
 
 
@@ -285,15 +298,15 @@ if( $('body').hasClass('layout--roadtrip') ){
       mapElement.removeClass('js-map-bottom');
     }
 
-    $('.js-waypoint').each(function(){
-      var markerId = $(this).data('marker-id');
-      var offset = $(this).offset().top;
-      // if waypoint is scrolled to, move map to related marker
-      if(st>offset){
-        activateMarker(markerId);
-      }
-
-    });
+    // $('.js-waypoint').each(function(){
+    //   var markerId = $(this).data('marker-id');
+    //   var offset = $(this).offset().top;
+    //   // if waypoint is scrolled to, move map to related marker
+    //   if(st>offset){
+    //     activateMarker(markerId);
+    //   }
+    //
+    // });
 
   });
 
@@ -304,6 +317,18 @@ if( $('body').hasClass('layout--roadtrip') ){
     var markerId = $(this).data('marker-id');
     // flyto marker
     activateMarker(markerId);
+  });
+
+  $('.js-map-reset').click(function(){
+    mapReset();
+  });
+
+  $(document).on('keyup', function(e) {
+    if(e.which === 37){
+      $('.roadtrip__section--active .js-waypoint-link--prev').trigger("click");
+    }else if(e.which === 39) {
+      $('.roadtrip__section--active .js-waypoint-link--next').trigger("click");
+    }
   });
 
 

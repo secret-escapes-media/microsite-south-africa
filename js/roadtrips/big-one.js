@@ -2,7 +2,7 @@
 
 
 // Coordinates for center of roadtrip map
-var mapCenter = [29.270221, -27.909632];
+var mapCenter = [30.080764, -27.847499];
 
 
 // Coordinates for roadtrip start and end.

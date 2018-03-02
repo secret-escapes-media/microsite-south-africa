@@ -1,0 +1,42 @@
+<!-- CUSTOM BANNER FOR ROADTRIP PAGES -->
+<div class="banner">
+  <div class="banner__wrap">
+    <div class="banner__content row--padding js-banner-content-fade">
+
+      {% if page.video-id %}
+      <div class="row row--6-6-gutters vpad--xl row--valign text--white">
+        <div class="col">
+      {% else %}
+      <div class="row text--white">
+      {% endif %}
+
+        <span class="banner__title--super banner__breadcrumbs title title--xxs title--upper title--kerning">
+          <a href="{{site.baseurl}}" class="title--bold">South Africa</a> /
+          <a href="{{site.baseurl}}/roadtrip" class="title--bold">Roadtrips</a>
+        </span>
+
+        <h1 class="banner__title title title--upper title--bold">{{page.banner.title}}</h1>
+
+        {% if page.video-id %}
+
+        </div><!--end .col -->
+        <div class="col">
+
+          <a href="javascript:void(0);" data-modal-id="modal-video" data-modal-item-id="video" data-video-id="{{page.video-id}}" class="js-open-modal banner__video bg-img bg-img--16-9 bg-img--rounded bg-img--shadow" style="background-image: url({{site.baseurl}}/img/content/{{page.id}}/video.jpg);">
+            <span class="banner__video-play"></span>
+          </a>
+
+        </div>
+
+        {% endif %}
+      </div><!--end .row -->
+
+    </div>
+  </div>
+  {% assign pages = site.html_pages %}
+  {% if pages.size > 1 %}
+    {% include nav/microsite-nav.html class="banner__nav" %}
+  {% endif %}
+</div>
+
+<div class="page__background"></div>
