@@ -20,7 +20,7 @@
     height: 100%;
     top: 0;
     @include bp(xl){
-      @include span(6);
+      @include span(12);
     }
     &.js-map-fixed {
       position: fixed !important;
@@ -43,7 +43,7 @@
     right: 0;
     bottom: 0;
     @include bp(xl){
-      @include span(6 last);
+      @include span(12 last);
     }
   }
 
@@ -88,14 +88,13 @@
     // active state when marker is activated
     &--active {
       opacity: 1;
-      visibility: visible;
       z-index: $z-content-upper;
     }
 
     // content layout of section
     &-content {
       margin: $s4;
-      padding: $s4 $s4 $s2;
+      padding: $s4 $s6 $s2;
     }
     &-images {
       @include clearfix();
@@ -103,11 +102,31 @@
     }
     &-footer {
       margin: $s4;
-      padding: $s2 $s4 $s4;
+      padding: $s2 $s6 $s4;
     }
 
+    // return button by title
+    &-return {
+      @include transition();
+      $return-size: 46px;
+      width: $return-size;
+      height: $return-size;
+      position: absolute;
+      left: $return-size/4;
+      top: $s8;
+      border-radius: 99px;
+      border: 1px solid $grey-lighter;
+      background-image: url('../img/icons/arrow-left-black.svg');
+      background-repeat: no-repeat;
+      background-size: 13px;
+      background-position: 45% center;
+      &:hover { background-color: $grey-lighter; }
+    }
+
+    // section highlight tags
     &-highlights {
       padding-top: $s0;
+      &-title { margin-right: 0.5em; }
     }
     &-highlight {
       border: 1px solid $grey-lighter;
@@ -123,6 +142,7 @@
       text-align: center;
       display: inline-block;
     }
+
   }
 
 

@@ -23,6 +23,7 @@ layout: default
     <!-- MAP SIDEBAR WITH SITE CONTENT -->
     <div class="roadtrip__pane">
       {% assign waypoints = page.roadtrip.waypoints %}
+      {% assign waypoint1 = waypoints[0] %}
 
 
 
@@ -39,6 +40,7 @@ layout: default
 
         <div class="roadtrip__section-content">
           {{page.roadtrip.intro}}
+          <a href="#roadtrip" data-marker-id="{{waypoint1.id}}" class="js-waypoint-link btn btn--green">Start the roadtrip</a>
         </div>
 
         <div class="roadtrip__section-images">
@@ -55,7 +57,6 @@ layout: default
         </div>
 
         <div class="roadtrip__section-footer text--center">
-          {% assign waypoint1 = waypoints[0] %}
           <a href="#roadtrip" data-marker-id="{{waypoint1.id}}" class="js-waypoint-link btn btn--green">Start the roadtrip</a>
         </div>
 
@@ -70,8 +71,18 @@ layout: default
         <div class="roadtrip__section place--{{waypoint.id}} js-waypoint" data-marker-id="{{waypoint.id}}">
 
           <div class="roadtrip__section-content">
-            <h4 class="title title--lg title--bold">{{waypoint.title}}</h4>
-            {{waypoint.content}}
+
+            <a href="#roadtrip" class="js-map-reset roadtrip__section-return"></a>
+
+            <h4 class="title title--lg title--upper">{{forloop.index}} <span class="title--bold">{{waypoint.title}}</span></h4>
+
+            <div class="roadtrip__section-highlights vpad-top--xs">
+              <span class="roadtrip__section-highlights-title title title--xxxs title--bold">Best bits: </span>
+              {% for highlight in waypoint.highlights %}
+                 <span class="roadtrip__section-highlight">{{highlight.title}}</span>
+              {% endfor %}
+            </div>
+
           </div>
 
           <div class="roadtrip__section-images row--6-6">
@@ -79,29 +90,32 @@ layout: default
             <div class="col bg-img bg-img--16-9" style="background-image: url({{site.baseurl}}/img/content/{{page.id}}/{{waypoint.id}}/02.jpg)"></div>
           </div>
 
+          <div class="roadtrip__section-content">
+            {{waypoint.content}}
+          </div>
+
+          <hr />
+
           <div class="roadtrip__section-footer">
 
-
-            <h4 class=" title title--sm">Highlights not to be missed!</h4>
-            <div class="roadtrip__section-highlights vpad-bottom--xs">
-              {% for highlight in waypoint.highlights %}
-                <span class="roadtrip__section-highlight">{{highlight.title}}</span>
-              {% endfor %}
-            </div>
-
-            <hr />
-            <h4 class=" title title--sm">Next stop: {{waypoints[next].title}}</h4>
-
+            {% if waypoint.drive-distance %}
+              <h4 class="title title--sm">Next stop: <span class="title--bold">{{waypoints[next].title}}</span></h4>
+              <p class="text--lg">{{waypoint.drive-distance}}</p>
+            {% endif %}
 
             {% unless forloop.first %}
-              <a href="#roadtrip" data-marker-id="{{waypoints[prev].id}}" class="js-waypoint-link js-waypoint-link--prev btn btn--green">Previous stop</a>
+              <a href="#roadtrip" data-marker-id="{{waypoints[prev].id}}" class="js-waypoint-link js-waypoint-link--prev btn btn--outline-subtle btn--square">
+                <img src="{{site.baseurl}}/img/icons/arrow-left-black.svg" width="9" alt="Previous stop">
+              </a>
             {% endunless %}
 
             {% unless forloop.last %}
               <a href="#roadtrip" data-marker-id="{{waypoints[next].id}}" class="js-waypoint-link js-waypoint-link--next btn btn--green">Next stop</a>
             {% endunless %}
 
-            <a href="#roadtrip" class="js-map-reset btn btn--outline-green btn--outline-dark">Back to the start</a>
+            <a href="#roadtrip" class="js-map-reset btn btn--outline-subtle btn--square">
+              <img src="{{site.baseurl}}/img/icons/map-restart.svg" width="15" alt="Back to the start">
+            </a>
 
           </div>
         </div>

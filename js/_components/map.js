@@ -272,7 +272,7 @@ if( $('body').hasClass('layout--roadtrip') ){
     });
 
     // update content panel
-    $('.roadtrip__section--active').scrollTop(0).removeClass('roadtrip__section--active').fadeOut();;
+    $('.roadtrip__section--active').fadeOut().scrollTop(0).removeClass('roadtrip__section--active');
     $('.roadtrip__section.roadtrip__intro').addClass('roadtrip__section--active').fadeIn();
   }
 
