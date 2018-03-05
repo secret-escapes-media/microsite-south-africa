@@ -20,7 +20,7 @@
     height: 100%;
     top: 0;
     @include bp(xl){
-      @include span(12);
+      @include span(6);
     }
     &.js-map-fixed {
       position: fixed !important;
@@ -43,7 +43,7 @@
     right: 0;
     bottom: 0;
     @include bp(xl){
-      @include span(12 last);
+      @include span(6 last);
     }
   }
 
