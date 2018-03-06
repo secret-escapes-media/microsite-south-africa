@@ -11,7 +11,9 @@
 
     {{ content }}
 
-    {% include page/footer.html %}
+    {% unless page.layout == 'roadtrip' %}
+      {% include page/footer.html %}
+    {% endunless %}
 
   </body>
 

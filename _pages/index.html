@@ -33,7 +33,7 @@ banner:
 
     <!-- hero roadtrip -->
     {% for roadtrip in roadtrips %}
-    {% if roadtrip.id == "big-one" %}
+    {% if roadtrip.video-id %}
       <div class="col">
         {% include components/roadtrip.html class="large" %}
       </div>
@@ -45,11 +45,11 @@ banner:
   <div class="row row--padding row--6-6-gutters">
     <!-- 2 roadtrips -->
     {% for roadtrip in roadtrips %}
-    {% if roadtrip.id != "big-one" %}
+    {% unless roadtrip.video-id %}
     <div class="col">
       {% include components/roadtrip.html %}
     </div>
-    {% endif %}
+    {% endunless %}
     {% endfor %}
 
   </div>
