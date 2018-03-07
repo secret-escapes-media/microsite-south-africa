@@ -22,6 +22,7 @@
     width: 100%;
   }
   &-- { @include ratios; }
+  &--no-gutters + &--no-gutters { margin-top: 0; }
 
   &--rounded { border-radius: 4px; overflow: hidden; }
 }

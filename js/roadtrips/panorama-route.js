@@ -2,7 +2,9 @@
 
 
 // Coordinates for center of roadtrip map
-var mapCenter = [29.270221, -27.909632];
+var mapCenter = [31.332340, -24.721608];
+var mapZoom = 8;
+var mapFocusZoom = 10;
 
 
 // Coordinates for roadtrip start and end.
@@ -12,13 +14,13 @@ var startEnd = {
     {
       "type": "Feature",
       "properties": {
-        "title": "Johannesburg",
-        "id": "johannesburg"
+        "title": "Pilgrim’s Rest",
+        "id": "pilgrims-rest"
       },
       "geometry": {
         "coordinates": [
-          28.046636,
-          -26.204650
+          30.754438,
+          -24.891418
         ],
         "type": "Point"
       },
@@ -26,13 +28,13 @@ var startEnd = {
     {
       "type": "Feature",
       "properties": {
-        "title": "Durban",
-        "id": "durban"
+        "title": "Hazyview",
+        "id": "hazyview"
       },
       "geometry": {
         "coordinates": [
-          31.015211,
-          -29.805921
+          31.137528,
+          -25.052768
         ],
         "type": "Point"
       },
@@ -49,14 +51,14 @@ var markers = {
     {
       "type": "Feature",
       "properties": {
-        "title": "Isandlwana",
-        "id": "isandlwana",
+        "title": "Graskop",
+        "id": "graskop",
         "num": 1
       },
       "geometry": {
         "coordinates": [
-          30.651389,
-          -28.357968
+          30.844219,
+          -24.932776
         ],
         "type": "Point"
       },
@@ -64,14 +66,14 @@ var markers = {
     {
       "type": "Feature",
       "properties": {
-        "title": "Hluhluwe",
-        "id": "hluhluwe",
+        "title": "God's Window",
+        "id": "gods-window",
         "num": 2
       },
       "geometry": {
         "coordinates": [
-          32.279581,
-          -28.026383
+          30.888822,
+          -24.876565
         ],
         "type": "Point"
       },
@@ -79,14 +81,14 @@ var markers = {
     {
       "type": "Feature",
       "properties": {
-        "title": "St Lucia",
-        "id": "st-lucia",
+        "title": "Waterfalls",
+        "id": "waterfalls",
         "num": 3
       },
       "geometry": {
         "coordinates": [
-          32.414195,
-          -28.372755
+          30.835790,
+          -24.861668
         ],
         "type": "Point"
       },
@@ -94,14 +96,74 @@ var markers = {
     {
       "type": "Feature",
       "properties": {
-        "title": "Nelson Mandela Capture Site",
-        "id": "nelson-mandela",
+        "title": "Bourke’s Luck Potholes",
+        "id": "bourkes-luck-potholes",
         "num": 4
       },
       "geometry": {
         "coordinates": [
-          30.169597,
-          -29.468719
+          30.807375,
+          -24.672518
+        ],
+        "type": "Point"
+      },
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Three Rondavels",
+        "id": "three-rondavels",
+        "num": 5
+      },
+      "geometry": {
+        "coordinates": [
+          30.798157,
+          -24.573672
+        ],
+        "type": "Point"
+      },
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Kruger",
+        "id": "kruger",
+        "num": 6
+      },
+      "geometry": {
+        "coordinates": [
+          31.270180,
+          -24.553456
+        ],
+        "type": "Point"
+      },
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Satara Camp",
+        "id": "satara-camp",
+        "num": 7
+      },
+      "geometry": {
+        "coordinates": [
+          31.787310,
+          -24.405935
+        ],
+        "type": "Point"
+      },
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Tshokwane",
+        "id": "tshokwane",
+        "num": 8
+      },
+      "geometry": {
+        "coordinates": [
+          31.856933,
+          -24.785403
         ],
         "type": "Point"
       },

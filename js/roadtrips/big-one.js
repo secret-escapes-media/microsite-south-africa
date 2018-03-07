@@ -3,6 +3,8 @@
 
 // Coordinates for center of roadtrip map
 var mapCenter = [30.080764, -27.847499];
+var mapZoom = 6;
+var mapFocusZoom = 8;
 
 
 // Coordinates for roadtrip start and end.

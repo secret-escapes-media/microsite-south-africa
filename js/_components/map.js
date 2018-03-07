@@ -26,8 +26,10 @@ if( $('body').hasClass('layout--roadtrip') ){
   // sizes map to full window height
   $(document).ready(function(){
     mapElement.css({"height": $(window).height() });
-    containerElement.css({"height": $(window).height() });
   });
+
+  // hide all inactive content panes on page load
+  $('.roadtrip__section').not('.roadtrip__section--active').hide();
 
 
 
@@ -44,7 +46,7 @@ if( $('body').hasClass('layout--roadtrip') ){
     style: 'mapbox://styles/hamishjgray/cjdn0g91q24ef2sp9ead7rl4s',
     center: mapCenter,
     logoPosition: 'bottom-right',
-    zoom: 6
+    zoom: mapZoom
   });
   map.scrollZoom.disable();
   map.addControl(new mapboxgl.NavigationControl());
@@ -240,7 +242,7 @@ if( $('body').hasClass('layout--roadtrip') ){
     for (var i = 0; i < markers.features.length; i++) {
       if (markers.features[i].properties.id == markerId) {
         map.flyTo({
-          zoom: 8,
+          zoom: mapFocusZoom,
           center: markers.features[i].geometry.coordinates
         });
       }
@@ -249,17 +251,17 @@ if( $('body').hasClass('layout--roadtrip') ){
     for (var i = 0; i < startEnd.features.length; i++) {
       if(startEnd.features[i].properties.id == markerId) {
         map.flyTo({
-          zoom: 8,
+          zoom: mapFocusZoom,
           center: startEnd.features[i].geometry.coordinates
         });
       }
     }
 
     // update content panel
-    $('.roadtrip__section--active').scrollTop(0).removeClass('roadtrip__section--active').fadeOut();;
+    $('.roadtrip__section--active').fadeOut().scrollTop(0).removeClass('roadtrip__section--active');
     $('.roadtrip__section').each(function(){
       if( $(this).data('marker-id') == markerId ){
-        $(this).addClass('roadtrip__section--active').fadeIn();
+        $(this).fadeIn().addClass('roadtrip__section--active');
       }
     });
 
@@ -267,13 +269,13 @@ if( $('body').hasClass('layout--roadtrip') ){
 
   function mapReset(){
     map.flyTo({
-      zoom: 6,
+      zoom: mapZoom,
       center: mapCenter
     });
 
     // update content panel
     $('.roadtrip__section--active').fadeOut().scrollTop(0).removeClass('roadtrip__section--active');
-    $('.roadtrip__section.roadtrip__intro').addClass('roadtrip__section--active').fadeIn();
+    $('.roadtrip__section.roadtrip__intro').fadeIn().addClass('roadtrip__section--active');
   }
 
 
@@ -312,22 +314,50 @@ if( $('body').hasClass('layout--roadtrip') ){
 
 
   // click section in pane to move the map to related marker
-
   $('.js-waypoint-link').click(function(){
     var markerId = $(this).data('marker-id');
     // flyto marker
     activateMarker(markerId);
   });
 
+  // click link to jump to map pin, doesn't update the pane
+  $('.js-map-link').click(function(){
+    var markerId = $(this).data('marker-id');
+
+    for (var i = 0; i < markers.features.length; i++) {
+      if (markers.features[i].properties.id == markerId) {
+        map.flyTo({
+          zoom: mapFocusZoom,
+          center: markers.features[i].geometry.coordinates
+        });
+      }
+    }
+    for (var i = 0; i < startEnd.features.length; i++) {
+      if(startEnd.features[i].properties.id == markerId) {
+        map.flyTo({
+          zoom: mapFocusZoom,
+          center: startEnd.features[i].geometry.coordinates
+        });
+      }
+    }
+
+  });
+
+  // reset map to original position and zoom
   $('.js-map-reset').click(function(){
     mapReset();
   });
 
+  // arrow key navigation
   $(document).on('keyup', function(e) {
     if(e.which === 37){
-      $('.roadtrip__section--active .js-waypoint-link--prev').trigger("click");
+      var prevBtn = $('.roadtrip__section--active .js-waypoint-link--prev');
+      var markerId = prevBtn.data('marker-id');
+      activateMarker(markerId);
     }else if(e.which === 39) {
-      $('.roadtrip__section--active .js-waypoint-link--next').trigger("click");
+      var nextBtn = $('.roadtrip__section--active .js-waypoint-link--next');
+      var markerId = nextBtn.data('marker-id');
+      activateMarker(markerId);
     }
   });
 
