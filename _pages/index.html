@@ -27,13 +27,13 @@ banner:
   <div class="row row--padding row--4-8-gutters row--valign">
 
     <div class="col text--white">
-      <h4 class="title title--xl title--bold">Roadtrip South Africa</h4>
-      <p class="text--lg text--italic">Donec id elit non mi porta gravida at eget metus. Nulla vitae elit libero, a pharetra augue. Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue. Etiam porta sem malesuada magna mollis euismod.</p>
+      <h4 class="title title--xl title--bold">Roadtrip <br />South Africa</h4>
+      <p class="text--lg text--italic">Discover the real South Africa with our guide to the best road trips across the country. From breathtaking outdoor wonders to fascinating cultural experiences, road tripping across this beguiling land makes for an unforgettable adventure.</p>
     </div>
 
     <!-- hero roadtrip -->
     {% for roadtrip in roadtrips %}
-    {% if roadtrip.video-id %}
+    {% if roadtrip.hero-roadtrip %}
       <div class="col">
         {% include components/roadtrip.html class="large" %}
       </div>
@@ -45,7 +45,7 @@ banner:
   <div class="row row--padding row--6-6-gutters">
     <!-- 2 roadtrips -->
     {% for roadtrip in roadtrips %}
-    {% unless roadtrip.video-id %}
+    {% unless roadtrip.hero-roadtrip %}
     <div class="col">
       {% include components/roadtrip.html %}
     </div>

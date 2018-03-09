@@ -5,7 +5,6 @@
 
 .bob {
   @include layout(12 1/2);
-  text-align: center;
   &__image {
     max-width: $lg;
     margin-left: auto;

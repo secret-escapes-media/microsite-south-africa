@@ -19,7 +19,7 @@
   &--color { color: $headline; }
 
   & + *         { padding-top: .75em; }
-  &--super + *  { padding-top: 15px !important; }
+  &--super + *  { padding-top: .15em !important; }
   &--sub        { padding-top: 15px !important; }
   &--np         { padding-top: 0; padding-bottom: 0; }
   &--np + *     { padding-top: 0; padding-bottom: 0; }

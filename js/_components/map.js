@@ -51,11 +51,6 @@ if( $('body').hasClass('layout--roadtrip') ){
   map.scrollZoom.disable();
   map.addControl(new mapboxgl.NavigationControl());
 
-
-
-
-
-
   //////////////////////////////////////////////////////////////////////////////// FUNCTIONS
 
   function newStopoff(marker) {

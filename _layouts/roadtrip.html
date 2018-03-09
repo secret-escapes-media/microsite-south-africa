@@ -87,10 +87,16 @@ layout: default
 
           </div>
 
+          {% if waypoint.single-image %}
+          <div class="roadtrip__section-images">
+            <div class="col bg-img bg-img--21-9" style="background-image: url({{site.baseurl}}/img/content/{{page.id}}/{{waypoint.id}}/01.jpg)"></div>
+          </div>
+          {% else %}
           <div class="roadtrip__section-images row--6-6">
             <div class="col bg-img bg-img--16-9 bg-img--no-gutters" style="background-image: url({{site.baseurl}}/img/content/{{page.id}}/{{waypoint.id}}/01.jpg)"></div>
             <div class="col bg-img bg-img--16-9 bg-img--no-gutters" style="background-image: url({{site.baseurl}}/img/content/{{page.id}}/{{waypoint.id}}/02.jpg)"></div>
           </div>
+          {% endif %}
 
           <div class="roadtrip__section-content">
             {{waypoint.content}}

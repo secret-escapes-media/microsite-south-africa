@@ -10,8 +10,8 @@ $core-nav-height-sm:  $s8;
   @include bp(lg){
     min-height:580px;
     height: 75%;
+    .page--overview & { height: 100%; }
   }
-  .page--overview & { height: 100%; }
   &__wrap {
     position: relative;
     width: 100%;
@@ -24,17 +24,19 @@ $core-nav-height-sm:  $s8;
     width: 100%;
     padding-top: $s8+$core-nav-height-sm*2;
     padding-bottom: $s8;
-    @include bp(md){
+    @include bp(lg){
       position: absolute;
       bottom: 0;
       left: 0;
       padding-top: $core-nav-height*2;
     }
 
-    .page--overview & {
-      bottom: auto;
-      top: 50%;
-      transform: translateY(-50%);
+    @include bp(lg){
+      .page--overview & {
+        bottom: auto;
+        top: 50%;
+        transform: translateY(-50%);
+      }
     }
   }
 

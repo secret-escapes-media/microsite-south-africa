@@ -47,4 +47,29 @@ layout: default
 
 
 
-{% include page/explore-links.html %}
+
+<div class="section">
+  {% assign guides = site.html_pages | where:"group","explore" %}
+  <div class="row row--padding text--white text--center">
+    <h3 class="title title--xl title--bold">Learn more about South Africa</h3>
+  </div>
+
+  <div class="row row--padding row--4-4-4-gutters">
+    {% for guide in guides %}
+
+      {% unless guide.id == page.id %}
+      <div class="col">
+        <a href="{{site.baseurl}}{{guide.url}}" class="bg-img bg-img--3-4 bg-img--rounded bg-img--shadow bg-img--hover bg--grey-darkest">
+          <div class="bg-img__content text--white text--center">
+            <span class="title title--md">{{guide.title}}</span>
+            <p>{{guide.banner.intro|strip_html|truncatewords:12}}</p>
+            <span class="btn btn--sm btn--solid">Read more</span>
+          </div>
+          <div class="bg-img__bg" style="background-image: url({{site.baseurl}}/img/content/{{guide.id}}/nav.jpg);"></div>
+        </a>
+      </div>
+      {% endunless %}
+
+    {% endfor %}
+  </div>
+</div>
