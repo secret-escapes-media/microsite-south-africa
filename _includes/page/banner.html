@@ -4,11 +4,11 @@
       <div class="row text--white">
 
         {% if page.banner.title %}
-          <h1 class="banner__title title title--upper title--bold">{{page.banner.title}}</h1>
+          <h1 class="banner__title title title--bold">{{page.banner.title}}</h1>
         {% elsif page.banner.content %}
           {{page.banner.content}}
         {% else %}
-          <h1 class="banner__title title title--upper title--bold">{{page.title}}</h1>
+          <h1 class="banner__title title title--bold">{{page.title}}</h1>
         {% endif %}
 
         {% if page.banner.title-super %}

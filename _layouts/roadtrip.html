@@ -11,11 +11,11 @@ layout: default
   <div class="roadtrip">
     <div class="wp" id="roadtrip"></div>
 
+
+
+
     <!-- MAP CANVAS, GENERATED ON PAGE LOAD -->
     <div class="roadtrip__map" id="map"></div>
-
-
-
 
 
 
@@ -106,8 +106,8 @@ layout: default
 
           <div class="roadtrip__section-footer">
 
+            <h4 class="title title--sm">Next stop: <span class="title--bold">{{waypoints[next].title}}</span></h4>
             {% if waypoint.drive-distance %}
-              <h4 class="title title--sm">Next stop: <span class="title--bold">{{waypoints[next].title}}</span></h4>
               <p class="text--lg">{{waypoint.drive-distance}}</p>
             {% endif %}
 
@@ -132,8 +132,8 @@ layout: default
 
 
     </div>
-  </div>
-</div>
+  </div><!-- end .roadtrip -->
+</div><!-- end .page__content -->
 
 
 

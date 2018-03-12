@@ -35,7 +35,7 @@ banner:
     {% for roadtrip in roadtrips %}
     {% if roadtrip.hero-roadtrip %}
       <div class="col">
-        {% include components/roadtrip.html class="large" %}
+        {% include components/roadtrip-lg.html %}
       </div>
     {% endif %}
     {% endfor %}
@@ -58,15 +58,20 @@ banner:
 
 
 
-{% include page/explore-links.html %}
+<div class="section">
+  {% assign guides = site.html_pages | where:"group","explore" %}
+  <div class="row row--padding text--white text--center">
+    <h3 class="title title--xl title--bold">Learn more about South Africa</h3>
+  </div>
 
-
-
-
-<div class="section offers-banner vpad--xxxl" style="background-image: url({{site.baseurl}}/img/offers-banner.jpg);">
-  <div class="row row--padding text--center text--white">
-  <h3 class="title title--xxxl title--upper title--bold">Travel Offers</h3>
-  <p class="text--xl">South Africa is often described as an entire world in one country, and with so many incredible experiences to be had this year, now is the time to visit. Browse our offers on regional tours and sumptuous stays at top-end hotels.</p>
-  <a href="{{site.baseurl}}/offers" class="btn btn--solid">View South Africa offers</a>
+  <div class="row row--padding row--3-3-3-3-gutters">
+    {% for guide in guides %}
+      {% include components/explore-tile.html %}
+    {% endfor %}
   </div>
 </div>
+
+
+
+
+{% include page/offers-banner.html %}

@@ -98,11 +98,17 @@
   &__content {
     padding: $s2;
     position: absolute;
-    bottom: 0;
     left: 0;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 5;
     width: 100%;
     color: $white;
+    @include bp(lg){
+      transform: translateY(0);
+      top: auto;
+      bottom: 0;
+    }
   }
   &--large {}
 }

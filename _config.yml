@@ -3,9 +3,9 @@ title: South Africa
 
 clients:
   - name: South African Tourism
-    link: "https://www.visit-corsica.com/en"
+    link: "http://uk.southafrica.net/"
 
-description: Nulla vitae elit libero, a pharetra augue. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nullam quis risus eget urna mollis ornare vel eu leo.
+description: Discover the real South Africa with our guide to the best road trips across the country. From breathtaking outdoor wonders to fascinating cultural experiences, road tripping across this beguiling land makes for an unforgettable adventure.
 
 baseurl: "/southafrica" # the subpath of your site, e.g. /blog/
 url: "http://mp.secretescapes.com" # the base hostname & protocol for your site

@@ -22,8 +22,11 @@ $core-nav-height-sm:  $s8;
   }
   &__content {
     width: 100%;
-    padding-top: $s8+$core-nav-height-sm*2;
+    padding-top: $s10+$core-nav-height-sm*2;
     padding-bottom: $s8;
+    @include bp(md){
+      padding-top: $s10+$core-nav-height*2;
+    }
     @include bp(lg){
       position: absolute;
       bottom: 0;
