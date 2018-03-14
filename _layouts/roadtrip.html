@@ -36,6 +36,7 @@ layout: default
             <li class="text--lg"><span class="text--bold">Recommended time:</span> {{page.roadtrip.meta.time}}</li>
             <li class="text--lg"><span class="text--bold">Journey distance:</span> {{page.roadtrip.meta.distance}}</li>
           </ul>
+          {% if page.roadtrip.photo-credit %}<div class="photo-credit">{{page.roadtrip.photo-credit}}</div>{% endif %}
         </div>
 
         <div class="roadtrip__section-content">
@@ -87,16 +88,15 @@ layout: default
 
           </div>
 
-          {% if waypoint.single-image %}
-          <div class="roadtrip__section-images">
-            <div class="col bg-img bg-img--21-9" style="background-image: url({{site.baseurl}}/img/content/{{page.id}}/{{waypoint.id}}/01.jpg)"></div>
+
+          <div class="roadtrip__section-images {% if waypoint.images.size > 1 %} row--6-6{% endif %}">
+            {% for image in waypoint.images %}
+              <div class="col bg-img{% if forloop.first and forloop.last %} bg-img--21-9{% else %} bg-img--16-9 bg-img--no-gutters{% endif %}" style="background-image: url({{site.baseurl}}/img/content/{{page.id}}/{{waypoint.id}}/{{image.id}}.jpg)">
+                {% if image.credit %}<div class="photo-credit">{{image.credit}}</div>{% endif %}
+              </div>
+            {% endfor %}
           </div>
-          {% else %}
-          <div class="roadtrip__section-images row--6-6">
-            <div class="col bg-img bg-img--16-9 bg-img--no-gutters" style="background-image: url({{site.baseurl}}/img/content/{{page.id}}/{{waypoint.id}}/01.jpg)"></div>
-            <div class="col bg-img bg-img--16-9 bg-img--no-gutters" style="background-image: url({{site.baseurl}}/img/content/{{page.id}}/{{waypoint.id}}/02.jpg)"></div>
-          </div>
-          {% endif %}
+
 
           <div class="roadtrip__section-content">
             {{waypoint.content}}

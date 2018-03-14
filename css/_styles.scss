@@ -29,6 +29,17 @@
 
 
 
+.photo-credit {
+  position: absolute;
+  bottom: 0; right: 0;
+  background-color: rgba($grey-darkest, 0.5);
+  border-top-left-radius: 3px;
+  padding: 4px 10px;
+  font-size: $s-2;
+  color: $grey-lighter;
+}
+
+
 
 // ---------- PAGE INTRO ----------
 

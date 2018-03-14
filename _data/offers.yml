@@ -1,18 +1,6 @@
 
 
 
-- title: South Africa safari holiday with game drives & excursions
-  id: south-africa-safari-holiday-with-game-drives-excursions
-  location: Manyatta Rock Camp, Kwa Madwala
-  description: Game drives and a rustic-chic lodge in South Africa
-  price: 1499
-  price-description:  per person for 5 nights
-  saved: 38
-  expires: 2018/03/20
-  link: https://www.secretescapes.com/south-africa-safari-holiday-with-game-drives-and-excursions-manyatta-rock-camp-kwa-madwala/sale?utm_source=microsite&utm_medium=SE_media&utm_campaign=SouthAfrica_Mar2018
-
-
-
 - title: Spellbinding South Africa self-drive holiday with safari stay
   id: spellbinding-south-africa-self-drive-holiday-with-safari-stay
   location: Johannesburg, KwaZulu-Natal, Durban & optional Cape Town
@@ -46,3 +34,15 @@
   saved: 44
   expires: 2018/03/20
   link: https://www.secretescapes.com/romantic-south-africa-escape-with-a-lion-safari-welgelegen-manor-near-johannesburg/sale?utm_source=microsite&utm_medium=SE_media&utm_campaign=SouthAfrica_March2018
+
+
+
+- title: Entabeni Safari Conservancy
+  id: entabeni-safari-conservancy
+  location: Limpopo, South Africa
+  description: An epic safari stay in South Africa's beautiful bushveld
+  price: 183
+  price-description:  per room per night
+  saved: 52
+  expires: 2018/03/20
+  link: https://www.secretescapes.com/entabeni-safari-conservancy-limpopo-south-africa/sale?utm_source=microsite&utm_medium=SE_media&utm_campaign=South%20Africa_March2018
