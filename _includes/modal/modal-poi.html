@@ -1,0 +1,34 @@
+
+<div class="js-modal modal is-closed" id="modal-pois">
+  <div class="modal__ui-wrap row">
+    <div class="js-close-modal modal__close"></div>
+    <div class="js-modal-nav modal__nav modal__nav--next" data-nav-direction="next"></div>
+    <div class="js-modal-nav modal__nav modal__nav--previous" data-nav-direction="previous"></div>
+    <div class="modal__content-wrap row">
+
+      {% for section in page.sections %}
+        {% for poi in section.pois %}
+
+        <div class="modal__content modal__content--{{poi.id}}"  data-content-category="{{section.id}}">
+
+          <div class="bg-img bg-img--16-9" style="background-image:url('{{site.baseurl}}/img/content/{{page.id}}/{{section.id}}/pois/{{poi.id}}.jpg');"></div>
+
+          <div class="modal__content--padding vpad--xs text--center">
+
+            <h2 class="title title--sm title--bolder">{{poi.title}}</h2>
+
+            {% if poi.subtitle %}
+              <p class="title title--bold title--upper title--kerning">{{poi.subtitle}}</p>
+            {% endif %}
+
+            <p>{{poi.content}}</p>
+
+          </div>
+        </div>
+
+        {% endfor %}
+      {% endfor %}
+
+    </div>
+  </div>
+</div>

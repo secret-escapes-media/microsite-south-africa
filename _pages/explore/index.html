@@ -1,0 +1,43 @@
+---
+layout: standard
+id: explore
+title: Explore
+nav-order: 3
+group-id: explore
+
+
+banner:
+  title: Explore
+  intro:
+
+
+---
+
+
+
+{% assign group-pages = site.html_pages | sort:"group-order" %}
+<div class="section">
+  <div class="row row--padding vpad-bottom--xl">
+    {% for group-page in group-pages %}
+      {% if group-page.group == page.group-id %}
+      <div class="bob{% cycle ""," bob--swap" %}">
+        <a class="bob__image" href="{{site.baseurl}}{{group-page.url}}">
+          <div class="bg-img bg-img--16-9 bg-img--lg-4-3 bg-img--rounded bg-img--shadow bg--grey-darkest" style="background-image: url({{site.baseurl}}/img/bg/{{group-page.id}}.jpg)"></div>
+        </a>
+        <div class="bob__text text--white">
+          <span class="title title--xl title--bold">{{group-page.banner.title}}</span>
+          <p class="text--xl">{{group-page.banner.intro|strip_html}}</p>
+          <a href="{{site.baseurl}}{{group-page.url}}" class="btn btn--solid">Read more</a>
+        </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+
+
+
+
+
+{% include page/offers-banner.html %}

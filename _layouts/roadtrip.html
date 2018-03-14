@@ -1,0 +1,146 @@
+---
+layout: default
+---
+
+{% include roadtrip/banner.html %}
+
+<div class="page__content">
+
+
+
+  <div class="roadtrip">
+    <div class="wp" id="roadtrip"></div>
+
+
+
+
+    <!-- MAP CANVAS, GENERATED ON PAGE LOAD -->
+    <div class="roadtrip__map" id="map"></div>
+
+
+
+
+    <!-- MAP SIDEBAR WITH SITE CONTENT -->
+    <div class="roadtrip__pane">
+      {% assign waypoints = page.roadtrip.waypoints %}
+      {% assign waypoint1 = waypoints[0] %}
+
+
+
+      <!-- Intro section -->
+      <div class="roadtrip__section roadtrip__section--active roadtrip__intro">
+
+        <div class="roadtrip__intro-banner section text--white" style="background-image: url({{site.baseurl}}/img/content/{{page.id}}/banner.jpg);">
+          <h2 class="title title--xl title--bold">{{ page.roadtrip.title }}</h2>
+          <ul class="list--lined">
+            <li class="text--lg"><span class="text--bold">Recommended time:</span> {{page.roadtrip.meta.time}}</li>
+            <li class="text--lg"><span class="text--bold">Journey distance:</span> {{page.roadtrip.meta.distance}}</li>
+          </ul>
+          {% if page.roadtrip.photo-credit %}<div class="photo-credit">{{page.roadtrip.photo-credit}}</div>{% endif %}
+        </div>
+
+        <div class="roadtrip__section-content">
+          {{page.roadtrip.intro}}
+          <a href="#roadtrip" data-marker-id="{{waypoint1.id}}" class="js-waypoint-link btn btn--green">Start the roadtrip</a>
+        </div>
+
+        <div class="roadtrip__section-images">
+          <div class="row row--6-6-gutters">
+            {% for waypoint in waypoints %}
+            <a href="#roadtrip" data-marker-id="{{waypoint.id}}" class="col roadtrip__intro-wplink js-waypoint-link">
+              <div class="row">
+                <span class="title title--xxxs title--upper title--kerning title--bold">{{waypoint.title}}</span>
+                <p>{{waypoint.content|strip_html|truncatewords:10}}...</p>
+              </div>
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="roadtrip__section-footer text--center">
+          <a href="#roadtrip" data-marker-id="{{waypoint1.id}}" class="js-waypoint-link js-waypoint-link--next btn btn--green">Start the roadtrip</a>
+        </div>
+
+      </div>
+
+
+
+      {% for waypoint in waypoints %}
+        {% assign prev = forloop.index0 | minus: 1 %}
+        {% assign next = forloop.index0 | plus: 1 %}
+
+        <div class="roadtrip__section place--{{waypoint.id}} js-waypoint" data-marker-id="{{waypoint.id}}">
+
+          <div class="roadtrip__section-title roadtrip__section-content">
+
+            <a href="#roadtrip" class="js-map-reset roadtrip__section-return"></a>
+
+            <h4 class="title title--lg title--upper">{{forloop.index}} <span class="title--bold">{{waypoint.title}}</span></h4>
+
+            {% if waypoint.highlights %}
+            <div class="roadtrip__section-highlights vpad-top--xs">
+              <span class="roadtrip__section-highlights-title title title--xxxs title--bold">Best bits: </span>
+              {% for highlight in waypoint.highlights %}
+                 <span class="roadtrip__section-highlight">{{highlight.title}}</span>
+              {% endfor %}
+            </div>
+            {% endif %}
+
+          </div>
+
+
+          <div class="roadtrip__section-images {% if waypoint.images.size > 1 %} row--6-6{% endif %}">
+            {% for image in waypoint.images %}
+              <div class="col bg-img{% if forloop.first and forloop.last %} bg-img--21-9{% else %} bg-img--16-9 bg-img--no-gutters{% endif %}" style="background-image: url({{site.baseurl}}/img/content/{{page.id}}/{{waypoint.id}}/{{image.id}}.jpg)">
+                {% if image.credit %}<div class="photo-credit">{{image.credit}}</div>{% endif %}
+              </div>
+            {% endfor %}
+          </div>
+
+
+          <div class="roadtrip__section-content">
+            {{waypoint.content}}
+          </div>
+
+          <hr />
+
+          <div class="roadtrip__section-footer">
+
+            <h4 class="title title--sm">Next stop: <span class="title--bold">{{waypoints[next].title}}</span></h4>
+            {% if waypoint.drive-distance %}
+              <p class="text--lg">{{waypoint.drive-distance}}</p>
+            {% endif %}
+
+            {% unless forloop.first %}
+              <a href="#roadtrip" data-marker-id="{{waypoints[prev].id}}" class="js-waypoint-link js-waypoint-link--prev btn btn--outline-subtle btn--square">
+                <img src="{{site.baseurl}}/img/icons/arrow-left-black.svg" width="9" alt="Previous stop">
+              </a>
+            {% endunless %}
+
+            {% unless forloop.last %}
+              <a href="#roadtrip" data-marker-id="{{waypoints[next].id}}" class="js-waypoint-link js-waypoint-link--next btn btn--green">Next stop</a>
+            {% endunless %}
+
+            {% if forloop.last %}
+            <a href="#roadtrip" class="js-map-reset btn btn--green">Back to the start</a>
+            {% endif %}
+
+          </div>
+        </div>
+
+      {% endfor %}
+
+
+    </div>
+  </div><!-- end .roadtrip -->
+</div><!-- end .page__content -->
+
+
+
+
+
+{% if page.video-id %}
+  {% include modal/modal-video.html %}
+{% endif %}
+
+

@@ -1,0 +1,53 @@
+
+
+// points of interest on the destination pages and featured across the site
+
+.pois { }
+
+.poi {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: $s4;
+  color: $white;
+  & .title { color: $white; }
+
+  @include layout(12 1/4);
+  @include bp(lg){
+    @include gallery(3);
+    margin-bottom: gutter(12);
+  }
+
+  &__footer {
+    margin-top: $s1;
+  }
+
+  &__location {
+    font-size: 0.9em;
+    line-height: 1.5;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    display: block;
+    &:before {
+      content: "";
+      display: inline-block;
+      height: 1.5em; width: 1.05em;
+      margin-top: -0.1em;
+      margin-right: .3em;
+      margin-bottom: .2em;
+      vertical-align: middle;
+      background-image: url( "../img/icons/map-pin.png" );
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-size: contain;
+      .svg & { background-image: url( "../img/icons/map-pin.svg" ); }
+    }
+  }
+}
+
+.featured-poi {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: $s4;
+}

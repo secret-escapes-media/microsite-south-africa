@@ -3,17 +3,57 @@
 ---
 
 @import
-  '../bower_components/reset-css/_reset',
-  '../bower_components/susy/sass/susy',
-  '../bower_components/unslider/dist/css/unslider',
-  'core',
-  'typography',
-  'grid',
-  'navigation',
-  'slider-mods',
-  'article',
-  'styles',
-  'offers',
-  'secrets',
-  'game'
+
+  // plugins
+  '../node_modules/reset-css/_reset',
+  '../node_modules/susy/sass/susy',
+
+  // core
+  'core/scale',
+  'core/breakpoints',
+  'core/colours',
+  'core/z-index',
+  'core/core',
+
+  // typography
+  'typography/families',
+  'typography/default',
+  'typography/elements',
+  'typography/titles',
+
+  // grid
+  'grid/horizontal',
+  'grid/vertical',
+  'grid/layouts/bob',
+  'grid/layouts/harvey',
+
+  // bg-image
+  'core/bg-img/bg-img',
+  'core/bg-img/breakpoints',
+  'core/bg-img/content',
+
+  // navigation
+  'nav/core-nav',
+  'nav/microsite-nav',
+  'nav/page-nav',
+
+  // page
+  'page/footer',
+  'page/banner',
+  'page/articles',
+  'page/roadtrip',
+
+  // components
+  'components/unslider',
+  'components/logos',
+  'components/icons',
+  'components/buttons',
+  'components/modal',
+  'components/offer',
+  'components/offer-promo',
+  'components/poi',
+
+  // general
+  'styles'
+
 ;

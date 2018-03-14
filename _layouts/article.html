@@ -2,25 +2,70 @@
 layout: default
 ---
 
-{% assign subjects = page.subjects %}
 
-<!-- page intro -->
-<div class="row">
-  <div class="page__intro">
-    <h1 class="title title--largest title--bolder title--tighter title--condense">{{page.title}}</h1>
-    <p class="paragraph paragraph--lead page__intro--text-shadow">{{page.intro}}</p>
-    <ul class="drop-nav__mobile row">{% for subject in page.subjects %}<li class="{{page.class}}-0{{forloop.index}}--border"><a class="title title--bolder title--expanded" href="{{site.baseurl}}{{page.url}}#{{ subject.title | slugify }}">{{ subject.title }}</a></li>{% endfor %}</ul>
+
+<div class="banner">
+  <div class="banner__wrap">
+    <div class="banner__content row--padding">
+      <div class="row text--white">
+
+        <h1 class="banner__title title title--upper title--bold">{{page.banner.title}}</h1>
+        <p class="text--lg">{{page.banner.intro}}</p>
+
+        <ul class="drop-nav__mobile row">{% for subject in page.subjects %}<li class="{{page.id}}-0{{forloop.index}}--border"><a class="title title--kerning title--upper" href="{{site.baseurl}}{{page.url}}#{{ subject.title | slugify }}">{{ subject.title }}</a></li>{% endfor %}</ul>
+
+      </div>
+    </div>
+  </div>
+  {% assign pages = site.html_pages %}
+  {% if pages.size > 1 %}
+    {% include nav/microsite-nav.html class="banner__nav" %}
+  {% endif %}
+</div>
+
+
+
+<div class="page__background">
+  <div class="page__background-image js-bg-fade" style="background-image: url({{site.baseurl}}/img/bg/{{page.id}}.jpg);"></div>
+</div>
+
+
+<div class="section row--padding">
+  <!-- page subjects -->
+  {% assign subjects = page.subjects %}
+  {% for subject in subjects %}
+    <section id="{{ subject.title | slugify }}" class="row subject">
+      <div class="subject__title {{page.id}}-0{{forloop.index}}--bg {{page.id}}-0{{forloop.index}}--border row--padding text--white">
+        <h2 class="title title--sm title--bold title--kerning-lg title--upper">{{ subject.title }}</h2>
+      </div>
+      <div class="inner-section inner-section--light">
+        {{ subject.content | liquify }}
+      </div>
+    </section>
+  {% endfor %}
+</div>
+
+
+
+
+<div class="section">
+  {% assign guides = site.html_pages | where:"group","explore" %}
+  <div class="row row--padding text--white text--center">
+    <h3 class="title title--xl title--bold">Learn more about South Africa</h3>
+  </div>
+
+  <div class="row row--padding row--4-4-4-gutters">
+    {% for guide in guides %}
+
+      {% unless guide.id == page.id %}
+        {% include components/explore-tile.html %}
+      {% endunless %}
+
+    {% endfor %}
   </div>
 </div>
 
-<!-- page subjects -->
-{% for subject in subjects %}
-  <section id="{{ subject.title | slugify }}" class="row subject">
-    <div class="subject__title {{page.class}}-0{{forloop.index}}--bg {{page.class}}-0{{forloop.index}}--border row--padding">
-      <h2 class="title title--small title--bold title--expanded title--tight">{{ subject.title }}</h2>
-    </div>
-    <div class="inner-section inner-section--light">
-      {{ subject.content | liquify }}
-    </div>
-  </section>
-{% endfor %}
+
+
+
+{% include page/offers-banner.html %}

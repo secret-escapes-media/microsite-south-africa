@@ -1,0 +1,11 @@
+<!-- PAGE NAV -->
+<div class="page-nav">
+  <div class="row row--padding">
+    <ul class="page-nav__list">
+      {% for section in page.sections %}
+      <li class="page-nav__item"><a href="#section-{{section.id}}" class="page-nav__link">{{ section.title }}</a></li>
+      {% endfor %}
+      <li class="page-nav__item"><a href="#section-flights" class="page-nav__link">Flights</a></li>
+    </ul>
+  </div>
+</div>

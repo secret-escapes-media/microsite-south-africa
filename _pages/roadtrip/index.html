@@ -1,0 +1,49 @@
+---
+layout: standard
+id: roadtrip
+title: Roadtrips
+nav-order: 2
+group-id: roadtrip
+
+
+banner:
+  title: Roadtrips
+  intro: >
+    <p class="text--xl">Discover the real South Africa with our guide to the best road trips across the country. From breathtaking outdoor wonders to fascinating cultural experiences, road tripping across this beguiling land makes for an unforgettable adventure.</p>
+
+
+---
+
+
+
+{% assign group-pages = site.html_pages | sort:"group-order" %}
+<div class="section">
+  <div class="row row--padding row--4-4-4-gutters">
+    {% for group-page in group-pages %}
+      {% if group-page.group == page.group-id %}
+        <div class="col">
+          <a href="{{site.baseurl}}{{group-page.url}}" class="roadtrip-tile roadtrip-tile--large bg-img bg-img--1-1 bg-img--lg-2-3 bg-img--xl-3-4 bg-img--rounded bg-img--shadow bg--grey-darkest">
+            <div class="roadtrip-tile__content text--white">
+
+              <h4 class="title title--super title--xxxs title--bold">{{group-page.roadtrip.title}}</h4>
+              <h3 class="title title--sm">{{group-page.banner.title}}</h3>
+
+              <ul class="list--lined">
+                <li><p><span class="text--bold">Time:</span> {{group-page.roadtrip.meta.time}}</p></li>
+                <li><p><span class="text--bold">Distance:</span> {{group-page.roadtrip.meta.distance}}</p></li>
+              </ul>
+            </div>
+            <div class="bg-img__bg" style="background-image: url({{site.baseurl}}/img/content/{{group-page.id}}/nav.jpg);"></div>
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+
+
+
+
+{% include page/offers-banner.html %}
+

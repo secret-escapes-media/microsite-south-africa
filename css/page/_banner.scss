@@ -1,0 +1,119 @@
+// the title banner that appears at the top of every page. sometimes animated bgs
+
+$core-nav-height:     $s9;
+$core-nav-height-sm:  $s8;
+
+.banner {
+  position: relative;
+  z-index: 0;
+  color: white;
+  @include bp(lg){
+    min-height:580px;
+    height: 75%;
+    .page--overview & { height: 100%; }
+  }
+  &__wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    @include bp(lg){
+      background-color: transparent;
+    }
+  }
+  &__content {
+    width: 100%;
+    padding-top: $s10+$core-nav-height-sm*2;
+    padding-bottom: $s8;
+    @include bp(md){
+      padding-top: $s10+$core-nav-height*2;
+    }
+    @include bp(lg){
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding-top: $core-nav-height*2;
+    }
+
+    @include bp(lg){
+      .page--overview & {
+        bottom: auto;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  &__breadcrumbs {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__title {
+    line-height: 1;
+    display: block;
+    margin: auto;
+    font-size: $s7;
+    * + & { padding-top: 0; }
+    @include bp(md){
+      font-size: $s9;
+      &--sm  { font-size: $s9; }
+    }
+    @include bp(xl){
+      font-size: $s11;
+      &--sm  { font-size: $s9; }
+    }
+    &--sub { line-height: 1; }
+    &--super { line-height: 1; }
+  }
+
+  &__video {
+    &-play {
+      $button-size: 100px;
+      position: absolute;
+      z-index: $z-content-overlay+1;
+      top: 50%;
+      left: 50%;
+      margin-top: -($button-size/2);
+      margin-left: -($button-size/2);
+      height: $button-size;
+      width: $button-size;
+      background-image: url("../img/icons/play.png");
+      @include background-attributes;
+      background-size: contain;
+      cursor: pointer;
+      @include transition;
+    }
+    &:hover &-play {
+      transform: scale( 1.1, 1.1);
+    }
+  }
+
+  &__intro {
+    font-family: $font-family-headline-02;
+    font-weight: 400;
+    line-height: 1.4;
+    max-width: $lg;
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: $z-background;
+    background-color: $grey-dark;
+
+    @include background-attributes;
+    @include max-bp(lg){
+      background-position: center right;
+    }
+  }
+  &__nav {
+    position: absolute;
+    width: 100%;
+    top: $core-nav-height-sm;
+    @include bp(md){ top: $core-nav-height; }
+  }
+
+}

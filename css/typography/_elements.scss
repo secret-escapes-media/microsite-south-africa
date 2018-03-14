@@ -1,0 +1,102 @@
+// general typographic elements like paragraphs, lists, etc
+
+.text {
+  &--xxl    { font-size: $s1; }
+  &--xl     { font-size: $s1; }
+  &--lg     { font-size: $s0; }
+  &--md     { font-size: $s0*1.1; }
+  @include bp(lg){
+    &--xxl    { font-size: $s3; }
+    &--xl     { font-size: $s2; }
+    &--lg     { font-size: $s1; }
+  }
+  &--sm     { font-size: $s-1; font-weight: 400; }
+  &--bold       { font-weight: 600; }
+  &--bolder     { font-weight: 800; }
+  &--left   { text-align: left; }
+  &--right  { text-align: right; }
+  &--center { text-align: center; }
+  &--white  { color: $white; }
+  &--black  { color: $text; }
+  &--dark   { color: $text-dark; }
+  &--shadow { text-shadow: 0 2px 19px rgba($black,.75); }
+
+  &--quote  {
+    .page__content * + & {
+      margin-top: $s1;
+      padding-top: 0;
+    }
+    padding-left: 1em;
+    font-style: italic;
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 3px; height: 100%;
+      background-color: $theme-primary;
+      left: 0;
+    }
+  }
+
+}
+
+.line-length {
+  display: inline-block;  max-width: 40rem;
+  &--xl { display: inline-block; max-width: 68rem; }
+  &--lg { display: inline-block; max-width: 47rem; }
+  &--md { display: inline-block; max-width: 38rem; }
+  &--sm { display: inline-block; max-width: 30rem; }
+}
+
+
+// -------- general element styles --------
+
+.page__content {
+  * + p               { padding-top: $s-4; }
+  * + ul,
+  * + ol               { padding-top: $s-4; }
+  li                   { list-style-position: outside; margin-left: $s2; }
+  li + li              { padding-top: $s-4; }
+  ul li                { list-style-type: disc; }
+  ol li                { list-style-type: decimal; }
+  em                   { font-style: italic; font-weight: 400; }
+  strong               { font-weight: 700; }
+  a[href]:not([class]) {
+    color: $orange;
+    @include transition;
+    &:hover { color: $orange-darker; }
+  }
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-color: $grey-lighter;
+  margin: $s1 0;
+  .title + & { padding-top: 0; margin-top: $s1; }
+  .page__content & + p { padding-top: 0; }
+  .text--white & { background-color: $white; }
+}
+.hr {
+  &--center { width: 80px; margin-left: auto; margin-right: auto; }
+  &--left { width: 80px; display: block; margin-left: 0; }
+}
+
+
+// -------- lists --------
+
+.list {
+  &--lined {
+    & > li {
+      margin-left: 0;
+      list-style-type: none !important;
+      padding: $s-4 0;
+      border-top: 1px solid $grey-lightest;
+      .page__content .text--white & { border-top: 1px solid rgba($white,.2); }
+      &:last-child { padding-bottom: 0; }
+      & + & { margin-top: 0; }
+    }
+  }
+}
+

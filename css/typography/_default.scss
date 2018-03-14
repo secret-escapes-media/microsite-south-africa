@@ -1,0 +1,19 @@
+// These are the default settings for type
+
+html { font-size: 87.5%; } // = 14px – This is the root size for REM
+
+body {
+  font-family: $font-family;
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: .0143em;
+  -webkit-text-size-adjust: 100%;
+  color: $text;
+  background-color: $white;
+}
+
+p {
+  max-width: 62rem;
+  &.text--center,
+  .text--center & { margin-left: auto; margin-right: auto; }
+}

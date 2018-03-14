@@ -1,0 +1,7 @@
+{% if page.id == 'air-corsica' %}
+  <a class="logo logo--partner logo--air-corsica{% if include.small %} logo--partner-sm{% endif %}" href="https://www.aircorsica.com/flights/" id="tracking-air-corsica-logo"><img src="{{ site.baseurl }}/img/logo/air-corsica.png" alt="Air Corsica Logo"></a>
+{% endif %}
+
+{% for client in site.clients %}
+  <a class="logo logo--partner logo--{{client.name|slugify}}{% if include.small %} logo--partner-sm{% endif %}" href="{{client.link}}" id="tracking-partner-logo"><img class="{% if client.svg %}js-svg-swap{% endif %}" src="{{ site.baseurl }}/img/logo/{{client.name|slugify}}.png" alt="{{client.name}} Logo"></a>
+{% endfor %}
