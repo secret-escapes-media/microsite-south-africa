@@ -1,48 +1,59 @@
-
-
-
 - title: Spellbinding South Africa self-drive holiday with safari stay
   id: spellbinding-south-africa-self-drive-holiday-with-safari-stay
   location: Johannesburg, KwaZulu-Natal, Durban & optional Cape Town
   description: Stunning scenery and a chance to spot the 'Big Five' on a self-drive South Africa jaunt
   price: 1839
-  price-description:  per person for 9 nights
+  price-description: per person for 9 nights
   saved: 20
   expires: 2018/03/20
   link: https://www.secretescapes.com/spellbinding-south-africa-self-drive-holiday-johannesburg-kwazulu-natal-durban-and-optional-cape-town/sale?utm_source=microsite&utm_medium=SE_media&utm_campaign=SouthAfrica_March2018
-
-
 
 - title: Amazing South Africa safari adventure with optional beach stay
   id: amazing-south-africa-safari-adventure-with-optional-beach-stay
   location: Two safari stays in Kruger National Park & optional Durban
   description: Wildlife-gazing on a South African safari adventure
   price: 1999
-  price-description:  per person for 6 nights
+  price-description: per person for 6 nights
   saved: 23
   expires: 2018/03/20
   link: https://www.secretescapes.com/amazing-south-africa-safari-adventure-with-optional-beach-stay-two-safari-stays-in-kruger-national-park-and-optional-durban/sale?utm_source=microsite&utm_medium=SE_media&utm_campaign=SouthAfrica_March2018
-
-
 
 - title: Romantic South Africa escape with a lion safari
   id: romantic-south-africa-escape-with-a-lion-safari
   location: Welgelegen Manor, near Johannesburg
   description: A handsome five-star country manor outside Jo’burg
   price: 1399
-  price-description:  per person for 5 nights
+  price-description: per person for 5 nights
   saved: 44
   expires: 2018/03/20
   link: https://www.secretescapes.com/romantic-south-africa-escape-with-a-lion-safari-welgelegen-manor-near-johannesburg/sale?utm_source=microsite&utm_medium=SE_media&utm_campaign=SouthAfrica_March2018
-
-
 
 - title: Entabeni Safari Conservancy
   id: entabeni-safari-conservancy
   location: Limpopo, South Africa
   description: An epic safari stay in South Africa's beautiful bushveld
   price: 183
-  price-description:  per room per night
+  price-description: per room per night
   saved: 52
   expires: 2018/03/20
   link: https://www.secretescapes.com/entabeni-safari-conservancy-limpopo-south-africa/sale?utm_source=microsite&utm_medium=SE_media&utm_campaign=South%20Africa_March2018
+
+- title: Incredible South Africa safari holiday
+  id: incredible-south-africa-safari-holiday
+  location: Entabeni Private Game Reserve, South Africa
+  description: An epic safari stay with daily game drives in South Africa's bush
+  price: 1079
+  price-description: per person for 5 nights
+  saved: 38
+  expires: 2018/03/27
+  link: https://www.secretescapes.com/incredible-south-africa-safari-holiday-entabeni-private-game-reserve-south-africa1/sale?utm_source=microsite&utm_medium=SE_media&utm_campaign=SouthAfrica_March2018
+
+- title: eKhaya Bush Lodge
+  id: e-khaya-bush-lodge
+  location: Hoedspruit, South Africa
+  description: Boutique safari lodge a stone’s throw from Kruger National Park
+  price: 323
+  price-description: per room per night
+  saved: 25
+  expires: 2018/03/27
+  link: https://www.secretescapes.com/ekhaya-bush-lodge-hoedspruit-south-africa/sale?utm_source=microsite&utm_medium=SE_media&utm_campaign=SouthAfrica_March2018
