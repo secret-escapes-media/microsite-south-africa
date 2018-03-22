@@ -115,11 +115,42 @@
     z-index: 5;
     width: 100%;
     color: $white;
-    @include bp(lg){
-      transform: translateY(0);
-      top: auto;
-      bottom: 0;
-    }
   }
-  &--large {}
+  &__title {
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    font-size: $s2;
+    @include bp(md){ font-size: $s4; }
+  }
+
+  // large card modifiers
+  &--large &__title {
+    font-size: $s2;
+    @include bp(md){ font-size: $s4; }
+    @include bp(lg){ font-size: $s6; }
+  }
+}
+
+
+
+.roadtrip-video {
+  &__play {
+    $button-size: 160px;
+    position: absolute;
+    z-index: $z-content-overlay+1;
+    top: 50%;
+    left: 50%;
+    margin-top: -($button-size/2);
+    margin-left: -($button-size/2);
+    height: $button-size;
+    width: $button-size;
+    background-image: url("../img/icons/play.png");
+    @include background-attributes;
+    background-size: contain;
+    cursor: pointer;
+    @include transition;
+  }
+  &:hover &__play {
+    transform: scale( 1.1, 1.1);
+  }
 }

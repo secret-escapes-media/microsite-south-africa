@@ -15,11 +15,17 @@ banner:
     <a href="#section-roadtrips" class="btn btn--lg btn--solid">Start exploring</a>
 
 
+video-id: EaD3n3Mvc2Q
+
 
 ---
 
 
 
+
+
+<!--   ROADTRIPS
+=============================-->
 
 <div class="section">
   <div id="section-roadtrips" class="wp"></div>
@@ -31,25 +37,36 @@ banner:
       <p class="text--lg text--italic">Discover the real South Africa with our guide to the best road trips across the country. From breathtaking outdoor wonders to fascinating cultural experiences, road tripping across this beguiling land makes for an unforgettable adventure.</p>
     </div>
 
-    <!-- hero roadtrip -->
-    {% for roadtrip in roadtrips %}
-    {% if roadtrip.hero-roadtrip %}
-      <div class="col">
-        {% include components/roadtrip-lg.html %}
-      </div>
+
+
+    <!--   HERO ROADTRIP VIDEO
+    =============================-->
+
+    <div class="col">
+      <a href="javascript:void(0);" data-modal-id="modal-video" data-modal-item-id="video" data-video-id="{{page.video-id}}" class="js-open-modal roadtrip-video bg-img bg-img--16-9 bg-img--rounded bg-img--shadow" style="background-image: url({{site.baseurl}}/img/content/{{page.id}}/video.jpg);">
+        <span class="roadtrip-video__play"></span>
+      </a>
+    </div>
+
+    {% if page.video-id %}
+      {% include modal/modal-video.html %}
     {% endif %}
-    {% endfor %}
+
+
 
   </div>
 
-  <div class="row row--padding row--6-6-gutters">
+
+
+  <!--   ROADTRIP LINKS
+  =============================-->
+
+  <div class="row row--padding row--4-4-4-gutters">
     <!-- 2 roadtrips -->
     {% for roadtrip in roadtrips %}
-    {% unless roadtrip.hero-roadtrip %}
     <div class="col">
       {% include components/roadtrip.html %}
     </div>
-    {% endunless %}
     {% endfor %}
 
   </div>
@@ -57,6 +74,9 @@ banner:
 
 
 
+
+<!--   EXPLORE PAGE LINKS
+=============================-->
 
 <div class="section">
   {% assign guides = site.html_pages | where:"group","explore" %}
