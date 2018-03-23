@@ -1,5 +1,3 @@
-
-
 - title: Entabeni Safari Conservancy
   id: entabeni-safari-conservancy
   location: Limpopo, South Africa
@@ -29,3 +27,23 @@
   saved: 25
   expires: 2018/03/27
   link: https://www.secretescapes.com/ekhaya-bush-lodge-hoedspruit-south-africa/sale?utm_source=microsite&utm_medium=SE_media&utm_campaign=SouthAfrica_March2018
+
+- title: Incredible self-drive South Africa safari-hopping holiday
+  id: incredible-self-drive-south-africa-safari-hopping-holiday
+  location: Kruger National Park, Limpopo & Pretoria
+  description: A safari sensation on a bucket-list self-drive South Africa holiday
+  price: 1299
+  price-description: per person for 7 nights
+  saved: 25
+  expires: 2018/04/04
+  link: https://www.secretescapes.com/incredible-self-drive-south-africa-safari-hopping-holiday-luxury-safari-and-nature-retreats/sale?utm_source=microsite&utm_medium=SE_media&utm_campaign=South%20Africa_March2018
+
+- title: Sublime South Africa safari lodge stay
+  id: sublime-south-africa-safari-lodge-stay
+  location: Entabeni Safari Conservancy, Limpopo
+  description: An epic safari stay in South Africa's beautiful bushveld
+  price: 183
+  price-description: per lodge per night
+  saved: 52
+  expires: 2018/03/27
+  link: https://www.secretescapes.com/entabeni-safari-conservancy-limpopo-south-africa/sale?utm_source=microsite&utm_medium=SE_media&utm_campaign=South%20Africa_March2018
