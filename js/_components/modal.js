@@ -154,3 +154,25 @@ $(document).on('keyup', function(e) {
     launchNextModal();
   }
 });
+
+
+
+
+
+
+
+/* =========================================
+//  MODAL URL QUERY OPENING
+// ========================================*/
+
+// launches modal if query string
+var targetModalQuery = queryString('modal');
+if (targetModalQuery) {
+  var modalItem = '.modal__content--' + targetModalQuery;
+
+  $(modalItem).removeClass('is-closed').addClass('is-open').show();
+  $('body').addClass('disable-scroll');
+
+  // open modal
+  $('.js-modal').removeClass('is-closed').addClass('is-open');
+}

@@ -135,20 +135,27 @@
 
 .roadtrip-video {
   &__play {
+    @include transition;
+    $button-size-sm: 100px;
     $button-size: 160px;
     position: absolute;
     z-index: $z-content-overlay+1;
     top: 50%;
     left: 50%;
-    margin-top: -($button-size/2);
-    margin-left: -($button-size/2);
-    height: $button-size;
-    width: $button-size;
+    margin-top: -($button-size-sm/2);
+    margin-left: -($button-size-sm/2);
+    height: $button-size-sm;
+    width: $button-size-sm;
     background-image: url("../img/icons/play.png");
     @include background-attributes;
     background-size: contain;
     cursor: pointer;
-    @include transition;
+    @include bp(lg){
+      margin-top: -($button-size/2);
+      margin-left: -($button-size/2);
+      height: $button-size;
+      width: $button-size;
+    }
   }
   &:hover &__play {
     transform: scale( 1.1, 1.1);

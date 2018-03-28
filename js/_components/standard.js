@@ -69,3 +69,25 @@ if ("ontouchstart" in document.documentElement){
   // if (currentCategory !== ''){
   //   $('.category--' + currentCategory + ' [class*=nav__item--' + currentCategory + ']').addClass('is-current');
   // }
+
+
+
+  ///////////////////////////////////////
+  //        GET QUERY STRING VALUE
+  //-------------------------------------
+  //        ?modal=video
+  //        var queryValue = queryString('modal');
+  //        queryValue = "video"
+  ///////////////////////////////////////
+
+
+  function queryString(sParam){
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split("&");
+    for (var i = 0; i < sURLVariables.length; i++){
+      var sParameterName = sURLVariables[i].split("=");
+      if (sParameterName[0] == sParam){
+        return sParameterName[1];
+      }
+    }
+  }
