@@ -1,0 +1,22 @@
+<div class="offer">
+
+  <a id="track-fc-offer-{{offer.id}}" class="offer__link" href="{{ offer.link }}"><span class="btn btn--fc">View Offer</span></a>
+
+  <div class="bg-img bg-img--3-2" style="background-image: url('{{ site.baseurl }}/img/offers/{{offer.id}}.jpg')">
+  </div>
+
+  <div class="offer__content">
+    <h3 class="offer__title">{{ offer.title }}</h3>
+    <div class="offer__description" style="margin-top: 8px;">{{ offer.description}}</div>
+
+    <div class="offer__bottom">
+      <div class="offer__bottom-item">
+        <div class="p--small">From <span class="offer__price offer__price--fc">£{{ offer.price }}</span></div>
+        <div class="p--small">{{ offer.price-description }}</div>
+      </div>
+      <div class="offer__bottom-item offer__bottom-item--right"><div class="offer__arrow offer__arrow--fc"></div></div>
+    </div>
+
+  </div>
+
+</div>
